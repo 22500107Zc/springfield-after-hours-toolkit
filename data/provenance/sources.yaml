@@ -1,0 +1,186 @@
+version: 1
+
+# Every registry record points at one or more of these sources by id.
+#
+# A source being listed here is NOT a claim that this repository has any rights
+# over the material. These are citations. No copyrighted asset, audio, map or
+# script from the game or from any community mod is stored in this repository.
+
+sources:
+  - id: dt-docs-configuring-mods
+    type: official-documentation
+    title: "Configuring Mods | Lucas' Simpsons Hit & Run Mod Launcher | DT Docs"
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Mods/ConfiguringMods
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      Establishes the complete documented Meta.ini key set, including the
+      [Miscellaneous], [Description], [Author] and [Setting] sections.
+
+  - id: dt-docs-custom-files
+    type: official-documentation
+    title: "Custom Files | Lucas' Simpsons Hit & Run Mod Launcher | DT Docs"
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Hacks/CustomFiles/Intro
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      Establishes CustomFiles.ini sections ([Miscellaneous], [PathRedirections],
+      [PathHandlers], [AdditionalFiles]), the CustomFiles / AdditionalFiles /
+      Resources folder roles, and that CustomFiles.lua executes when the mod loads.
+
+  - id: dt-docs-custom-files-lua-scripting
+    type: official-documentation
+    title: 'Lua Scripting | Custom Files | DT Docs'
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Hacks/CustomFiles/LuaScripting
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: dt-docs-all-console-commands
+    type: official-documentation
+    title: 'All Console Script Commands | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Scripting/ConsoleCommands/AllCommands
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      Source for command scope categories and for the Unused/Commented markers
+      describing how Radical's own scripts used each command.
+
+  - id: dt-docs-all-objectives
+    type: official-documentation
+    title: 'All Objectives | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Scripting/MissionObjectives/AllObjectives
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      Lists the 20 base-game objective type names. NOTE: most individual
+      objective pages upstream currently read "TODO", so objective NAMES are
+      verified while their PARAMETERS generally are not.
+
+  - id: dt-docs-all-conditions
+    type: official-documentation
+    title: 'All Conditions | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Scripting/MissionConditions/AllConditions
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: dt-docs-asf-objectives
+    type: official-documentation
+    title: 'All Objective Types | Additional Script Functionality | DT Docs'
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Hacks/AdditionalScriptFunctionality/MissionObjectives/AllObjectives
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: dt-docs-asf-conditions
+    type: official-documentation
+    title: 'All Condition Types | Additional Script Functionality | DT Docs'
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Hacks/AdditionalScriptFunctionality/MissionConditions/AllConditions
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: dt-docs-characters
+    type: official-documentation
+    title: 'Characters | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Characters
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      Source for default dialogue character codes, non-generic character indices
+      and outfit assignments.
+
+  - id: dt-docs-talkto
+    type: official-documentation
+    title: 'talkto | Mission Objectives | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Scripting/MissionObjectives/talkto
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: >-
+      One of the few objective pages with worked examples. Source of the
+      documented example locators m1_marge_sd and marge_walk_1.
+
+  - id: dt-docs-action-locator-types
+    type: official-documentation
+    title: 'Action Event Locator Types | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/ActionLocatorTypes
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+    notes: 'Locator type NAMES only; every type page upstream currently reads "TODO".'
+
+  - id: dt-docs-dyna-load-data
+    type: official-documentation
+    title: 'Dyna Load Data | The Simpsons: Hit & Run | DT Docs'
+    url: https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/DynaLoadData
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: dt-docs-custom-dialogue-character-codes
+    type: official-documentation
+    title: 'Custom Dialogue Character Codes | DT Docs'
+    url: https://docs.donutteam.com/docs/LucasSimpsonsHitAndRunModLauncher/Hacks/CustomDialogueCharacterCodes
+    publisher: Donut Team
+    retrievedAt: '2026-08-05'
+    license: 'Documentation, © Donut Team. Cited, not reproduced.'
+
+  - id: donutteam-game-lua-readme
+    type: official-repository
+    title: 'donutteam/game-lua — README.md'
+    url: https://github.com/donutteam/game-lua
+    publisher: Donut Team
+    commit: 74f8059127bcd9555e6417d9b0b4f5dcef5b9a22
+    path: README.md
+    retrievedAt: '2026-08-05'
+    license: MIT
+    notes: >-
+      Source of the canonical worked example (SelectMission / AddStage /
+      AddObjective("dummy") / CloseObjective / CloseStage / CloseMission), the
+      CustomFiles.ini [PathHandlers] pattern, the Game. prefix rule, the
+      backslash-escaping rule, and the Game.EndIf()/Not_ conditional convention.
+
+  - id: donutteam-game-lua-src
+    type: official-repository
+    title: 'donutteam/game-lua — src/Game.lua'
+    url: https://github.com/donutteam/game-lua/blob/main/src/Game.lua
+    publisher: Donut Team
+    commit: 74f8059127bcd9555e6417d9b0b4f5dcef5b9a22
+    path: src/Game.lua
+    retrievedAt: '2026-08-05'
+    license: MIT
+    notes: >-
+      The DefaultCommands, ASFCommands and DebugTestCommands tables inside this
+      file are the source of every command record's MinArgs, MaxArgs,
+      RequiresScope, OpensScope, ClosesScope and Conditional value. This
+      repository derives metadata from that file; it does not vendor it.
+
+  - id: donutteam-lucas-mod-launcher-lua
+    type: official-repository
+    title: 'donutteam/lucas-mod-launcher-lua — README.md'
+    url: https://github.com/donutteam/lucas-mod-launcher-lua
+    publisher: Donut Team
+    commit: bddad4be6e9896252114417c3e98903f25e8ace6
+    path: README.md
+    retrievedAt: '2026-08-05'
+    license: MIT
+    notes: >-
+      Lua Language Server definitions for Custom Files Lua functions. Recommends
+      placing them at Resources/lib/external/lucas-mod-launcher-lua and setting
+      Lua.runtime.version to "Lua 5.3".
+
+  - id: sah-toolkit-design
+    type: manual-observation
+    title: 'Springfield After Hours Toolkit — original design decision'
+    retrievedAt: '2026-08-05'
+    license: MIT
+    notes: >-
+      Used for records that describe THIS TOOLKIT's own behaviour rather than a
+      game fact. Never used to assert anything about the game.

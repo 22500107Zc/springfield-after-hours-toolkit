@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "description": "Pinned upstream projects. This repository does NOT vendor any of these. scripts/upstream/fetch-upstream.mjs downloads them into the git-ignored vendor/ directory on demand, preserving their licence files.",
+  "derivedAt": "2026-08-05",
+  "dependencies": {
+    "donutteam/game-lua": {
+      "repository": "donutteam/game-lua",
+      "url": "https://github.com/donutteam/game-lua",
+      "commit": "74f8059127bcd9555e6417d9b0b4f5dcef5b9a22",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2022 Donut Team",
+      "role": "runtime",
+      "description": "Lua library shipped inside a built mod. Generated mission scripts call into the Game table it defines.",
+      "vendorPath": "vendor/donutteam/game-lua",
+      "files": [
+        {
+          "path": "src/Game.lua",
+          "sha256": "a382b01ef5e1d8a2c9ed0ff0fab10156f33b083d232eb9d392977cfb8181a128",
+          "bytes": 36204,
+          "installTo": "Resources/lib/Game.lua",
+          "required": true
+        },
+        {
+          "path": "src/GameUtils.lua",
+          "sha256": "82ab961725d561ffd8a6d70282e648606dbc43d1f28177b97801081272f78587",
+          "bytes": 5049,
+          "installTo": "Resources/lib/GameUtils.lua",
+          "required": false
+        },
+        {
+          "path": "src/Redirect.lua",
+          "sha256": "409103aa89263707c561ad664af830d6ed27ed8a40758ceb9e9bf9f21c0cb870",
+          "bytes": 348,
+          "installTo": "Resources/lib/Redirect.lua",
+          "required": false
+        },
+        {
+          "path": "LICENSE.md",
+          "installTo": "Resources/lib/LICENSE-game-lua.md",
+          "required": true
+        }
+      ]
+    },
+    "donutteam/lucas-mod-launcher-lua": {
+      "repository": "donutteam/lucas-mod-launcher-lua",
+      "url": "https://github.com/donutteam/lucas-mod-launcher-lua",
+      "commit": "bddad4be6e9896252114417c3e98903f25e8ace6",
+      "license": "MIT",
+      "copyright": "Copyright (c) Donut Team",
+      "role": "development-only",
+      "description": "Lua Language Server type definitions for Custom Files Lua functions. These are EDITOR DEFINITIONS, not a runtime library; they must not be treated as code the game executes.",
+      "vendorPath": "vendor/donutteam/lucas-mod-launcher-lua",
+      "recommendedInstallPath": "Resources/lib/external/lucas-mod-launcher-lua",
+      "luaRuntimeVersion": "Lua 5.3",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "required": true
+        }
+      ]
+    },
+    "donutteam/pure3d-ts": {
+      "repository": "donutteam/pure3d-ts",
+      "url": "https://github.com/donutteam/pure3d-ts",
+      "commit": "b1c7043d899ee27751a777bcd03d1d936a818a00",
+      "license": "MIT",
+      "role": "planned",
+      "description": "TypeScript library for reading and writing Pure3D files. Recorded as a planned adapter boundary only. Not a dependency of any package in this repository yet.",
+      "files": []
+    },
+    "donutteam/mfk-to-lua": {
+      "repository": "donutteam/mfk-to-lua",
+      "url": "https://github.com/donutteam/mfk-to-lua",
+      "commit": "6e19e7f78104877146bbc30d267d43d9da896c54",
+      "license": "GPL-3.0",
+      "role": "external-tool",
+      "description": "C# tool converting MFK/CON files to Game.lua scripts. GPL-3.0, therefore referenced as a SEPARATE EXTERNAL TOOL only. No code from it is used, linked or derived here, so this repository's MIT licence is unaffected.",
+      "files": []
+    }
+  }
+}

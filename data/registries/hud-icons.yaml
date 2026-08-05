@@ -1,0 +1,19 @@
+version: 1
+registry: hud-icons
+description: >-
+  HUD icons usable with SetHUDIcon. Only the icon appearing in official
+  documentation is recorded. The game ships more; they are not guessed at here.
+
+records:
+  - id: kwike
+    displayName: kwike
+    gameCode: kwike
+    category: hud
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [hud-icon, documented-example]
+    provenance:
+      sources: [donutteam-game-lua-readme]
+      detail: 'Used in Game.lua''s README example as Game.SetHUDIcon("kwike").'
+    notes:
+      - 'Appears in official documentation as a working example. Which artwork it maps to is not asserted by this record.'

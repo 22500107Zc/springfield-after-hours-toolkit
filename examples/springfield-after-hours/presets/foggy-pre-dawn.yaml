@@ -1,0 +1,52 @@
+version: 1
+
+# A third design manifest.
+#
+# DESIGN MANIFEST ONLY. Nothing here is claimed to work.
+
+preset:
+  id: foggy-pre-dawn
+  title: Foggy Pre-Dawn
+  description: >-
+    The last hour before sunrise. Low fog, flat grey-blue light, and the sense
+    that whatever happened tonight is nearly over.
+  status: planned
+
+  supportedMaps:
+    - level01
+
+  requiredHacks:
+    - custom-files
+
+  settings:
+    sky:
+      description: Pale pre-dawn gradient rather than full night.
+      status: planned
+      mechanism: 'Custom Files asset override. Requires a user-supplied asset.'
+      requiredHack: custom-files
+
+    fog:
+      description: Dense low fog limiting draw distance.
+      status: unverified
+      mechanism: >-
+        Not established. The toolkit has not verified whether or how a mod can
+        control fog parameters.
+      notes:
+        - 'This is the setting most likely to be assumed to work and least likely to actually work. It is recorded as unverified for exactly that reason.'
+        - 'The game has no weather system. Fog here is a static visual choice at best.'
+
+    ambience:
+      description: Early birdsong over residual night sounds.
+      status: planned
+      mechanism: 'Custom Files audio override, using user-supplied recordings.'
+      requiredHack: custom-files
+
+    pedestrians:
+      description: A few early risers.
+      status: verified
+      mechanism: 'UsePedGroup with a custom ped group.'
+      notes:
+        - 'Commands verified; group contents are level-specific and not in the registry.'
+
+  notes:
+    - 'Exists partly to demonstrate that a preset can declare a setting the toolkit believes is NOT achievable, and have that recorded honestly rather than quietly dropped.'

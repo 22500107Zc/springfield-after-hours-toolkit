@@ -1,0 +1,11 @@
+version: 1
+# Uses raw Game.* calls without allowRawGameCommands. Expect SAH3006.
+campaign:
+  id: raw-not-opted-in
+  title: Raw Not Opted In
+  version: 0.1.0
+  internalName: RawNotOptedIn
+  description: Fixture campaign using raw commands without opting in.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles: [missions/raw.yaml]

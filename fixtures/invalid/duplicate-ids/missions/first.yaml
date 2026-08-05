@@ -1,0 +1,10 @@
+version: 1
+mission:
+  id: same-id
+  title: First
+  gameMissionName: m0
+  level: level01
+  status: experimental
+  stages:
+    - id: stage-one
+      objective: { type: dummy }

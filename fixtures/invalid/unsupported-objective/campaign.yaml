@@ -1,0 +1,11 @@
+version: 1
+# Uses an objective the toolkit cannot generate. Expect SAH3000.
+campaign:
+  id: unsupported-objective
+  title: Unsupported Objective
+  version: 0.1.0
+  internalName: UnsupportedObjective
+  description: Fixture campaign using an objective the compiler refuses to emit.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles: [missions/unsupported.yaml]

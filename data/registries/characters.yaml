@@ -1,0 +1,1529 @@
+# GENERATED FILE — DO NOT EDIT BY HAND.
+#
+# Regenerate with:  node scripts/research/derive-character-registry.mjs
+#
+# Derived from https://docs.donutteam.com/docs/TheSimpsonsHitAndRun/Characters
+# retrieved 2026-08-05.
+#
+# Cited, not reproduced: this file records identifiers and their meanings,
+# which are facts about the game, not creative content.
+
+version: 1
+registry: characters
+description: >-
+  Characters and their dialogue codes, as published in Donut Team's
+  documentation. A record here proves the character code EXISTS. It does not
+  prove the character can be used in any particular mission or location —
+  that depends on level scripts this toolkit has not verified.
+
+records:
+  - id: apu
+    displayName: "Apu Nahasapeemapetilon"
+    gameCode: apu
+    category: non-generic
+    dialogueCode: Apu
+    characterIndex: 0
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - apu
+      - Apu
+    outfits:
+      - a_american
+      - a_army
+      - a_besharp
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: askinner
+    displayName: "Agnes Skinner"
+    gameCode: askinner
+    category: non-generic
+    dialogueCode: Agn
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - askinner
+      - Agn
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: barney
+    displayName: "Barney Gumble"
+    gameCode: barney
+    category: non-generic
+    dialogueCode: Brn
+    characterIndex: 5
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - barney
+      - Brn
+    outfits:
+      - brn_unf
+      - reward_barney
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: bart
+    displayName: "Bart Simpson"
+    gameCode: bart
+    category: non-generic
+    dialogueCode: Brt
+    characterIndex: 1
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - bart
+      - Brt
+    outfits:
+      - b_football
+      - b_hugo
+      - b_man
+      - b_military
+      - b_ninja
+      - b_tall
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: beeman
+    displayName: "Bumblebee Man"
+    gameCode: beeman
+    category: non-generic
+    dialogueCode: Bee
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - beeman
+      - Bee
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: boy1
+    displayName: "Boy1"
+    gameCode: boy1
+    category: generic
+    dialogueCode: By1
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - boy1
+      - By1
+    outfits:
+      - boy
+      - boy3
+      - rednk2
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: boy2
+    displayName: "Boy2"
+    gameCode: boy2
+    category: generic
+    dialogueCode: By2
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - boy2
+      - By2
+    outfits:
+      - boy2
+      - rednk1
+      - frankenstein
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: brockman
+    displayName: "Kent Brockman"
+    gameCode: brockman
+    category: non-generic
+    dialogueCode: Bkm
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - brockman
+      - Bkm
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: burns
+    displayName: "Mr. Burns"
+    gameCode: burns
+    category: non-generic
+    dialogueCode: Bur
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - burns
+      - Bur
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: captain
+    displayName: "Sea Captain"
+    gameCode: captain
+    category: non-generic
+    dialogueCode: Sea
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - captain
+      - Sea
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: carl
+    displayName: "Carl Carlson"
+    gameCode: carl
+    category: non-generic
+    dialogueCode: Crl
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - carl
+      - Crl
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: cbg
+    displayName: "Comic Book Guy"
+    gameCode: cbg
+    category: non-generic
+    dialogueCode: Cbg
+    characterIndex: 19
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - cbg
+      - Cbg
+    outfits:
+      - b_cbg
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: cletus
+    displayName: "Cletus Spuckler"
+    gameCode: cletus
+    category: non-generic
+    dialogueCode: Clt
+    characterIndex: 9
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - cletus
+      - Clt
+    outfits:
+      - b_cletus
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: dolph
+    displayName: "Dolph Starbeam"
+    gameCode: dolph
+    category: non-generic
+    dialogueCode: Dol
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - dolph
+      - Dol
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: fem1
+    displayName: "Fem1"
+    gameCode: fem1
+    category: generic
+    dialogueCode: Fm1
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - fem1
+      - Fm1
+    outfits:
+      - busw1
+      - fem2
+      - fem4
+      - joger1
+      - olady2
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: fem2
+    displayName: "Fem2"
+    gameCode: fem2
+    category: generic
+    dialogueCode: Fm2
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - fem2
+      - Fm2
+    outfits:
+      - fem1
+      - fem3
+      - hooker
+      - olady1
+      - olady3
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: frink
+    displayName: "Professor Frink"
+    gameCode: frink
+    category: non-generic
+    dialogueCode: Frk
+    characterIndex: 20
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - frink
+      - Frk
+    outfits:
+      - b_frink
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: gil
+    displayName: "Gil Gunderson"
+    gameCode: gil
+    category: non-generic
+    dialogueCode: Gil
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - gil
+      - Gil
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: girl1
+    displayName: "Girl1"
+    gameCode: girl1
+    category: generic
+    dialogueCode: Gr1
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - girl1
+      - Gr1
+    outfits:
+      - girl1
+      - witch
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: girl2
+    displayName: "Girl2"
+    gameCode: girl2
+    category: generic
+    dialogueCode: Gr2
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - girl2
+      - Gr2
+    outfits:
+      - girl2
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: grandpa
+    displayName: "Grampa Simpson"
+    gameCode: grandpa
+    category: non-generic
+    dialogueCode: Grp
+    characterIndex: 18
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - grandpa
+      - Grp
+    outfits:
+      - b_grandpa
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: hibbert
+    displayName: "Dr. Hibbert"
+    gameCode: hibbert
+    category: non-generic
+    dialogueCode: Hib
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - hibbert
+      - Hib
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: homer
+    displayName: "Homer Simpson"
+    gameCode: homer
+    category: non-generic
+    dialogueCode: Hom
+    characterIndex: 2
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - homer
+      - Hom
+    outfits:
+      - h_donut
+      - h_evil
+      - h_fat
+      - h_scuzzy
+      - h_stcrobe
+      - h_undrwr
+      - reward_homer
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: homerbrain
+    displayName: "Homer's Brain"
+    gameCode: homerbrain
+    category: non-generic
+    dialogueCode: Hbn
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - homerbrain
+      - Hbn
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: jasper
+    displayName: "Jasper Beardly"
+    gameCode: jasper
+    category: non-generic
+    dialogueCode: Jas
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - jasper
+      - Jas
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: kang
+    displayName: "Kang"
+    gameCode: kang
+    category: non-generic
+    dialogueCode: Kan
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - kang
+      - Kan
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: kearney
+    displayName: "Kearney Zzyzwicz"
+    gameCode: kearney
+    category: non-generic
+    dialogueCode: Kea
+    characterIndex: 16
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - kearney
+      - Kea
+    outfits:
+      - reward_kearney
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: kodos
+    displayName: "Kodos"
+    gameCode: kodos
+    category: non-generic
+    dialogueCode: Kod
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - kodos
+      - Kod
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: krusty
+    displayName: "Krusty the Clown"
+    gameCode: krusty
+    category: non-generic
+    dialogueCode: Kru
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - krusty
+      - Kru
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: lenny
+    displayName: "Lenny Leonard"
+    gameCode: lenny
+    category: non-generic
+    dialogueCode: Len
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - lenny
+      - Len
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: lisa
+    displayName: "Lisa Simpson"
+    gameCode: lisa
+    category: non-generic
+    dialogueCode: Lis
+    characterIndex: 3
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - lisa
+      - Lis
+    outfits:
+      - l_cool
+      - l_florida
+      - l_jersey
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: lou
+    displayName: "Lou"
+    gameCode: lou
+    category: non-generic
+    dialogueCode: Loe
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - lou
+      - Loe
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: louie
+    displayName: "Louie"
+    gameCode: louie
+    category: non-generic
+    dialogueCode: Lou
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - louie
+      - Lou
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: male1
+    displayName: "Male1"
+    gameCode: male1
+    category: generic
+    dialogueCode: Mn1
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - male1
+      - Mn1
+    outfits:
+      - bum
+      - busm2
+      - const2
+      - joger2
+      - male2
+      - male4
+      - male6
+      - nuclear
+      - sail2
+      - sail4
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: male2
+    displayName: "Male2"
+    gameCode: male2
+    category: generic
+    dialogueCode: Mn2
+    generic: true
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - male2
+      - Mn2
+    outfits:
+      - busm1
+      - const1
+      - farmr1
+      - male1
+      - male3
+      - male5
+      - mobstr
+      - sail1
+      - sail3
+    tags:
+      - character
+      - generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: marge
+    displayName: "Marge Simpson"
+    gameCode: marge
+    category: non-generic
+    dialogueCode: Mrg
+    characterIndex: 4
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - marge
+      - Mrg
+    outfits:
+      - m_pink
+      - m_police
+      - m_prison
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: milhouse
+    displayName: "Milhouse Van Houten"
+    gameCode: milhouse
+    category: non-generic
+    dialogueCode: Mil
+    characterIndex: 6
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - milhouse
+      - Mil
+    outfits:
+      - b_milhouse
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: moe
+    displayName: "Moe Szyslak"
+    gameCode: moe
+    category: non-generic
+    dialogueCode: Moe
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - moe
+      - Moe
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: moleman
+    displayName: "Hans Moleman"
+    gameCode: moleman
+    category: non-generic
+    dialogueCode: Mol
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - moleman
+      - Mol
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: ned
+    displayName: "Ned Flanders"
+    gameCode: ned
+    category: non-generic
+    dialogueCode: Fla
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - ned
+      - Fla
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: nelson
+    displayName: "Nelson Muntz"
+    gameCode: nelson
+    category: non-generic
+    dialogueCode: Nel
+    characterIndex: 7
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - nelson
+      - Nel
+    outfits:
+      - b_nelson
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: nriviera
+    displayName: "Dr. Nick Riviera"
+    gameCode: nriviera
+    category: non-generic
+    dialogueCode: Nic
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - nriviera
+      - Nic
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: otto
+    displayName: "Otto Mann"
+    gameCode: otto
+    category: non-generic
+    dialogueCode: Oto
+    characterIndex: 14
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - otto
+      - Oto
+    outfits:
+      - reward_otto
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: patty
+    displayName: "Patty Bouvier"
+    gameCode: patty
+    category: non-generic
+    dialogueCode: Pat
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - patty
+      - Pat
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: quimby
+    displayName: "Mayor Quimby"
+    gameCode: quimby
+    category: non-generic
+    dialogueCode: Qim
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - quimby
+      - Qim
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: ralph
+    displayName: "Ralph Wiggum"
+    gameCode: ralph
+    category: non-generic
+    dialogueCode: Ral
+    characterIndex: 8
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - ralph
+      - Ral
+    outfits:
+      - b_ralph
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: rod
+    displayName: "Rod Flanders"
+    gameCode: rod
+    category: non-generic
+    dialogueCode: Rod
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - rod
+      - Rod
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: selma
+    displayName: "Selma Bouvier"
+    gameCode: selma
+    category: non-generic
+    dialogueCode: Sel
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - selma
+      - Sel
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: skinner
+    displayName: "Principal Skinner"
+    gameCode: skinner
+    category: non-generic
+    dialogueCode: Skn
+    characterIndex: 17
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - skinner
+      - Skn
+    outfits:
+      - b_skinner
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: smithers
+    displayName: "Waylon Smithers"
+    gameCode: smithers
+    category: non-generic
+    dialogueCode: Smi
+    characterIndex: 22
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - smithers
+      - Smi
+    outfits:
+      - b_smithers
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: snake
+    displayName: "Snake Jailbird"
+    gameCode: snake
+    category: non-generic
+    dialogueCode: Snk
+    characterIndex: 21
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - snake
+      - Snk
+    outfits:
+      - b_snake
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: teen
+    displayName: "Squeaky-Voiced Teen"
+    gameCode: teen
+    category: non-generic
+    dialogueCode: Svt
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - teen
+      - Svt
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: todd
+    displayName: "Todd Flanders"
+    gameCode: todd
+    category: non-generic
+    dialogueCode: Todd
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - todd
+      - Todd
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: traffic1
+    displayName: "Traffic1"
+    gameCode: traffic1
+    category: non-generic
+    dialogueCode: Vm1
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - traffic1
+      - Vm1
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: traffic2
+    displayName: "Traffic2"
+    gameCode: traffic2
+    category: non-generic
+    dialogueCode: Vm2
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - traffic2
+      - Vm2
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: traffic3
+    displayName: "Traffic3"
+    gameCode: traffic3
+    category: non-generic
+    dialogueCode: Vm3
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - traffic3
+      - Vm3
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: traffic4
+    displayName: "Traffic4"
+    gameCode: traffic4
+    category: non-generic
+    dialogueCode: Vm4
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - traffic4
+      - Vm4
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: wiggum
+    displayName: "Chief Wiggum"
+    gameCode: wiggum
+    category: non-generic
+    dialogueCode: Wig
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - wiggum
+      - Wig
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: willie
+    displayName: "Groundskeeper Willie"
+    gameCode: willie
+    category: non-generic
+    dialogueCode: Wil
+    characterIndex: 15
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - willie
+      - Wil
+    outfits:
+      - reward_willie
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: zombie
+    displayName: "Zombie"
+    gameCode: zombie
+    category: non-generic
+    dialogueCode: Zom
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - zombie
+      - Zom
+    outfits:    []
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: zombie1
+    displayName: "Zombie1"
+    gameCode: zombie1
+    category: non-generic
+    dialogueCode: Zm1
+    characterIndex: 10
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - zombie1
+      - Zm1
+    outfits:
+      - b_zmale1
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: zombie2
+    displayName: "Zombie2"
+    gameCode: zombie2
+    category: non-generic
+    dialogueCode: Zm2
+    characterIndex: 11
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - zombie2
+      - Zm2
+    outfits:
+      - b_zmale3
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: zombie3
+    displayName: "Zombie3"
+    gameCode: zombie3
+    category: non-generic
+    dialogueCode: Zm3
+    characterIndex: 12
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - zombie3
+      - Zm3
+    outfits:
+      - b_zfem5
+      - b_zfem1
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."
+
+  - id: zombie4
+    displayName: "Zombie4"
+    gameCode: zombie4
+    category: non-generic
+    dialogueCode: Zm4
+    characterIndex: 13
+    generic: false
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases:
+      - zombie4
+      - Zm4
+    outfits:
+      - b_zmale4
+    tags:
+      - character
+      - non-generic
+    provenance:
+      sources:
+        - dt-docs-characters
+      detail: "Non-generic Characters table"
+    notes:
+      - "Dialogue code and internal name are verified. Whether this character can be placed in a given mission is NOT verified by this record."

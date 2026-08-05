@@ -1,0 +1,21 @@
+{
+  "name": "@sah/adapter-lucas-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Emitters for Meta.ini, CustomFiles.ini and CustomFiles.lua.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sah/core": "0.1.0",
+    "@sah/schemas": "0.1.0"
+  }
+}

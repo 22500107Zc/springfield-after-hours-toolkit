@@ -1,0 +1,22 @@
+{
+  "name": "@sah/adapter-game-lua",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Adapter over Donut Team's Game.lua: command metadata, scope tracking and Lua emission.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sah/core": "0.1.0",
+    "@sah/registry": "0.1.0",
+    "@sah/schemas": "0.1.0"
+  }
+}

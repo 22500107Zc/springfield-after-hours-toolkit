@@ -1,0 +1,15 @@
+version: 1
+mission:
+  id: arity
+  title: Arity
+  gameMissionName: m0
+  level: level01
+  status: experimental
+  allowRawGameCommands: true
+  stages:
+    - id: stage-one
+      objective: { type: dummy }
+      rawCommands:
+        # SetStageTime takes 1 argument per Game.lua's command table.
+        - command: SetStageTime
+          args: [1, 2, 3]

@@ -1,12 +1,29 @@
 {
   "name": "@sah/mcp-server",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
-  "exports": "./dist/index.js",
+  "license": "MIT",
+  "description": "Local MCP server exposing the toolkit to Claude Code through sandboxed tools.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "sah-mcp-server": "./dist/bin.js"
+  },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.3",
-    "@sah/registry": "workspace:*",
-    "@sah/validator": "workspace:*",
-    "zod": "^4.0.17"
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "@sah/compiler": "0.1.0",
+    "@sah/core": "0.1.0",
+    "@sah/registry": "0.1.0",
+    "@sah/schemas": "0.1.0",
+    "@sah/validator": "0.1.0",
+    "zod": "^4.0.5"
   }
 }

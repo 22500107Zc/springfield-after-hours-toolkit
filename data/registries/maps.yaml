@@ -1,0 +1,16 @@
+version: 1
+registry: maps
+description: >-
+  Map identifiers. Populated only once a citable source enumerates them.
+  Connected-map mods add their own maps; those belong to a compatibility
+  profile, not to this registry.
+
+# INTENTIONALLY EMPTY.
+#
+# An empty registry is an honest statement: this toolkit has not verified any
+# record of this kind from a citable source yet. It is NOT an invitation to
+# add plausible-sounding entries.
+#
+# To add a record, see docs/registries/README.md. Every record needs a
+# provenance source id that exists in data/provenance/sources.yaml.
+records: []

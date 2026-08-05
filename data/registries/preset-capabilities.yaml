@@ -1,0 +1,118 @@
+version: 1
+registry: preset-capabilities
+description: >-
+  What a night preset is allowed to claim. Each capability records whether the
+  change is actually achievable through the Mod Launcher today. Most are NOT.
+  A preset manifest may declare any of these, but declaring one does not make it
+  work — the status below is what the build manifest reports.
+
+records:
+  - id: replace-sky-asset
+    displayName: 'Replace sky assets'
+    category: visual
+    verificationStatus: experimental
+    mechanism: >-
+      Override the relevant P3D through the Custom Files hack by placing a
+      replacement at the matching path in the mod's CustomFiles folder.
+    verifiedAt: '2026-08-05'
+    tags: [preset, visual]
+    provenance:
+      sources: [dt-docs-custom-files]
+      detail: >-
+        The Custom Files hack documents that a file at CustomFiles\<game path>
+        overrides the game's original. That mechanism is verified; using it to
+        achieve a specific night sky is not.
+    notes:
+      - 'The OVERRIDE MECHANISM is verified. Whether any particular sky replacement produces a convincing night has not been tested by this repository.'
+      - 'The user must supply the replacement asset. This repository ships none.'
+
+  - id: replace-ambient-audio
+    displayName: 'Replace ambient audio'
+    category: audio
+    verificationStatus: experimental
+    mechanism: 'File override through the Custom Files hack.'
+    verifiedAt: '2026-08-05'
+    tags: [preset, audio]
+    provenance:
+      sources: [dt-docs-custom-files]
+      detail: 'Same file-override mechanism as other assets.'
+    notes:
+      - 'Custom Files documentation warns that the AdditionalFiles mechanism can break the game when used on sound scripts (.spt). Prefer overriding, and test.'
+      - 'The user must supply the audio. Extracted game audio must never be redistributed.'
+
+  - id: per-stage-traffic-density
+    displayName: 'Per-stage traffic density'
+    category: gameplay
+    verificationStatus: verified
+    mechanism: 'SetMaxTraffic / NoTrafficForStage / ClearTrafficForStage inside a stage scope.'
+    verifiedAt: '2026-08-05'
+    tags: [preset, traffic]
+    provenance:
+      sources:
+        - dt-docs-all-console-commands
+        - donutteam-game-lua-src
+      detail: >-
+        SetMaxTraffic, NoTrafficForStage and ClearTrafficForStage are documented
+        stage-scope commands and appear in Game.lua's command tables.
+    notes:
+      - 'Verified to EXIST as stage commands with known arity. A quiet-streets night effect is plausible through them, but this repository has not confirmed the visual result.'
+
+  - id: per-stage-ped-group
+    displayName: 'Per-stage pedestrian group'
+    category: gameplay
+    verificationStatus: verified
+    mechanism: 'UsePedGroup at mission scope; ped groups built with CreatePedGroup / AddPed / ClosePedGroup.'
+    verifiedAt: '2026-08-05'
+    tags: [preset, pedestrians]
+    provenance:
+      sources:
+        - dt-docs-all-console-commands
+        - donutteam-game-lua-src
+      detail: "Documented commands present in Game.lua's DefaultCommands table."
+    notes:
+      - 'Verified to exist. Which ped group index yields which crowd is level-specific and not recorded here.'
+
+  - id: live-time-of-day
+    displayName: 'Live time-of-day progression'
+    category: visual
+    verificationStatus: unsupported
+    mechanism: 'None known.'
+    verifiedAt: '2026-08-05'
+    tags: [preset, visual, do-not-promise]
+    provenance:
+      sources: [sah-toolkit-design]
+      detail: 'No source read during the foundation work describes such a system.'
+    notes:
+      - 'The Simpsons: Hit & Run is not an open-world game with a day/night cycle. A "night campaign" is a set of asset and lighting choices, not a simulated clock.'
+      - 'Listed explicitly so nobody proposes it as a preset setting and assumes it will work.'
+
+  - id: dynamic-weather
+    displayName: 'Dynamic weather progression'
+    category: visual
+    verificationStatus: unsupported
+    mechanism: 'None known.'
+    verifiedAt: '2026-08-05'
+    tags: [preset, visual, do-not-promise]
+    provenance:
+      sources: [sah-toolkit-design]
+      detail: 'No source read during the foundation work describes a weather system.'
+    notes:
+      - 'Fog or rain in a preset means "supply assets that look foggy", not "the engine simulates weather".'
+
+  - id: post-processing-pipeline
+    displayName: 'Post-processing / VHS presentation'
+    category: visual
+    verificationStatus: unverified
+    mechanism: >-
+      Third-party post-processing injectors such as ReShade are documented by
+      Donut Team as a general tutorial topic, but they are external tools
+      configured by the player, not something a mod can bundle and guarantee.
+    verifiedAt: '2026-08-05'
+    tags: [preset, visual, external]
+    provenance:
+      sources: [sah-toolkit-design]
+      detail: >-
+        Recorded as unverified: this repository has not established what a mod
+        can control here, only that external injectors exist.
+    notes:
+      - 'A VHS look is achievable in practice by players using external tools. A preset may DOCUMENT that expectation; it must not claim the mod applies it.'

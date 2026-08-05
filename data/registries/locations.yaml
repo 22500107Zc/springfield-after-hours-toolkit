@@ -1,0 +1,17 @@
+version: 1
+registry: locations
+description: >-
+  Named places in Springfield (the Java Server, the Googleplex, Burns' Manor and
+  so on). No location has been verified from a citable source yet, so any
+  campaign referencing one fails to build with SAH2000. This is the intended
+  behaviour and the reason the Springfield After Hours example does not compile.
+
+# INTENTIONALLY EMPTY.
+#
+# An empty registry is an honest statement: this toolkit has not verified any
+# record of this kind from a citable source yet. It is NOT an invitation to
+# add plausible-sounding entries.
+#
+# To add a record, see docs/registries/README.md. Every record needs a
+# provenance source id that exists in data/provenance/sources.yaml.
+records: []

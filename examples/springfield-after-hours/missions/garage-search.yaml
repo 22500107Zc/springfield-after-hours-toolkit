@@ -1,0 +1,63 @@
+version: 1
+
+# The opening mission of Springfield After Hours.
+#
+# THIS DOES NOT BUILD. Every reference marked below with "UNVERIFIED" fails
+# validation, on purpose. The diagnostics it produces are the project's to-do
+# list for community verification.
+
+mission:
+  id: garage-search
+  title: Garage Search
+  gameMissionName: sah0
+  level: level01
+  player: bart
+
+  # UNVERIFIED — the Honor Roller's internal name.
+  #
+  # No source consulted during the toolkit's research states the internal name
+  # of any vehicle, including this one. The community knows the car exists; the
+  # toolkit does not know what string identifies it in a script. Writing a
+  # plausible guess here (`honor`, `honor_v`, `hnrrlr`...) would produce a mod
+  # that silently fails to load a car.
+  #
+  # Produces: SAH2003 unresolved-vehicle
+  startingVehicle: honor-roller
+
+  # UNVERIFIED — where Bart's night starts.
+  # Produces: SAH2001 unresolved-locator
+  resetPlayerInCarLocator: simpsons-house-driveway-night
+
+  status: planned
+
+  stages:
+    - id: leave-the-house
+      title: Sneak out at 2:17 AM
+      resetToHere: true
+      objective:
+        # UNVERIFIED destination, and `goto`'s configuration calls are
+        # undocumented upstream, so this fails twice over:
+        #   SAH2001 unresolved-locator
+        #   SAH3000 objective only partially understood
+        type: goto
+        destination: java-server-exterior
+      notes:
+        - "Bart wants to know how to get the Simpsons' garage open. He is going to ask the one person awake at 2 AM."
+
+    - id: talk-to-comic-book-guy
+      title: Ask Comic Book Guy about the garage
+      objective:
+        # The CHARACTER resolves — "cbg" is verified from Donut Team's
+        # published character table. The LOCATOR does not.
+        # Produces: SAH2001 for the locator, SAH3000 for the objective.
+        type: talkto
+        character: cbg
+        locator: java-server-counter
+        conversation: garage-question
+      notes:
+        - 'Note the asymmetry: the toolkit knows exactly who Comic Book Guy is (dialogue code Cbg, internal name cbg, index 19) but has no idea where the Java Server is. Identity is documented; geography is not.'
+
+  notes:
+    - 'Expected diagnostics: unresolved vehicle, unresolved locators, and partially-understood objectives. Run "sah validate examples/springfield-after-hours" to see them itemised.'
+    - "To make this mission real, someone needs to verify: (1) the Honor Roller's internal vehicle name, (2) a locator at the Simpsons' house suitable for a mission reset, (3) a locator at the Java Server, (4) the parameters of the goto and talkto objectives."
+    - 'Each of those needs a citable source recorded in data/provenance/sources.yaml. See docs/registries/README.md.'

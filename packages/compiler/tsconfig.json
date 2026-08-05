@@ -1,6 +1,16 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": { "rootDir": "src", "outDir": "dist" },
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
   "include": ["src/**/*.ts"],
-  "references": [{ "path": "../schemas" }, { "path": "../registry" }, { "path": "../validator" }]
+  "references": [
+    { "path": "../core" },
+    { "path": "../schemas" },
+    { "path": "../registry" },
+    { "path": "../validator" },
+    { "path": "../adapter-game-lua" },
+    { "path": "../adapter-lucas-launcher" }
+  ]
 }

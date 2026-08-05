@@ -1,0 +1,400 @@
+version: 1
+registry: conditions
+description: >-
+  Mission condition types (stage failure/success conditions). Names are verified
+  from Donut Team's published condition lists. Parameters are NOT documented
+  upstream for most of them, so this toolkit records existence only and does
+  not emit conditions it cannot justify.
+
+records:
+  - id: carryingspcollectible
+    displayName: carryingspcollectible
+    gameCode: carryingspcollectible
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: damage
+    displayName: damage
+    gameCode: damage
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: followdistance
+    displayName: followdistance
+    gameCode: followdistance
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: getcollectibles
+    displayName: getcollectibles
+    gameCode: getcollectibles
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: hitandruncought
+    displayName: hitandruncought
+    gameCode: hitandruncought
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: invalid
+    displayName: invalid
+    gameCode: invalid
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: keepbarrel
+    displayName: keepbarrel
+    gameCode: keepbarrel
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: leaveinterior
+    displayName: leaveinterior
+    gameCode: leaveinterior
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: notabducted
+    displayName: notabducted
+    gameCode: notabducted
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: outofbounds
+    displayName: outofbounds
+    gameCode: outofbounds
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: outofvehicle
+    displayName: outofvehicle
+    gameCode: outofvehicle
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: playerhit
+    displayName: playerhit
+    gameCode: playerhit
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: position
+    displayName: position
+    gameCode: position
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: race
+    displayName: race
+    gameCode: race
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: timeout
+    displayName: timeout
+    gameCode: timeout
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-all-conditions]
+      detail: 'base-game condition list.'
+    notes:
+      - 'Name verified from the base-game condition list; parameters undocumented upstream.'
+
+  - id: asf-collectcoins
+    displayName: collectcoins
+    gameCode: collectcoins
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-collectwrench
+    displayName: collectwrench
+    gameCode: collectwrench
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-destroycars
+    displayName: destroycars
+    gameCode: destroycars
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-event
+    displayName: event
+    gameCode: event
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-hitandrun
+    displayName: hitandrun
+    gameCode: hitandrun
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-hitandruncaught
+    displayName: hitandruncaught
+    gameCode: hitandruncaught
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-hitandrunlost
+    displayName: hitandrunlost
+    gameCode: hitandrunlost
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-hitandrunrage
+    displayName: hitandrunrage
+    gameCode: hitandrunrage
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-hitpeds
+    displayName: hitpeds
+    gameCode: hitpeds
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-insidetrigger-outsidetrigger
+    displayName: insidetrigger-outsidetrigger
+    gameCode: insidetrigger-outsidetrigger
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-jump
+    displayName: jump
+    gameCode: jump
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-maintainspeed
+    displayName: maintainspeed
+    gameCode: maintainspeed
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'
+
+  - id: asf-spring
+    displayName: spring
+    gameCode: spring
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [condition]
+    provenance:
+      sources: [dt-docs-asf-conditions]
+      detail: 'additional-script-functionality condition list.'
+    notes:
+      - 'Requires the AdditionalScriptFunctionality hack. Name verified; parameters undocumented upstream.'

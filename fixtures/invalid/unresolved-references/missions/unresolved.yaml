@@ -1,0 +1,13 @@
+version: 1
+mission:
+  id: unresolved
+  title: Unresolved
+  gameMissionName: m0
+  level: level01
+  player: a-character-that-does-not-exist
+  startingVehicle: a-vehicle-that-does-not-exist
+  resetPlayerInCarLocator: a-locator-that-does-not-exist
+  status: experimental
+  stages:
+    - id: stage-one
+      objective: { type: dummy }

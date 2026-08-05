@@ -1,0 +1,25 @@
+{
+  "name": "@sah/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Optional Anthropic API integration. Never required for core functionality.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
+    "@sah/core": "0.1.0",
+    "@sah/registry": "0.1.0",
+    "@sah/schemas": "0.1.0",
+    "@sah/validator": "0.1.0",
+    "zod": "^4.0.5"
+  }
+}

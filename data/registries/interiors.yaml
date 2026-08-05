@@ -1,0 +1,14 @@
+version: 1
+registry: interiors
+description: >-
+  Interior spaces and their P3D files. Not yet verified from a citable source.
+
+# INTENTIONALLY EMPTY.
+#
+# An empty registry is an honest statement: this toolkit has not verified any
+# record of this kind from a citable source yet. It is NOT an invitation to
+# add plausible-sounding entries.
+#
+# To add a record, see docs/registries/README.md. Every record needs a
+# provenance source id that exists in data/provenance/sources.yaml.
+records: []

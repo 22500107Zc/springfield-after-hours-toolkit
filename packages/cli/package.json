@@ -1,15 +1,32 @@
 {
   "name": "@sah/cli",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
+  "license": "MIT",
+  "description": "The sah command-line interface.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "bin": {
-    "sah": "dist/index.js"
+    "sah": "./dist/bin.js"
   },
   "dependencies": {
-    "@sah/compiler": "workspace:*",
-    "@sah/registry": "workspace:*",
-    "@sah/validator": "workspace:*",
-    "commander": "^14.0.0",
-    "yaml": "^2.8.1"
+    "@sah/ai": "0.1.0",
+    "@sah/compiler": "0.1.0",
+    "@sah/core": "0.1.0",
+    "@sah/mcp-server": "0.1.0",
+    "@sah/registry": "0.1.0",
+    "@sah/schemas": "0.1.0",
+    "@sah/validator": "0.1.0",
+    "commander": "^12.1.0",
+    "yaml": "^2.6.1",
+    "zod": "^4.0.5"
   }
 }

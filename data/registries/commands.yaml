@@ -1,0 +1,5990 @@
+# GENERATED FILE — DO NOT EDIT BY HAND.
+#
+# Regenerate with:  npm run registry:derive-commands
+#
+# Derived from the command tables in Donut Team's Game.lua
+# (donutteam/game-lua @ 74f8059127bcd9555e6417d9b0b4f5dcef5b9a22, src/Game.lua,
+#  sha256 a382b01ef5e1d8a2c9ed0ff0fab10156f33b083d232eb9d392977cfb8181a128).
+#
+# Game.lua is MIT licensed, Copyright (c) 2022 Donut Team. This file contains
+# DERIVED METADATA (command names, argument counts and scope rules), not the
+# upstream source itself. See THIRD_PARTY_NOTICES.md.
+
+version: 1
+registry: commands
+description: >-
+  Script commands available to generated mission and level scripts. Argument
+  counts and scope rules are derived mechanically from Game.lua's own command
+  tables. A command being listed here means it EXISTS and its arity is known —
+  it does not mean this toolkit knows what the arguments mean.
+
+records:
+  - id: activate-trigger
+    displayName: ActivateTrigger
+    gameCode: ActivateTrigger
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: activate-vehicle
+    displayName: ActivateVehicle
+    gameCode: ActivateVehicle
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-ambient-character
+    displayName: AddAmbientCharacter
+    gameCode: AddAmbientCharacter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-ambient-npc-animation
+    displayName: AddAmbientNpcAnimation
+    gameCode: AddAmbientNpcAnimation
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-ambient-npc-waypoint
+    displayName: AddAmbientNPCWaypoint
+    gameCode: AddAmbientNPCWaypoint
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-ambient-pc-animation
+    displayName: AddAmbientPcAnimation
+    gameCode: AddAmbientPcAnimation
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-behaviour
+    displayName: AddBehaviour
+    gameCode: AddBehaviour
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 7
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-bonus-mission
+    displayName: AddBonusMission
+    gameCode: AddBonusMission
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-bonus-mission-npc-waypoint
+    displayName: AddBonusMissionNPCWaypoint
+    gameCode: AddBonusMissionNPCWaypoint
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-bonus-objective
+    displayName: AddBonusObjective
+    gameCode: AddBonusObjective
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-character
+    displayName: AddCharacter
+    gameCode: AddCharacter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-collectible
+    displayName: AddCollectible
+    gameCode: AddCollectible
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 4
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-collectible-state-prop
+    displayName: AddCollectibleStateProp
+    gameCode: AddCollectibleStateProp
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-condition
+    displayName: AddCondition
+    gameCode: AddCondition
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    opensScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-driver
+    displayName: AddDriver
+    gameCode: AddDriver
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-flying-actor
+    displayName: AddFlyingActor
+    gameCode: AddFlyingActor
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-flying-actor-by-locator
+    displayName: AddFlyingActorByLocator
+    gameCode: AddFlyingActorByLocator
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-gag-binding
+    displayName: AddGagBinding
+    gameCode: AddGagBinding
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-global-prop
+    displayName: AddGlobalProp
+    gameCode: AddGlobalProp
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-mission
+    displayName: AddMission
+    gameCode: AddMission
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-npc
+    displayName: AddNPC
+    gameCode: AddNPC
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-npc-character-bonus-mission
+    displayName: AddNPCCharacterBonusMission
+    gameCode: AddNPCCharacterBonusMission
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 7
+    maxArgs: 8
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-objective
+    displayName: AddObjective
+    gameCode: AddObjective
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 3
+    requiresScope: Stage
+    opensScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-objective-npc-waypoint
+    displayName: AddObjectiveNPCWaypoint
+    gameCode: AddObjectiveNPCWaypoint
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-ped
+    displayName: AddPed
+    gameCode: AddPed
+    category: PedGroup
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: PedGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-purchase-car-npc-waypoint
+    displayName: AddPurchaseCarNPCWaypoint
+    gameCode: AddPurchaseCarNPCWaypoint
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-purchase-car-reward
+    displayName: AddPurchaseCarReward
+    gameCode: AddPurchaseCarReward
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 6
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-safe-zone
+    displayName: AddSafeZone
+    gameCode: AddSafeZone
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-shield
+    displayName: AddShield
+    gameCode: AddShield
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-spawn-point
+    displayName: AddSpawnPoint
+    gameCode: AddSpawnPoint
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 8
+    maxArgs: 8
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-spawn-point-by-locator-script
+    displayName: AddSpawnPointByLocatorScript
+    gameCode: AddSpawnPointByLocatorScript
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 6
+    maxArgs: 6
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage
+    displayName: AddStage
+    gameCode: AddStage
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 7
+    requiresScope: Mission
+    opensScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage-character
+    displayName: AddStageCharacter
+    gameCode: AddStageCharacter
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 5
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage-music-change
+    displayName: AddStageMusicChange
+    gameCode: AddStageMusicChange
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage-time
+    displayName: AddStageTime
+    gameCode: AddStageTime
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage-vehicle
+    displayName: AddStageVehicle
+    gameCode: AddStageVehicle
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 5
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-stage-waypoint
+    displayName: AddStageWaypoint
+    gameCode: AddStageWaypoint
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-teleport-dest
+    displayName: AddTeleportDest
+    gameCode: AddTeleportDest
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-to-countdown-sequence
+    displayName: AddToCountdownSequence
+    gameCode: AddToCountdownSequence
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-traffic-model
+    displayName: AddTrafficModel
+    gameCode: AddTrafficModel
+    category: TrafficGroup
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    requiresScope: TrafficGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-vehicle-select-info
+    displayName: AddVehicleSelectInfo
+    gameCode: AddVehicleSelectInfo
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: allow-mission-abort
+    displayName: AllowMissionAbort
+    gameCode: AllowMissionAbort
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: allow-rock-out
+    displayName: AllowRockOut
+    gameCode: AllowRockOut
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: allow-user-dump
+    displayName: AllowUserDump
+    gameCode: AllowUserDump
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: ambient-animation-randomize
+    displayName: AmbientAnimationRandomize
+    gameCode: AmbientAnimationRandomize
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: attach-state-prop-collectible
+    displayName: AttachStatePropCollectible
+    gameCode: AttachStatePropCollectible
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: bind-collectible-to
+    displayName: BindCollectibleTo
+    gameCode: BindCollectibleTo
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: bind-reward
+    displayName: BindReward
+    gameCode: BindReward
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 7
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: character-is-child
+    displayName: CharacterIsChild
+    gameCode: CharacterIsChild
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: clear-ambient-animations
+    displayName: ClearAmbientAnimations
+    gameCode: ClearAmbientAnimations
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: clear-gag-bindings
+    displayName: ClearGagBindings
+    gameCode: ClearGagBindings
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: clear-traffic-for-stage
+    displayName: ClearTrafficForStage
+    gameCode: ClearTrafficForStage
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: clear-vehicle-select-info
+    displayName: ClearVehicleSelectInfo
+    gameCode: ClearVehicleSelectInfo
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-condition
+    displayName: CloseCondition
+    gameCode: CloseCondition
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    closesScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-mission
+    displayName: CloseMission
+    gameCode: CloseMission
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    closesScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-objective
+    displayName: CloseObjective
+    gameCode: CloseObjective
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    closesScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-ped-group
+    displayName: ClosePedGroup
+    gameCode: ClosePedGroup
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    closesScope: PedGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-stage
+    displayName: CloseStage
+    gameCode: CloseStage
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Mission
+    closesScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: close-traffic-group
+    displayName: CloseTrafficGroup
+    gameCode: CloseTrafficGroup
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    closesScope: TrafficGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: create-action-event-trigger
+    displayName: CreateActionEventTrigger
+    gameCode: CreateActionEventTrigger
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: create-anim-phys-object
+    displayName: CreateAnimPhysObject
+    gameCode: CreateAnimPhysObject
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: create-chase-manager
+    displayName: CreateChaseManager
+    gameCode: CreateChaseManager
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: create-ped-group
+    displayName: CreatePedGroup
+    gameCode: CreatePedGroup
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    opensScope: PedGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: create-traffic-group
+    displayName: CreateTrafficGroup
+    gameCode: CreateTrafficGroup
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    opensScope: TrafficGroup
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: deactivate-trigger
+    displayName: DeactivateTrigger
+    gameCode: DeactivateTrigger
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: disable-hit-and-run
+    displayName: DisableHitAndRun
+    gameCode: DisableHitAndRun
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: enable-hit-and-run
+    displayName: EnableHitAndRun
+    gameCode: EnableHitAndRun
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: enable-tutorial-mode
+    displayName: EnableTutorialMode
+    gameCode: EnableTutorialMode
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-begin
+    displayName: GagBegin
+    gameCode: GagBegin
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    opensScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-check-coll-cards
+    displayName: GagCheckCollCards
+    gameCode: GagCheckCollCards
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-check-movie
+    displayName: GagCheckMovie
+    gameCode: GagCheckMovie
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 4
+    maxArgs: 4
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-end
+    displayName: GagEnd
+    gameCode: GagEnd
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    closesScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-play-fmv
+    displayName: GagPlayFMV
+    gameCode: GagPlayFMV
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-anim-collision
+    displayName: GagSetAnimCollision
+    gameCode: GagSetAnimCollision
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-camera-shake
+    displayName: GagSetCameraShake
+    gameCode: GagSetCameraShake
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-coins
+    displayName: GagSetCoins
+    gameCode: GagSetCoins
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-cycle
+    displayName: GagSetCycle
+    gameCode: GagSetCycle
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-interior
+    displayName: GagSetInterior
+    gameCode: GagSetInterior
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-intro
+    displayName: GagSetIntro
+    gameCode: GagSetIntro
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-load-distances
+    displayName: GagSetLoadDistances
+    gameCode: GagSetLoadDistances
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-outro
+    displayName: GagSetOutro
+    gameCode: GagSetOutro
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-persist
+    displayName: GagSetPersist
+    gameCode: GagSetPersist
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-position
+    displayName: GagSetPosition
+    gameCode: GagSetPosition
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 3
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-random
+    displayName: GagSetRandom
+    gameCode: GagSetRandom
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-sound
+    displayName: GagSetSound
+    gameCode: GagSetSound
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-sound-load-distances
+    displayName: GagSetSoundLoadDistances
+    gameCode: GagSetSoundLoadDistances
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-sparkle
+    displayName: GagSetSparkle
+    gameCode: GagSetSparkle
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-trigger
+    displayName: GagSetTrigger
+    gameCode: GagSetTrigger
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 5
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: gag-set-weight
+    displayName: GagSetWeight
+    gameCode: GagSetWeight
+    category: Gag
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Gag
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: go-to-ps-screen-when-done
+    displayName: GoToPsScreenWhenDone
+    gameCode: GoToPsScreenWhenDone
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: init-level-player-vehicle
+    displayName: InitLevelPlayerVehicle
+    gameCode: InitLevelPlayerVehicle
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: kill-all-chase-ai
+    displayName: KillAllChaseAI
+    gameCode: KillAllChaseAI
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: link-action-to-object
+    displayName: LinkActionToObject
+    gameCode: LinkActionToObject
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: link-action-to-object-joint
+    displayName: LinkActionToObjectJoint
+    gameCode: LinkActionToObjectJoint
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: load-disposable-car
+    displayName: LoadDisposableCar
+    gameCode: LoadDisposableCar
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: load-p3-d-file
+    displayName: LoadP3DFile
+    gameCode: LoadP3DFile
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: move-stage-vehicle
+    displayName: MoveStageVehicle
+    gameCode: MoveStageVehicle
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: ms-place-player-car-at-locator-name
+    displayName: msPlacePlayerCarAtLocatorName
+    gameCode: msPlacePlayerCarAtLocatorName
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: must-action-trigger
+    displayName: MustActionTrigger
+    gameCode: MustActionTrigger
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: no-traffic-for-stage
+    displayName: NoTrafficForStage
+    gameCode: NoTrafficForStage
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: place-player-at-locator-name
+    displayName: PlacePlayerAtLocatorName
+    gameCode: PlacePlayerAtLocatorName
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: place-player-car
+    displayName: PlacePlayerCar
+    gameCode: PlacePlayerCar
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: preallocate-actors
+    displayName: PreallocateActors
+    gameCode: PreallocateActors
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: put-mf-player-in-car
+    displayName: PutMFPlayerInCar
+    gameCode: PutMFPlayerInCar
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: remove-driver
+    displayName: RemoveDriver
+    gameCode: RemoveDriver
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: remove-npc
+    displayName: RemoveNPC
+    gameCode: RemoveNPC
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: reset-to-here
+    displayName: RESET_TO_HERE
+    gameCode: RESET_TO_HERE
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: reset-character
+    displayName: ResetCharacter
+    gameCode: ResetCharacter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: reset-hit-and-run
+    displayName: ResetHitAndRun
+    gameCode: ResetHitAndRun
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: select-mission
+    displayName: SelectMission
+    gameCode: SelectMission
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    opensScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-actor-rotation-speed
+    displayName: SetActorRotationSpeed
+    gameCode: SetActorRotationSpeed
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-allow-seat-slide
+    displayName: SetAllowSeatSlide
+    gameCode: SetAllowSeatSlide
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-animated-camera-name
+    displayName: SetAnimatedCameraName
+    gameCode: SetAnimatedCameraName
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-anim-cam-multicont-name
+    displayName: SetAnimCamMulticontName
+    gameCode: SetAnimCamMulticontName
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-bonus-mission-dialogue-pos
+    displayName: SetBonusMissionDialoguePos
+    gameCode: SetBonusMissionDialoguePos
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-bonus-mission-start
+    displayName: SetBonusMissionStart
+    gameCode: SetBonusMissionStart
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-brake-scale
+    displayName: SetBrakeScale
+    gameCode: SetBrakeScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-burnout-range
+    displayName: SetBurnoutRange
+    gameCode: SetBurnoutRange
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cam-best-side
+    displayName: SetCamBestSide
+    gameCode: SetCamBestSide
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-car-attributes
+    displayName: SetCarAttributes
+    gameCode: SetCarAttributes
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-car-start-camera
+    displayName: SetCarStartCamera
+    gameCode: SetCarStartCamera
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-character-position
+    displayName: SetCharacterPosition
+    gameCode: SetCharacterPosition
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-character-scale
+    displayName: SetCharacterScale
+    gameCode: SetCharacterScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-characters-visible
+    displayName: SetCharactersVisible
+    gameCode: SetCharactersVisible
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-character-to-hide
+    displayName: SetCharacterToHide
+    gameCode: SetCharacterToHide
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-chase-spawn-rate
+    displayName: SetChaseSpawnRate
+    gameCode: SetChaseSpawnRate
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cm-offset-x
+    displayName: SetCMOffsetX
+    gameCode: SetCMOffsetX
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cm-offset-y
+    displayName: SetCMOffsetY
+    gameCode: SetCMOffsetY
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cm-offset-z
+    displayName: SetCMOffsetZ
+    gameCode: SetCMOffsetZ
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-coin-drawable
+    displayName: SetCoinDrawable
+    gameCode: SetCoinDrawable
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-coin-fee
+    displayName: SetCoinFee
+    gameCode: SetCoinFee
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-collectible-effect
+    displayName: SetCollectibleEffect
+    gameCode: SetCollectibleEffect
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-collision-attributes
+    displayName: SetCollisionAttributes
+    gameCode: SetCollisionAttributes
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 4
+    maxArgs: 4
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-completion-dialog
+    displayName: SetCompletionDialog
+    gameCode: SetCompletionDialog
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-condition-position
+    displayName: SetConditionPosition
+    gameCode: SetConditionPosition
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cond-min-health
+    displayName: SetCondMinHealth
+    gameCode: SetCondMinHealth
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cond-target-vehicle
+    displayName: SetCondTargetVehicle
+    gameCode: SetCondTargetVehicle
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-cond-time
+    displayName: SetCondTime
+    gameCode: SetCondTime
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-conversation-cam
+    displayName: SetConversationCam
+    gameCode: SetConversationCam
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-conversation-cam-distance
+    displayName: SetConversationCamDistance
+    gameCode: SetConversationCamDistance
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-conversation-cam-name
+    displayName: SetConversationCamName
+    gameCode: SetConversationCamName
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-conversation-cam-npc-name
+    displayName: SetConversationCamNpcName
+    gameCode: SetConversationCamNpcName
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-conversation-cam-pc-name
+    displayName: SetConversationCamPcName
+    gameCode: SetConversationCamPcName
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-damper-c
+    displayName: SetDamperC
+    gameCode: SetDamperC
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-demo-loop-time
+    displayName: SetDemoLoopTime
+    gameCode: SetDemoLoopTime
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-destination
+    displayName: SetDestination
+    gameCode: SetDestination
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 3
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-dialogue-info
+    displayName: SetDialogueInfo
+    gameCode: SetDialogueInfo
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 4
+    maxArgs: 4
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-dialogue-positions
+    displayName: SetDialoguePositions
+    gameCode: SetDialoguePositions
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 4
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-donut-torque
+    displayName: SetDonutTorque
+    gameCode: SetDonutTorque
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-driver
+    displayName: SetDriver
+    gameCode: SetDriver
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-duration-time
+    displayName: SetDurationTime
+    gameCode: SetDurationTime
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-dyna-load-data
+    displayName: SetDynaLoadData
+    gameCode: SetDynaLoadData
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-e-brake-effect
+    displayName: SetEBrakeEffect
+    gameCode: SetEBrakeEffect
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-fade-out
+    displayName: SetFadeOut
+    gameCode: SetFadeOut
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-fmv-info
+    displayName: SetFMVInfo
+    gameCode: SetFMVInfo
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-follow-distances
+    displayName: SetFollowDistances
+    gameCode: SetFollowDistances
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-forced-car
+    displayName: SetForcedCar
+    gameCode: SetForcedCar
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-gambling-odds
+    displayName: SetGamblingOdds
+    gameCode: SetGamblingOdds
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-game-over
+    displayName: SetGameOver
+    gameCode: SetGameOver
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-gas-scale
+    displayName: SetGasScale
+    gameCode: SetGasScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-gas-scale-speed-threshold
+    displayName: SetGasScaleSpeedThreshold
+    gameCode: SetGasScaleSpeedThreshold
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-has-doors
+    displayName: SetHasDoors
+    gameCode: SetHasDoors
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-high-roof
+    displayName: SetHighRoof
+    gameCode: SetHighRoof
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-high-speed-gas-scale
+    displayName: SetHighSpeedGasScale
+    gameCode: SetHighSpeedGasScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-high-speed-steering-drop
+    displayName: SetHighSpeedSteeringDrop
+    gameCode: SetHighSpeedSteeringDrop
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hit-and-run-decay
+    displayName: SetHitAndRunDecay
+    gameCode: SetHitAndRunDecay
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hit-and-run-decay-interior
+    displayName: SetHitAndRunDecayInterior
+    gameCode: SetHitAndRunDecayInterior
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hit-and-run-meter
+    displayName: SetHitAndRunMeter
+    gameCode: SetHitAndRunMeter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: commented
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hit-n-run
+    displayName: SetHitNRun
+    gameCode: SetHitNRun
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Condition
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hit-points
+    displayName: SetHitPoints
+    gameCode: SetHitPoints
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-hud-icon
+    displayName: SetHUDIcon
+    gameCode: SetHUDIcon
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-initial-walk
+    displayName: SetInitialWalk
+    gameCode: SetInitialWalk
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-iris-transition
+    displayName: SetIrisTransition
+    gameCode: SetIrisTransition
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-iris-wipe
+    displayName: SetIrisWipe
+    gameCode: SetIrisWipe
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-level-over
+    displayName: SetLevelOver
+    gameCode: SetLevelOver
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mass
+    displayName: SetMass
+    gameCode: SetMass
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-max-speed-burst-time
+    displayName: SetMaxSpeedBurstTime
+    gameCode: SetMaxSpeedBurstTime
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-max-traffic
+    displayName: SetMaxTraffic
+    gameCode: SetMaxTraffic
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-max-wheel-turn-angle
+    displayName: SetMaxWheelTurnAngle
+    gameCode: SetMaxWheelTurnAngle
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mission-name-index
+    displayName: SetMissionNameIndex
+    gameCode: SetMissionNameIndex
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mission-reset-player-in-car
+    displayName: SetMissionResetPlayerInCar
+    gameCode: SetMissionResetPlayerInCar
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mission-reset-player-out-car
+    displayName: SetMissionResetPlayerOutCar
+    gameCode: SetMissionResetPlayerOutCar
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mission-start-camera-name
+    displayName: SetMissionStartCameraName
+    gameCode: SetMissionStartCameraName
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-mission-start-multicont-name
+    displayName: SetMissionStartMulticontName
+    gameCode: SetMissionStartMulticontName
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-music-state
+    displayName: SetMusicState
+    gameCode: SetMusicState
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-normal-steering
+    displayName: SetNormalSteering
+    gameCode: SetNormalSteering
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-num-chase-cars
+    displayName: SetNumChaseCars
+    gameCode: SetNumChaseCars
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-num-valid-failure-hints
+    displayName: SetNumValidFailureHints
+    gameCode: SetNumValidFailureHints
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-obj-distance
+    displayName: SetObjDistance
+    gameCode: SetObjDistance
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-obj-target-boss
+    displayName: SetObjTargetBoss
+    gameCode: SetObjTargetBoss
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-obj-target-vehicle
+    displayName: SetObjTargetVehicle
+    gameCode: SetObjTargetVehicle
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-particle-texture
+    displayName: SetParticleTexture
+    gameCode: SetParticleTexture
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-par-time
+    displayName: SetParTime
+    gameCode: SetParTime
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-pickup-target
+    displayName: SetPickupTarget
+    gameCode: SetPickupTarget
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-player-car-name
+    displayName: SetPlayerCarName
+    gameCode: SetPlayerCarName
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-post-level-fmv
+    displayName: SetPostLevelFMV
+    gameCode: SetPostLevelFMV
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-presentation-bitmap
+    displayName: SetPresentationBitmap
+    gameCode: SetPresentationBitmap
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-projectile-stats
+    displayName: SetProjectileStats
+    gameCode: SetProjectileStats
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-race-entery-fee
+    displayName: SetRaceEnteryFee
+    gameCode: SetRaceEnteryFee
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-race-laps
+    displayName: SetRaceLaps
+    gameCode: SetRaceLaps
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-respawn-rate
+    displayName: SetRespawnRate
+    gameCode: SetRespawnRate
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-shadow-adjustments
+    displayName: SetShadowAdjustments
+    gameCode: SetShadowAdjustments
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 8
+    maxArgs: 8
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-shininess
+    displayName: SetShininess
+    gameCode: SetShininess
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-slip-effect-no-e-brake
+    displayName: SetSlipEffectNoEBrake
+    gameCode: SetSlipEffectNoEBrake
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-slip-gas-scale
+    displayName: SetSlipGasScale
+    gameCode: SetSlipGasScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-slip-steering
+    displayName: SetSlipSteering
+    gameCode: SetSlipSteering
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-slip-steering-no-e-brake
+    displayName: SetSlipSteeringNoEBrake
+    gameCode: SetSlipSteeringNoEBrake
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-spring-k
+    displayName: SetSpringK
+    gameCode: SetSpringK
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-ai-evade-catchup-params
+    displayName: SetStageAIEvadeCatchupParams
+    gameCode: SetStageAIEvadeCatchupParams
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-ai-race-catchup-params
+    displayName: SetStageAIRaceCatchupParams
+    gameCode: SetStageAIRaceCatchupParams
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 5
+    maxArgs: 5
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-ai-target-catchup-params
+    displayName: SetStageAITargetCatchupParams
+    gameCode: SetStageAITargetCatchupParams
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-camera
+    displayName: SetStageCamera
+    gameCode: SetStageCamera
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-message-index
+    displayName: SetStageMessageIndex
+    gameCode: SetStageMessageIndex
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-music-always-on
+    displayName: SetStageMusicAlwaysOn
+    gameCode: SetStageMusicAlwaysOn
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stage-time
+    displayName: SetStageTime
+    gameCode: SetStageTime
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-stateprop-shadow
+    displayName: SetStatepropShadow
+    gameCode: SetStatepropShadow
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-suspension-limit
+    displayName: SetSuspensionLimit
+    gameCode: SetSuspensionLimit
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-suspension-y-offset
+    displayName: SetSuspensionYOffset
+    gameCode: SetSuspensionYOffset
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-swap-default-car-locator
+    displayName: SetSwapDefaultCarLocator
+    gameCode: SetSwapDefaultCarLocator
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-swap-forced-car-locator
+    displayName: SetSwapForcedCarLocator
+    gameCode: SetSwapForcedCarLocator
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-swap-player-locator
+    displayName: SetSwapPlayerLocator
+    gameCode: SetSwapPlayerLocator
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-talk-to-target
+    displayName: SetTalkToTarget
+    gameCode: SetTalkToTarget
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 4
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-tire-grip
+    displayName: SetTireGrip
+    gameCode: SetTireGrip
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-top-speed-kmh
+    displayName: SetTopSpeedKmh
+    gameCode: SetTopSpeedKmh
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-total-gags
+    displayName: SetTotalGags
+    gameCode: SetTotalGags
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-total-wasps
+    displayName: SetTotalWasps
+    gameCode: SetTotalWasps
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-vehicle-ai-params
+    displayName: SetVehicleAIParams
+    gameCode: SetVehicleAIParams
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-vehicle-to-load
+    displayName: SetVehicleToLoad
+    gameCode: SetVehicleToLoad
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unused
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-weeble-offset
+    displayName: SetWeebleOffset
+    gameCode: SetWeebleOffset
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-wheelie-offset-y
+    displayName: SetWheelieOffsetY
+    gameCode: SetWheelieOffsetY
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-wheelie-offset-z
+    displayName: SetWheelieOffsetZ
+    gameCode: SetWheelieOffsetZ
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: set-wheelie-range
+    displayName: SetWheelieRange
+    gameCode: SetWheelieRange
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: show-hud
+    displayName: ShowHUD
+    gameCode: ShowHUD
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: show-stage-complete
+    displayName: ShowStageComplete
+    gameCode: ShowStageComplete
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: stage-start-music-event
+    displayName: StageStartMusicEvent
+    gameCode: StageStartMusicEvent
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: start-countdown
+    displayName: StartCountdown
+    gameCode: StartCountdown
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: stay-in-black
+    displayName: StayInBlack
+    gameCode: StayInBlack
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: street-race-props-load
+    displayName: StreetRacePropsLoad
+    gameCode: StreetRacePropsLoad
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: street-race-props-unload
+    displayName: StreetRacePropsUnload
+    gameCode: StreetRacePropsUnload
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: suppress-driver
+    displayName: SuppressDriver
+    gameCode: SuppressDriver
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: swap-in-default-car
+    displayName: SwapInDefaultCar
+    gameCode: SwapInDefaultCar
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: turn-goto-dialog-off
+    displayName: TurnGotoDialogOff
+    gameCode: TurnGotoDialogOff
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Objective
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: use-elapsed-time
+    displayName: UseElapsedTime
+    gameCode: UseElapsedTime
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: use-ped-group
+    displayName: UsePedGroup
+    gameCode: UsePedGroup
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: Default
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DefaultCommands table in src/Game.lua"
+
+  - id: add-cond-target-model
+    displayName: AddCondTargetModel
+    gameCode: AddCondTargetModel
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-obj-target-model
+    displayName: AddObjTargetModel
+    gameCode: AddObjTargetModel
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-parked-car
+    displayName: AddParkedCar
+    gameCode: AddParkedCar
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-stage-dyna-load-data
+    displayName: AddStageDynaLoadData
+    gameCode: AddStageDynaLoadData
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-stage-vehicle-character
+    displayName: AddStageVehicleCharacter
+    gameCode: AddStageVehicleCharacter
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 4
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-vehicle-character
+    displayName: AddVehicleCharacter
+    gameCode: AddVehicleCharacter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 3
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: add-vehicle-character-suppression-character
+    displayName: AddVehicleCharacterSuppressionCharacter
+    gameCode: AddVehicleCharacterSuppressionCharacter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: checkpoint-here
+    displayName: CHECKPOINT_HERE
+    gameCode: CHECKPOINT_HERE
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: disable-trigger
+    displayName: DisableTrigger
+    gameCode: DisableTrigger
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-all-cheats-enabled
+    displayName: IfAllCheatsEnabled
+    gameCode: IfAllCheatsEnabled
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-all-missions-completed
+    displayName: IfAllMissionsCompleted
+    gameCode: IfAllMissionsCompleted
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-any-cheat-enabled
+    displayName: IfAnyCheatEnabled
+    gameCode: IfAnyCheatEnabled
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-any-mission-completed
+    displayName: IfAnyMissionCompleted
+    gameCode: IfAnyMissionCompleted
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-current-car
+    displayName: IfCurrentCar
+    gameCode: IfCurrentCar
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-current-checkpoint
+    displayName: IfCurrentCheckpoint
+    gameCode: IfCurrentCheckpoint
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-current-level
+    displayName: IfCurrentLevel
+    gameCode: IfCurrentLevel
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-current-skin
+    displayName: IfCurrentSkin
+    gameCode: IfCurrentSkin
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-reward-unlocked
+    displayName: IfRewardUnlocked
+    gameCode: IfRewardUnlocked
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: if-started-in-car
+    displayName: IfStartedInCar
+    gameCode: IfStartedInCar
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Mission
+    conditional: true
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: remove-stage-vehicle-character
+    displayName: RemoveStageVehicleCharacter
+    gameCode: RemoveStageVehicleCharacter
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: reset-stage-hit-and-run
+    displayName: ResetStageHitAndRun
+    gameCode: ResetStageHitAndRun
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: reset-stage-vehicle-abductable
+    displayName: ResetStageVehicleAbductable
+    gameCode: ResetStageVehicleAbductable
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-car-change-hit-and-run-change
+    displayName: SetCarChangeHitAndRunChange
+    gameCode: SetCarChangeHitAndRunChange
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-checkpoint-dyna-load-data
+    displayName: SetCheckpointDynaLoadData
+    gameCode: SetCheckpointDynaLoadData
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-checkpoint-ped-group
+    displayName: SetCheckpointPedGroup
+    gameCode: SetCheckpointPedGroup
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-checkpoint-reset-player-in-car
+    displayName: SetCheckpointResetPlayerInCar
+    gameCode: SetCheckpointResetPlayerInCar
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-checkpoint-reset-player-out-car
+    displayName: SetCheckpointResetPlayerOutCar
+    gameCode: SetCheckpointResetPlayerOutCar
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-checkpoint-traffic-group
+    displayName: SetCheckpointTrafficGroup
+    gameCode: SetCheckpointTrafficGroup
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-collectible-sound-effect
+    displayName: SetCollectibleSoundEffect
+    gameCode: SetCollectibleSoundEffect
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-decay
+    displayName: SetCondDecay
+    gameCode: SetCondDecay
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-delay
+    displayName: SetCondDelay
+    gameCode: SetCondDelay
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-display
+    displayName: SetCondDisplay
+    gameCode: SetCondDisplay
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-conditional-parameter
+    displayName: SetConditionalParameter
+    gameCode: SetConditionalParameter
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 5
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-message-index
+    displayName: SetCondMessageIndex
+    gameCode: SetCondMessageIndex
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-sound
+    displayName: SetCondSound
+    gameCode: SetCondSound
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 4
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-speed-range-kmh
+    displayName: SetCondSpeedRangeKMH
+    gameCode: SetCondSpeedRangeKMH
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-threshold
+    displayName: SetCondThreshold
+    gameCode: SetCondThreshold
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-total
+    displayName: SetCondTotal
+    gameCode: SetCondTotal
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-cond-trigger
+    displayName: SetCondTrigger
+    gameCode: SetCondTrigger
+    category: Condition
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Condition
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-hit-and-run-decay-hit-and-run
+    displayName: SetHitAndRunDecayHitAndRun
+    gameCode: SetHitAndRunDecayHitAndRun
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-hit-and-run-fine
+    displayName: SetHitAndRunFine
+    gameCode: SetHitAndRunFine
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-hud-map-drawable
+    displayName: SetHUDMapDrawable
+    gameCode: SetHUDMapDrawable
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-no-hit-and-run-music-for-stage
+    displayName: SetNoHitAndRunMusicForStage
+    gameCode: SetNoHitAndRunMusicForStage
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-camera-name
+    displayName: SetObjCameraName
+    gameCode: SetObjCameraName
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-can-skip
+    displayName: SetObjCanSkip
+    gameCode: SetObjCanSkip
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-decay
+    displayName: SetObjDecay
+    gameCode: SetObjDecay
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-explosion
+    displayName: SetObjExplosion
+    gameCode: SetObjExplosion
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-fail-distance
+    displayName: SetObjFailDistance
+    gameCode: SetObjFailDistance
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-message-index
+    displayName: SetObjMessageIndex
+    gameCode: SetObjMessageIndex
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-multicont-name
+    displayName: SetObjMulticontName
+    gameCode: SetObjMulticontName
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-no-letterbox
+    displayName: SetObjNoLetterbox
+    gameCode: SetObjNoLetterbox
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-sound
+    displayName: SetObjSound
+    gameCode: SetObjSound
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 4
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-speed-kmh
+    displayName: SetObjSpeedKMH
+    gameCode: SetObjSpeedKMH
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-threshold
+    displayName: SetObjThreshold
+    gameCode: SetObjThreshold
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-total
+    displayName: SetObjTotal
+    gameCode: SetObjTotal
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-trigger
+    displayName: SetObjTrigger
+    gameCode: SetObjTrigger
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-obj-use-camera-position
+    displayName: SetObjUseCameraPosition
+    gameCode: SetObjUseCameraPosition
+    category: Objective
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Objective
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-parked-cars-enabled
+    displayName: SetParkedCarsEnabled
+    gameCode: SetParkedCarsEnabled
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-peds-enabled
+    displayName: SetPedsEnabled
+    gameCode: SetPedsEnabled
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-air-gravity
+    displayName: SetStageAirGravity
+    gameCode: SetStageAirGravity
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-allow-mission-cancel
+    displayName: SetStageAllowMissionCancel
+    gameCode: SetStageAllowMissionCancel
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-car-change-hit-and-run-change
+    displayName: SetStageCarChangeHitAndRunChange
+    gameCode: SetStageCarChangeHitAndRunChange
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-character-model
+    displayName: SetStageCharacterModel
+    gameCode: SetStageCharacterModel
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-dyna-load-data
+    displayName: SetStageDynaLoadData
+    gameCode: SetStageDynaLoadData
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-enabled-cheats
+    displayName: SetStageEnabledCheats
+    gameCode: SetStageEnabledCheats
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 15
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-hit-and-run
+    displayName: SetStageHitAndRun
+    gameCode: SetStageHitAndRun
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-hit-and-run-decay
+    displayName: SetStageHitAndRunDecay
+    gameCode: SetStageHitAndRunDecay
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-hit-and-run-decay-hit-and-run
+    displayName: SetStageHitAndRunDecayHitAndRun
+    gameCode: SetStageHitAndRunDecayHitAndRun
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-hit-and-run-decay-interior
+    displayName: SetStageHitAndRunDecayInterior
+    gameCode: SetStageHitAndRunDecayInterior
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-hit-and-run-fine
+    displayName: SetStageHitAndRunFine
+    gameCode: SetStageHitAndRunFine
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-kick-force
+    displayName: SetStageKickForce
+    gameCode: SetStageKickForce
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-music-event
+    displayName: SetStageMusicEvent
+    gameCode: SetStageMusicEvent
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-num-chase-cars
+    displayName: SetStageNumChaseCars
+    gameCode: SetStageNumChaseCars
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-payout
+    displayName: SetStagePayout
+    gameCode: SetStagePayout
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-ped-group
+    displayName: SetStagePedGroup
+    gameCode: SetStagePedGroup
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-slam-force
+    displayName: SetStageSlamForce
+    gameCode: SetStageSlamForce
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-traffic-group
+    displayName: SetStageTrafficGroup
+    gameCode: SetStageTrafficGroup
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-abductable
+    displayName: SetStageVehicleAbductable
+    gameCode: SetStageVehicleAbductable
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-allow-seat-slide
+    displayName: SetStageVehicleAllowSeatSlide
+    gameCode: SetStageVehicleAllowSeatSlide
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-character-animation
+    displayName: SetStageVehicleCharacterAnimation
+    gameCode: SetStageVehicleCharacterAnimation
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-character-jump-out
+    displayName: SetStageVehicleCharacterJumpOut
+    gameCode: SetStageVehicleCharacterJumpOut
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-character-scale
+    displayName: SetStageVehicleCharacterScale
+    gameCode: SetStageVehicleCharacterScale
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 3
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-character-visible
+    displayName: SetStageVehicleCharacterVisible
+    gameCode: SetStageVehicleCharacterVisible
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-no-destroyed-jump-out
+    displayName: SetStageVehicleNoDestroyedJumpOut
+    gameCode: SetStageVehicleNoDestroyedJumpOut
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-stage-vehicle-reset
+    displayName: SetStageVehicleReset
+    gameCode: SetStageVehicleReset
+    category: Stage
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    requiresScope: Stage
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-vehicle-character-animation
+    displayName: SetVehicleCharacterAnimation
+    gameCode: SetVehicleCharacterAnimation
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 3
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-vehicle-character-jump-out
+    displayName: SetVehicleCharacterJumpOut
+    gameCode: SetVehicleCharacterJumpOut
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 2
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-vehicle-character-scale
+    displayName: SetVehicleCharacterScale
+    gameCode: SetVehicleCharacterScale
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 2
+    maxArgs: 2
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-vehicle-character-visible
+    displayName: SetVehicleCharacterVisible
+    gameCode: SetVehicleCharacterVisible
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: set-wheelie-offset-x
+    displayName: SetWheelieOffsetX
+    gameCode: SetWheelieOffsetX
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: use-traffic-group
+    displayName: UseTrafficGroup
+    gameCode: UseTrafficGroup
+    category: Mission
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    requiresScope: Mission
+    conditional: false
+    providedByHack: AdditionalScriptFunctionality
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "ASFCommands table in src/Game.lua"
+
+  - id: debug-break
+    displayName: DebugBreak
+    gameCode: DebugBreak
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 0
+    conditional: false
+    providedByHack: DebugTest
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DebugTestCommands table in src/Game.lua"
+
+  - id: lucas-test
+    displayName: LucasTest
+    gameCode: LucasTest
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 0
+    maxArgs: 16
+    conditional: false
+    providedByHack: DebugTest
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DebugTestCommands table in src/Game.lua"
+
+  - id: sleep
+    displayName: Sleep
+    gameCode: Sleep
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 1
+    maxArgs: 1
+    conditional: false
+    providedByHack: DebugTest
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DebugTestCommands table in src/Game.lua"
+
+  - id: task-message
+    displayName: TaskMessage
+    gameCode: TaskMessage
+    category: Script
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    minArgs: 3
+    maxArgs: 4
+    conditional: false
+    providedByHack: DebugTest
+    usage: unknown
+    provenance:
+      sources:
+        - donutteam-game-lua-src
+        - dt-docs-all-console-commands
+      detail: "DebugTestCommands table in src/Game.lua"

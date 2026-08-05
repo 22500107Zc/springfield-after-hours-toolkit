@@ -1,0 +1,14 @@
+version: 1
+mission:
+  id: unsupported
+  title: Unsupported
+  gameMissionName: m0
+  level: level01
+  status: experimental
+  stages:
+    - id: stage-one
+      # "race" exists in the game but its parameters are undocumented upstream,
+      # so compilerSupport is "unsupported" and the toolkit refuses to emit it.
+      objective:
+        type: race
+        laps: 3

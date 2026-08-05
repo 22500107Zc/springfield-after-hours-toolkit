@@ -1,0 +1,121 @@
+version: 1
+
+# The flagship night preset.
+#
+# THIS IS A DESIGN MANIFEST, NOT A WORKING CONFIGURATION.
+#
+# Every setting below carries its own `status`. Read them: most are `planned` or
+# `unverified`. Declaring a setting in this file does not make the game do it.
+# The two settings marked `verified` are verified only in the sense that the
+# SCRIPT COMMANDS they would use exist with known arity — not that they produce
+# the intended atmosphere.
+#
+# No replacement assets are included. Everything visual and audible here is
+# something the user must supply themselves.
+
+preset:
+  id: summer-217am
+  title: Summer, 2:17 AM
+  description: >-
+    Warm summer-night ambience over a quiet Springfield, presented with a VHS
+    home-recording feel. The reference image is a tape someone made by pointing
+    a camcorder at a television at 2:17 in the morning: warm, soft, a little
+    smeared, and very still.
+  status: planned
+
+  supportedMaps:
+    - level01
+
+  requiredHacks:
+    - custom-files
+
+  settings:
+    sky:
+      description: >-
+        A warm, deep summer night sky — not the blue-black of winter. Slight
+        light pollution near the horizon.
+      status: planned
+      mechanism: >-
+        Override the level's sky/world-sphere P3D through the Custom Files hack.
+        The override mechanism is verified; this specific use of it is not.
+      requiredHack: custom-files
+      notes:
+        - 'Requires a user-supplied replacement asset. This repository ships none.'
+
+    lighting:
+      description: Warm streetlight pools against cooler ambient shadow.
+      status: unverified
+      mechanism: >-
+        Not established. The toolkit has not verified what a mod can change
+        about level lighting, so this setting is a statement of intent only.
+      notes:
+        - 'Do not assume this works. Nothing in the research so far describes a supported way to do it.'
+
+    fog:
+      description: Very light warm haze, mostly at distance.
+      status: unverified
+      mechanism: 'Not established.'
+      notes:
+        - 'The game has no weather system. "Fog" here means a static visual choice, not simulated conditions.'
+
+    ambience:
+      description: >-
+        Crickets, a distant dog, the hum of a transformer. The sound of a town
+        that has gone to bed.
+      status: planned
+      mechanism: 'File override through the Custom Files hack, using user-supplied audio.'
+      requiredHack: custom-files
+      notes:
+        - 'Custom Files documentation warns that the AdditionalFiles mechanism can break the game on sound scripts (.spt). Prefer overriding, and test.'
+        - "Never extract or redistribute the game's audio. Supply your own recordings."
+
+    traffic:
+      description: Almost no cars. The occasional lone vehicle.
+      status: verified
+      mechanism: >-
+        SetMaxTraffic / NoTrafficForStage / ClearTrafficForStage are documented
+        stage-scope commands present in Game.lua's command table.
+      notes:
+        - 'VERIFIED means the commands exist with known argument counts and scope. It does NOT mean the resulting feel has been play-tested.'
+
+    pedestrians:
+      description: Very few pedestrians, and the ones present should feel odd.
+      status: verified
+      mechanism: >-
+        UsePedGroup at mission scope, with groups built via CreatePedGroup /
+        AddPed / ClosePedGroup.
+      notes:
+        - 'The commands are verified. Which ped group index produces which crowd is level-specific and is NOT recorded in the registry.'
+
+    postProcessing:
+      description: >-
+        VHS presentation — soft focus, chroma bleed, scanlines, a slight
+        tracking wobble.
+      status: unverified
+      mechanism: >-
+        In practice players achieve this with external post-processing injectors
+        such as ReShade. Those are configured by the player and are not
+        something a mod can bundle or guarantee.
+      notes:
+        - 'This preset may DOCUMENT the expectation. It must not claim the mod applies it.'
+        - "If you ship a suggested configuration, ship it as documentation for the player to install, and respect the injector's own licence."
+
+  externalAssets:
+    - id: night-sky-replacement
+      description: A warm summer-night sky texture or world sphere.
+      obtainFrom: 'Create your own, or use an asset you have the right to distribute.'
+      expectedPath: assets/sky/
+      required: false
+
+    - id: night-ambience-audio
+      description: Ambient night audio loop — crickets, distant traffic, transformer hum.
+      obtainFrom: 'Record or licence your own. Do not extract audio from the game.'
+      expectedPath: assets/audio/ambience/
+      required: false
+
+  conflicts:
+    - 'Other presets or mods that override the same sky or ambient audio paths.'
+
+  notes:
+    - 'Status is "planned" for the preset as a whole because the visual identity it describes has not been achieved or tested.'
+    - 'The "2:17 AM" in the title is atmosphere, not a clock. The game has no time-of-day system — see the "live-time-of-day" record in data/registries/preset-capabilities.yaml, which is explicitly marked unsupported.'
