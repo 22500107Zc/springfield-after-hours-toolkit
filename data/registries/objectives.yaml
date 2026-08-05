@@ -1,0 +1,566 @@
+version: 1
+registry: objectives
+description: >-
+  Mission objective types. The NAMES below are verified from Donut Team's
+  published objective lists. Their PARAMETERS mostly are not: at the time of
+  writing, most individual objective pages upstream read only "TODO". Each
+  record therefore carries a separate `compilerSupport` field stating whether
+  this toolkit can actually emit it, which is a stricter claim than "it exists".
+
+records:
+  # ---------------------------------------------------------------------------
+  # Base game objectives. Source: DT Docs "All Objectives".
+  # ---------------------------------------------------------------------------
+  - id: dummy
+    displayName: dummy
+    gameCode: dummy
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: supported
+    parameters: []
+    tags: [objective, no-op, compiler-safe]
+    provenance:
+      sources:
+        - donutteam-game-lua-readme
+        - dt-docs-all-objectives
+      detail: >-
+        Used verbatim in Game.lua's own README example as
+        Game.AddObjective("dummy"). This is the only objective this toolkit
+        emits with no unverified parameters, which makes it the correct choice
+        for compiler fixtures.
+    notes:
+      - 'A placeholder objective that does not itself define a goal. Useful for proving a mission script compiles and closes its scopes correctly.'
+
+  - id: goto
+    displayName: goto
+    gameCode: goto
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: partial
+    parameters: []
+    tags: [objective, movement]
+    provenance:
+      sources:
+        - dt-docs-all-objectives
+      detail: 'Listed in the base-game objective list. The objective''s own page reads "TODO".'
+    notes:
+      - 'Name verified; parameters undocumented upstream. The compiler can emit the objective but requires a VERIFIED destination locator, which is why campaigns referencing unverified places fail to build.'
+
+  - id: talkto
+    displayName: talkto
+    gameCode: talkto
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: partial
+    parameters:
+      - name: character
+        description: 'NPC placed via AddNPC(name, locator).'
+        required: true
+      - name: locator
+        description: 'Type 3 Locator the NPC is placed at.'
+        required: true
+    tags: [objective, dialogue]
+    provenance:
+      sources:
+        - dt-docs-talkto
+        - dt-docs-all-objectives
+      detail: >-
+        The talkto page is one of the few with a worked example, showing
+        AddNPC, AddObjectiveNPCWaypoint and SetTalkToTarget usage.
+    notes:
+      - 'Requires the player to interact with an NPC marked by an exclamation mark. SetTalkToTarget''s first argument selects the drawable (0 = exclamation mark, 1 = "gift", 2 = "interior_icon") and the second is a height offset.'
+
+  - id: buycar
+    displayName: buycar
+    gameCode: buycar
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: buyskin
+    displayName: buyskin
+    gameCode: buyskin
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: coins
+    displayName: coins
+    gameCode: coins
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: delivery
+    displayName: delivery
+    gameCode: delivery
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: destroy
+    displayName: destroy
+    gameCode: destroy
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: destroyboss
+    displayName: destroyboss
+    gameCode: destroyboss
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: dialogue
+    displayName: dialogue
+    gameCode: dialogue
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, dialogue]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list; the objective''s own page reads "TODO".'
+    notes:
+      - 'Name verified; parameters undocumented upstream. The toolkit deliberately does NOT emit this objective yet, because doing so requires SetDialogueInfo semantics it has not verified.'
+
+  - id: dump
+    displayName: dump
+    gameCode: dump
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: fmv
+    displayName: fmv
+    gameCode: fmv
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, video]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes:
+      - 'Plays a full-motion video. This is NOT an in-engine cutscene system; it plays a pre-rendered file the user must supply.'
+
+  - id: follow
+    displayName: follow
+    gameCode: follow
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: getin
+    displayName: getin
+    gameCode: getin
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: partial
+    tags: [objective, vehicle]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes:
+      - 'Name verified; parameters undocumented upstream. Requires a verified vehicle record, and the vehicle registry is currently empty.'
+
+  - id: gooutside
+    displayName: gooutside
+    gameCode: gooutside
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, interior]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: interior
+    displayName: interior
+    gameCode: interior
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, interior]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: loadvehicle
+    displayName: loadvehicle
+    gameCode: loadvehicle
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, vehicle]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: losetail
+    displayName: losetail
+    gameCode: losetail
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, chase]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes:
+      [
+        'Name verified; parameters undocumented upstream. Relevant to a Wiggum-chase mission, but not yet emittable.',
+      ]
+
+  - id: pickupitem
+    displayName: pickupitem
+    gameCode: pickupitem
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: race
+    displayName: race
+    gameCode: race
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, vehicle]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  - id: timer
+    displayName: timer
+    gameCode: timer
+    category: base-game
+    providedBy: base-game
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective]
+    provenance:
+      sources: [dt-docs-all-objectives]
+      detail: 'Base-game objective list.'
+    notes: ['Name verified; parameters undocumented upstream.']
+
+  # ---------------------------------------------------------------------------
+  # Objectives added by the Additional Script Functionality hack.
+  # Source: DT Docs "All Objective Types" (Additional Script Functionality).
+  # ---------------------------------------------------------------------------
+  - id: asf-camera
+    displayName: camera
+    gameCode: camera
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes:
+      [
+        'Requires the AdditionalScriptFunctionality hack. Name verified; parameters not verified here.',
+      ]
+
+  - id: asf-collectcoins
+    displayName: collectcoins
+    gameCode: collectcoins
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-collectwrench
+    displayName: collectwrench
+    gameCode: collectwrench
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-completedwasps
+    displayName: completedwasps
+    gameCode: completedwasps
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-destroycars
+    displayName: destroycars
+    gameCode: destroycars
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-event
+    displayName: event
+    gameCode: event
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-hitandrun
+    displayName: hitandrun
+    gameCode: hitandrun
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-hitandruncaught
+    displayName: hitandruncaught
+    gameCode: hitandruncaught
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-hitandrunlost
+    displayName: hitandrunlost
+    gameCode: hitandrunlost
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-hitandrunrage
+    displayName: hitandrunrage
+    gameCode: hitandrunrage
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-hitpeds
+    displayName: hitpeds
+    gameCode: hitpeds
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-insidetrigger
+    displayName: insidetrigger
+    gameCode: insidetrigger
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Documented upstream as the pair "insidetrigger / outsidetrigger".'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-outsidetrigger
+    displayName: outsidetrigger
+    gameCode: outsidetrigger
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Documented upstream as the pair "insidetrigger / outsidetrigger".'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-jump
+    displayName: jump
+    gameCode: jump
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-reachspeed
+    displayName: reachspeed
+    gameCode: reachspeed
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']
+
+  - id: asf-spring
+    displayName: spring
+    gameCode: spring
+    category: additional-script-functionality
+    providedBy: AdditionalScriptFunctionality
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    compilerSupport: unsupported
+    tags: [objective, asf]
+    provenance:
+      sources: [dt-docs-asf-objectives]
+      detail: 'Additional Script Functionality objective list.'
+    notes: ['Requires the AdditionalScriptFunctionality hack.']

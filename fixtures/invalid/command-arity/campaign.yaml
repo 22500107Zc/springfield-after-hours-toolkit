@@ -1,0 +1,11 @@
+version: 1
+# Raw command called with the wrong number of arguments. Expect SAH3003.
+campaign:
+  id: command-arity
+  title: Command Arity
+  version: 0.1.0
+  internalName: CommandArity
+  description: Fixture campaign calling a command with the wrong arity.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles: [missions/arity.yaml]

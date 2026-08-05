@@ -1,0 +1,45 @@
+version: 1
+
+# Dialogue for the opening mission.
+#
+# Unlike the mission geography, this file validates: every speaker resolves,
+# because Donut Team publishes the dialogue character code table and the
+# toolkit derives its character registry from it.
+#
+# The lines below are placeholder writing, not final script.
+
+conversations:
+  - id: garage-question
+    title: Bart asks Comic Book Guy how to open the garage
+    mission: garage-search
+    stage: talk-to-comic-book-guy
+    status: planned
+
+    lines:
+      - id: garage-question-1
+        order: 1
+        speaker: bart
+        text: You're open at two in the morning?
+        status: planned
+
+      - id: garage-question-2
+        order: 2
+        speaker: cbg
+        text: I am always open. Sleep is for those with nothing to catalogue.
+        status: planned
+
+      - id: garage-question-3
+        order: 3
+        speaker: bart
+        text: I need to get our garage open. Without waking up Homer.
+        status: planned
+
+      - id: garage-question-4
+        order: 4
+        speaker: cbg
+        text: Worst. Request. Ever. Fortunately for you, I know someone who opens things.
+        status: planned
+
+    notes:
+      - 'Placeholder writing. Every speaker id resolves to a verified character record; only the text is provisional.'
+      - 'No audio is referenced. Text-only dialogue is fully supported, and the toolkit will never ship extracted game audio.'

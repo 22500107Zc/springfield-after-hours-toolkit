@@ -1,0 +1,33 @@
+version: 1
+registry: locators
+description: >-
+  TEST-ONLY locator records. Loaded only by the test suite, via the
+  dataDirectories option. These are not real game locators and must never be
+  referenced by a real campaign.
+
+records:
+  - id: test-unverified-locator
+    displayName: test_unverified_locator
+    gameCode: test_unverified_locator
+    category: test-fixture
+    verificationStatus: unverified
+    verifiedAt: '2026-08-05'
+    tags: [test-fixture]
+    provenance:
+      sources: [sah-test-fixture]
+      detail: 'Invented for the test suite. Asserts nothing about the game.'
+    notes:
+      - 'Exists so tests can prove that an unverified reference is refused by default and permitted only with an explicit, recorded opt-in.'
+
+  - id: test-experimental-locator
+    displayName: test_experimental_locator
+    gameCode: test_experimental_locator
+    category: test-fixture
+    verificationStatus: experimental
+    verifiedAt: '2026-08-05'
+    tags: [test-fixture]
+    provenance:
+      sources: [sah-test-fixture]
+      detail: 'Invented for the test suite. Asserts nothing about the game.'
+    notes:
+      - 'Exists so tests can prove that experimental references build but warn.'

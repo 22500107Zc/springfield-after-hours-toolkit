@@ -1,0 +1,54 @@
+version: 1
+
+# A second design manifest, deliberately more aggressive than summer-217am.
+#
+# DESIGN MANIFEST ONLY. Nothing here is claimed to work.
+
+preset:
+  id: vhs-333am
+  title: VHS, 3:33 AM
+  description: >-
+    The tape has been recorded over too many times. Colder, harsher and more
+    degraded than summer-217am: the hour where a quiet town stops feeling
+    peaceful and starts feeling wrong.
+  status: planned
+
+  supportedMaps:
+    - level01
+
+  requiredHacks:
+    - custom-files
+
+  settings:
+    sky:
+      description: Colder, flatter night sky with heavier light pollution.
+      status: planned
+      mechanism: 'Custom Files asset override. Requires a user-supplied asset.'
+      requiredHack: custom-files
+
+    ambience:
+      description: Sparser, with longer silences and occasional unexplained sounds.
+      status: planned
+      mechanism: 'Custom Files audio override, using user-supplied recordings.'
+      requiredHack: custom-files
+
+    traffic:
+      description: Effectively none.
+      status: verified
+      mechanism: 'NoTrafficForStage / SetMaxTraffic — documented stage-scope commands.'
+      notes:
+        - 'The commands exist with known arity. The atmospheric result is untested.'
+
+    postProcessing:
+      description: Heavy tape degradation — tracking errors, dropout, colour bleed.
+      status: unverified
+      mechanism: 'External post-processing injector configured by the player. Not applied by the mod.'
+
+  externalAssets:
+    - id: degraded-sky
+      description: A cold, degraded night sky asset.
+      obtainFrom: 'Create your own or use an asset you may distribute.'
+      required: false
+
+  notes:
+    - 'Included to prove the preset system handles more than one aesthetic, and to keep the flagship look from being hard-coded anywhere in the toolkit.'

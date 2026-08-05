@@ -1,0 +1,13 @@
+version: 1
+# Two mission files declare the same mission id. Expect SAH1002.
+campaign:
+  id: duplicate-ids
+  title: Duplicate Ids
+  version: 0.1.0
+  internalName: DuplicateIds
+  description: Fixture campaign whose two missions share an id.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles:
+    - missions/first.yaml
+    - missions/second.yaml

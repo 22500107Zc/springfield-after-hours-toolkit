@@ -1,0 +1,5 @@
+version: 1
+# id is not lower-kebab-case and required fields are missing. Expect SAH1001.
+campaign:
+  id: Not_Valid_Id
+  title: Bad Schema

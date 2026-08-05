@@ -1,16 +1,76 @@
+version: 1
+
+# SPRINGFIELD AFTER HOURS — the flagship campaign.
+#
+# ============================================================================
+# READ THIS FIRST: THIS CAMPAIGN DOES NOT BUILD, AND THAT IS THE POINT.
+# ============================================================================
+#
+# This is STORY DATA. It describes a campaign somebody wants to make. It
+# references Springfield locations, a vehicle and locators that the toolkit has
+# NO VERIFIED RECORD OF, so `sah validate` fails with unresolved-reference
+# diagnostics.
+#
+# That failure is the feature. It is a precise, itemised list of exactly which
+# facts about the game the community still needs to verify before this campaign
+# could exist. Compare it to the alternative — a toolkit that cheerfully
+# generates a mod full of invented locator names, which loads in the game and
+# then silently cannot be completed.
+#
+# Run this to see the list:
+#
+#     sah validate examples/springfield-after-hours
+#
+# For a campaign that DOES build, see examples/minimal-campaign.
+
 campaign:
   id: springfield-after-hours
   title: Springfield After Hours
   version: 0.1.0
-  description: Flagship design scaffold; intentionally not buildable until references are verified.
+  internalName: SpringfieldAfterHours
+  description: >-
+    A continuous nighttime Springfield campaign. Bart sneaks out at 2:17 AM and
+    the town turns out to be much busier than it should be. Story data only —
+    no mission in this campaign is playable, and none has been verified against
+    the game.
+  status: planned
+
+  authors:
+    - name: Springfield After Hours Toolkit contributors
+      credits: true
+
+  categories:
+    - Missions
+
+  compatibility:
+    modLauncher: required
+    requiredLauncherVersion: '1.27'
+    connectedMap:
+      # A user-supplied connected-map mod. This repository does not contain,
+      # mirror or redistribute it, and the profile below claims nothing about
+      # its contents.
+      profile: fully-connected-map
+      provider: user
+      status: unverified
+
+  requiredHacks:
+    - custom-files
+
   defaultPreset: summer-217am
-missions:
-  - id: garage-search
-    player: bart
-    startingVehicle: honor-roller
-    stages:
-      - id: drive-to-java-server
-        objective:
-          type: goto
-          destination: java-server
-dialogue: []
+
+  missionFiles:
+    - missions/garage-search.yaml
+
+  dialogueFiles:
+    - dialogue/garage-question.yaml
+
+  presetFiles:
+    - presets/summer-217am.yaml
+    - presets/vhs-333am.yaml
+    - presets/foggy-pre-dawn.yaml
+
+  notes:
+    - 'STORY DATA ONLY. Nothing here has been verified against the game, and this campaign is expected to fail validation.'
+    - "The full arc is planned to involve the Googleplex, a power outage, Snake behind the Legitimate Businessman's Social Club, an HZ disruption device, a Wiggum chase, Milhouse, Nelson, nighttime pranks, the Jebediah Springfield statue, the Tire Fire and Burns' Manor. None of those locations is in the registry, so none of them is written as a buildable reference yet."
+    - 'Characters ARE verified: bart, cbg, snake, wiggum, milhouse and nelson all resolve, because Donut Team publishes the dialogue character code table.'
+    - 'What is missing is geography: locations, locators and vehicle internal names. That is the gap the community can close.'

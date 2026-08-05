@@ -1,0 +1,12 @@
+version: 1
+# References game content that has no verified registry record.
+# Expect SAH2001 (locator), SAH2003 (vehicle), SAH2002 (character).
+campaign:
+  id: unresolved-references
+  title: Unresolved References
+  version: 0.1.0
+  internalName: UnresolvedReferences
+  description: Fixture campaign referencing unverified game content.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles: [missions/unresolved.yaml]

@@ -1,0 +1,41 @@
+version: 1
+registry: compatibility-profiles
+description: >-
+  Profiles describing externally installed mods a campaign can target. These are
+  COMPATIBILITY TARGETS, never bundled dependencies. This repository does not
+  contain, mirror, extract or redistribute any third-party mod.
+
+records:
+  - id: fully-connected-map
+    displayName: 'Fully Connected Map'
+    externalDependency: 'Fully Connected Map'
+    category: external-mod
+    verificationStatus: unverified
+    verifiedAt: '2026-08-05'
+    aliases: [fcm, connected-map]
+    tags: [compatibility, external, requires-verification]
+    provenance:
+      sources: [sah-toolkit-design]
+      detail: >-
+        Placeholder profile created so campaigns can express the intent to
+        target a connected-map mod. NOTHING about the mod's contents has been
+        verified by this repository.
+    notes:
+      - 'STATUS: requires verification. This profile deliberately declares no map ids, no locators and no locator mappings, because guessing them is exactly the failure mode this toolkit exists to prevent.'
+      - 'The mod is user-supplied. Point `connectedMapPath` at your own installation; the toolkit reads nothing from it unless you explicitly ask it to.'
+      - 'Populating this profile requires someone with the mod installed to inspect its configuration and script metadata and record findings with provenance. Its assets must not be copied into this repository.'
+
+  - id: full-game-plus
+    displayName: 'Full Game Plus'
+    externalDependency: 'Full Game Plus'
+    category: external-mod
+    verificationStatus: unverified
+    verifiedAt: '2026-08-05'
+    aliases: [fgp]
+    tags: [compatibility, external, requires-verification]
+    provenance:
+      sources: [sah-toolkit-design]
+      detail: 'Placeholder profile. No contents verified.'
+    notes:
+      - 'STATUS: requires verification. Recorded so campaigns can declare the target; no claims are made about behaviour, versions or conflicts.'
+      - 'User-supplied. Not bundled, mirrored or redistributed.'

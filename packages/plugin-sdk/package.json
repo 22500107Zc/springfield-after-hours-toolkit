@@ -1,0 +1,21 @@
+{
+  "name": "@sah/plugin-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Typed plugin contribution interface. Contains no loader by design.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sah/core": "0.1.0",
+    "@sah/schemas": "0.1.0"
+  }
+}

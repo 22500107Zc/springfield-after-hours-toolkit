@@ -1,0 +1,82 @@
+version: 1
+registry: locators
+description: >-
+  Locators — the named points scripts use to place the player, NPCs and objects.
+  This registry is DELIBERATELY TINY. It contains only locator names that appear
+  verbatim in official Donut Team documentation examples. Every other locator in
+  the game is currently unverified here, which is why campaigns referencing real
+  Springfield destinations fail to build.
+  Expanding this registry is the single highest-value contribution to the
+  project. See docs/registries/README.md for how to do it with provenance.
+
+records:
+  - id: level1-carstart
+    displayName: level1_carstart
+    gameCode: level1_carstart
+    category: mission-reset
+    level: level01
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [level1_carstart]
+    tags: [locator, documented-example, level01]
+    provenance:
+      sources: [donutteam-game-lua-readme]
+      detail: >-
+        Used in Game.lua's README example as
+        Game.SetMissionResetPlayerInCar("level1_carstart").
+    notes:
+      - 'Appears in official documentation as a working example for level 1. This repository has not independently confirmed it in a running game.'
+      - 'Used by examples/minimal-campaign, which is a compiler fixture rather than a playable mission.'
+
+  - id: m1-marge-sd
+    displayName: m1_marge_sd
+    gameCode: m1_marge_sd
+    category: npc-placement
+    locatorType: 'Type 3'
+    level: level01
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [m1_marge_sd]
+    tags: [locator, documented-example, npc]
+    provenance:
+      sources: [dt-docs-talkto]
+      detail: >-
+        The talkto objective page uses AddNPC("marge", "m1_marge_sd") and
+        describes it as a Type 3 Locator.
+    notes:
+      - 'A documented NPC placement point for Marge in a level 1 mission. Reusing it for a different character or mission is not verified to work.'
+
+  - id: marge-walk-1
+    displayName: marge_walk_1
+    gameCode: marge_walk_1
+    category: npc-waypoint
+    locatorType: 'Type 3'
+    level: level01
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [marge_walk_1]
+    tags: [locator, documented-example, npc]
+    provenance:
+      sources: [dt-docs-talkto]
+      detail: >-
+        Used as AddObjectiveNPCWaypoint("marge", "marge_walk_1"), described as a
+        Type 3 Locator the NPC walks towards.
+    notes:
+      - 'A documented NPC waypoint. Not verified for use outside the documented example.'
+
+  - id: jasper-trig
+    displayName: JasperTrig
+    gameCode: JasperTrig
+    category: gag-trigger
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [JasperTrig]
+    tags: [locator, documented-example, gag]
+    provenance:
+      sources: [donutteam-game-lua-readme]
+      detail: >-
+        Used in Game.lua's README as GagSetTrigger("action", "JasperTrig", 2),
+        illustrating that Radical often omitted quotes around locator names in
+        MFK and that Lua requires them.
+    notes:
+      - 'A gag trigger locator name from official documentation. Level association is not stated by the source, so this record does not claim one.'

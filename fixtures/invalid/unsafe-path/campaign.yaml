@@ -1,0 +1,12 @@
+version: 1
+# Declares a mission file outside the campaign directory. Expect SAH6000.
+campaign:
+  id: unsafe-path
+  title: Unsafe Path
+  version: 0.1.0
+  internalName: UnsafePath
+  description: Fixture campaign whose mission file path escapes the campaign root.
+  status: experimental
+  requiredHacks: [custom-files]
+  missionFiles:
+    - ../../../etc/passwd

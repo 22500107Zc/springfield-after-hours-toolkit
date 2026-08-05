@@ -1,0 +1,80 @@
+version: 1
+registry: hacks
+description: >-
+  Mod Launcher hacks a campaign can require via Meta.ini's RequiredHack key.
+  Only hacks this toolkit has read official documentation for are listed. The
+  Mod Launcher ships many more; absence from this file means "not yet recorded
+  here", not "does not exist".
+
+records:
+  - id: custom-files
+    displayName: Custom Files
+    metaIniName: CustomFiles
+    gameCode: CustomFiles
+    category: mod-requirable
+    availableSince: '1.2'
+    configFile: CustomFiles.ini
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [CustomFiles]
+    tags: [hack, required-by-toolkit]
+    provenance:
+      sources:
+        - dt-docs-custom-files
+        - dt-docs-custom-files-lua-scripting
+      detail: 'Custom Files hack documentation, including CustomFiles.ini sections and folder roles.'
+    notes:
+      - 'Every campaign this toolkit builds requires this hack: generated mission scripts are delivered through [PathHandlers] entries in CustomFiles.ini.'
+      - 'A mod requiring this hack must provide at least one of CustomFiles.ini, CustomFiles.lua, a CustomFiles folder, or an AdditionalFiles folder.'
+
+  - id: additional-script-functionality
+    displayName: Additional Script Functionality
+    metaIniName: AdditionalScriptFunctionality
+    gameCode: AdditionalScriptFunctionality
+    category: mod-requirable
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [ASF, AdditionalScriptFunctionality]
+    tags: [hack, scripting]
+    provenance:
+      sources:
+        - dt-docs-asf-objectives
+        - dt-docs-asf-conditions
+        - donutteam-game-lua-src
+      detail: >-
+        Game.lua registers the ASFCommands table only when this hack is loaded,
+        and errors on those commands otherwise.
+    notes:
+      - 'Adds extra script commands, objectives and conditions, including conditional commands such as IfCurrentCheckpoint.'
+      - 'Game.lua handles conditionals by emitting the opening brace; the script must close them with Game.EndIf().'
+
+  - id: custom-dialogue-character-codes
+    displayName: Custom Dialogue Character Codes
+    metaIniName: CustomDialogueCharacterCodes
+    gameCode: CustomDialogueCharacterCodes
+    category: mod-requirable
+    availableSince: '1.12'
+    configFile: CustomDialogueCharacterCodes.ini
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [hack, dialogue]
+    provenance:
+      sources: [dt-docs-custom-dialogue-character-codes]
+      detail: 'Custom Dialogue Character Codes hack documentation.'
+    notes:
+      - "Lets a mod define new dialogue character codes and map multiple outfits to one code. Codes should be 3 or 4 characters, matching Radical's convention."
+      - 'This toolkit does not yet generate CustomDialogueCharacterCodes.ini. Declaring the hack is supported; emitting its config is a planned capability.'
+
+  - id: debug-test
+    displayName: Debug Test
+    metaIniName: DebugTest
+    gameCode: DebugTest
+    category: developer
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    tags: [hack, developer]
+    provenance:
+      sources: [donutteam-game-lua-src]
+      detail: 'Game.lua registers a DebugTestCommands table gated on this hack.'
+    notes:
+      - 'Provides developer commands (DebugBreak, LucasTest, Sleep, TaskMessage). Not intended for released campaigns.'

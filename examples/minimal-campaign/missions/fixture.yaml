@@ -1,0 +1,38 @@
+version: 1
+
+# A compiler fixture, not a playable mission.
+#
+# WHY THE OBJECTIVE IS "dummy"
+# ----------------------------
+# `dummy` is the only objective this toolkit can emit with no unverified
+# parameters: Donut Team's own Game.lua README uses `Game.AddObjective("dummy")`
+# verbatim. Every other objective (goto, talkto, ...) needs configuration calls
+# whose parameters are undocumented upstream, so the toolkit refuses to generate
+# them rather than produce a stage that loads and then cannot be completed.
+#
+# Every reference below resolves to a `verified` registry record:
+#   level01           — script/art paths from Game.lua's README
+#   level1-carstart   — SetMissionResetPlayerInCar example in the same README
+#   kwike             — SetHUDIcon example in the same README
+
+mission:
+  id: compiler-fixture
+  title: Compiler Fixture
+  gameMissionName: m0
+  level: level01
+  resetPlayerInCarLocator: level1-carstart
+  status: experimental
+
+  stages:
+    - id: opening-stage
+      title: Prove the emitter closes its scopes
+      resetToHere: true
+      hudIcon: kwike
+      objective:
+        type: dummy
+        notes:
+          - 'A no-op objective. Present so the generated script exercises AddObjective/CloseObjective.'
+
+  notes:
+    - 'This mission has never been loaded in the game. It exists so that "the compiler works" is a testable claim rather than an assertion.'
+    - "The generated Lua is checked against Game.lua's own command table for argument count and scope before it is written."

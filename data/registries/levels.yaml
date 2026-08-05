@@ -1,0 +1,32 @@
+version: 1
+registry: levels
+description: >-
+  Game levels. Only level01 is recorded, because it is the only level whose
+  script and art paths appear verbatim in official documentation that this
+  repository has read. The game has more levels; their absence here means "not
+  yet verified from a citable source", not "does not exist". Do not add levels
+  by pattern-matching level01 — confirm each one.
+
+records:
+  - id: level01
+    displayName: 'Level 1'
+    gameCode: level01
+    category: level
+    scriptPath: 'scripts\missions\level01'
+    artPath: 'art\missions\level01'
+    verificationStatus: verified
+    verifiedAt: '2026-08-05'
+    aliases: [level1, l1]
+    tags: [level]
+    provenance:
+      sources:
+        - donutteam-game-lua-readme
+        - dt-docs-dyna-load-data
+      detail: >-
+        Game.lua's README uses the path handler
+        `scripts\\missions\\level01\\m0i.mfk` and the art file
+        `art\\missions\\level01\\m0.p3d`. The Dyna Load Data page uses l1*.p3d
+        zone files in its worked examples.
+    notes:
+      - 'Script and art directory names are verified. The set of locators, missions and locations WITHIN this level is not enumerated by this registry.'
+      - 'Dyna load data strings are level- and mission-specific; this record deliberately does not supply a default one.'

@@ -1,0 +1,14 @@
+version: 1
+mission:
+  id: raw
+  title: Raw
+  gameMissionName: m0
+  level: level01
+  status: experimental
+  # allowRawGameCommands is deliberately absent.
+  stages:
+    - id: stage-one
+      objective: { type: dummy }
+      rawCommands:
+        - command: SetStageTime
+          args: [30]

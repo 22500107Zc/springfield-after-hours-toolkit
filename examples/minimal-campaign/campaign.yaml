@@ -1,14 +1,39 @@
+version: 1
+
+# The smallest campaign that compiles.
+#
+# This exists to prove the toolchain works end to end, and to give the tests a
+# stable golden fixture. It is NOT a playable mission — see missions/fixture.yaml
+# for exactly why not.
+
 campaign:
   id: minimal-campaign
-  title: Minimal Compiler Fixture
+  title: Minimal Campaign
   version: 0.1.0
-  description: Proves schema, registry, validator, and deterministic compiler flow.
-missions:
-  - id: fixture-mission
-    player: fixture-player
-    stages:
-      - id: fixture-stage
-        objective:
-          type: noop
-          note: This is not claimed to be playable.
-dialogue: []
+  internalName: MinimalCampaign
+  description: >-
+    A compiler fixture for the Springfield After Hours Toolkit. It generates a
+    valid Mod Launcher mod containing one mission with one stage and one no-op
+    objective. It is not a playable mission.
+  status: experimental
+
+  authors:
+    - name: Springfield After Hours Toolkit contributors
+      credits: true
+
+  categories:
+    - Developer
+
+  compatibility:
+    modLauncher: required
+    requiredLauncherVersion: '1.27'
+
+  requiredHacks:
+    - custom-files
+
+  missionFiles:
+    - missions/fixture.yaml
+
+  notes:
+    - 'Every reference in this campaign resolves to a registry record whose provenance is official Donut Team documentation.'
+    - 'If this campaign stops building, the toolchain is broken — not the campaign.'

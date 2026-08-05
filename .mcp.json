@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "springfield-after-hours-toolkit": {
+      "command": "node",
+      "args": ["packages/mcp-server/dist/bin.js"],
+      "env": {
+        "SAH_WORKSPACE": "${workspaceFolder}"
+      }
+    }
+  }
+}

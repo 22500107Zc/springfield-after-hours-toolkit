@@ -1,11 +1,38 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
 build/
+*.tsbuildinfo
+
+# Test output
 coverage/
+.vitest/
+
+# Secrets and local configuration — never commit these
 .env
 .env.local
+.env.*.local
 *.key
+*.pem
 secrets/
+sah.local.json
+sah.config.local.json
+.sah/
+
+# Logs (may contain prompts, paths or credentials)
+logs/
 *.log
-*.tsbuildinfo
+npm-debug.log*
+prompts/*.log
+
+# Third-party sources fetched on demand.
+# These are NOT redistributed by this repository.
+vendor/
+
+# OS / editor noise
 .DS_Store
+Thumbs.db
+.idea/
+*.swp

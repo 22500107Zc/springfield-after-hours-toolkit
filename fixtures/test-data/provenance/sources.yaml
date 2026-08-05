@@ -1,0 +1,16 @@
+version: 1
+
+# Provenance sources for TEST-ONLY registry records.
+#
+# This directory is never loaded by the CLI or the MCP server. It exists so the
+# test suite can exercise code paths that need a record with a weak
+# verification status, without polluting the real registries with fake data.
+
+sources:
+  - id: sah-test-fixture
+    type: manual-observation
+    title: 'Springfield After Hours Toolkit — test fixture'
+    retrievedAt: '2026-08-05'
+    notes: >-
+      Marks a record as existing purely to test the toolkit. A record citing
+      this source asserts NOTHING about the real game.
