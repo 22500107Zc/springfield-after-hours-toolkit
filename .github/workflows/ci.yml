@@ -53,8 +53,24 @@ jobs:
         shell: bash
         run: |
           node packages/cli/dist/bin.js --help
-          node packages/cli/dist/bin.js doctor --json
           node packages/cli/dist/bin.js registry validate
+
+          # `sah doctor` exits non-zero when something needs the user's
+          # attention, and on a fresh clone Game.lua has deliberately not been
+          # fetched into the git-ignored vendor/ directory. So assert that
+          # doctor produces a usable report — not that this runner happens to
+          # be a fully provisioned authoring environment.
+          doctor_json=$(node packages/cli/dist/bin.js doctor --json || true)
+          printf '%s' "$doctor_json" | node -e '
+            const report = JSON.parse(require("node:fs").readFileSync(0, "utf8"));
+            if (!Array.isArray(report.checks) || report.checks.length === 0) {
+              throw new Error("doctor reported no checks");
+            }
+            if (/sk-ant-/.test(JSON.stringify(report))) {
+              throw new Error("doctor leaked something key-shaped");
+            }
+            console.log(`doctor reported ${report.checks.length} checks on ${report.platform.platform}`);
+          '
 
       - name: The minimal campaign must build
         shell: bash
