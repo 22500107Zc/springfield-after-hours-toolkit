@@ -1,0 +1,10 @@
+id: summer-217am
+displayName: Summer 2:17 AM
+verificationStatus: planned
+intent: Warm, quiet summer-night ambience with optional VHS presentation.
+settings:
+  sky: { support: planned, externalAssetRequired: true }
+  lighting: { support: planned, externalAssetRequired: true }
+  ambience: { support: planned, externalAssetRequired: true }
+  traffic: { support: unverified }
+  pedestrians: { support: unverified }

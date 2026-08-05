@@ -1,0 +1,5 @@
+id: vhs-333am
+displayName: VHS 3:33 AM
+verificationStatus: planned
+settings:
+  postProcessing: { support: unverified, externalAssetRequired: true }

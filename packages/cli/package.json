@@ -1,0 +1,15 @@
+{
+  "name": "@sah/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "sah": "dist/index.js"
+  },
+  "dependencies": {
+    "@sah/compiler": "workspace:*",
+    "@sah/registry": "workspace:*",
+    "@sah/validator": "workspace:*",
+    "commander": "^14.0.0",
+    "yaml": "^2.8.1"
+  }
+}

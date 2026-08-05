@@ -1,0 +1,16 @@
+campaign:
+  id: springfield-after-hours
+  title: Springfield After Hours
+  version: 0.1.0
+  description: Flagship design scaffold; intentionally not buildable until references are verified.
+  defaultPreset: summer-217am
+missions:
+  - id: garage-search
+    player: bart
+    startingVehicle: honor-roller
+    stages:
+      - id: drive-to-java-server
+        objective:
+          type: goto
+          destination: java-server
+dialogue: []

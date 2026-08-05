@@ -1,0 +1,12 @@
+{
+  "name": "@sah/mcp-server",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.3",
+    "@sah/registry": "workspace:*",
+    "@sah/validator": "workspace:*",
+    "zod": "^4.0.17"
+  }
+}

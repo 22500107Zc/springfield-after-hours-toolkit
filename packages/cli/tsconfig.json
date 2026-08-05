@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "rootDir": "src", "outDir": "dist" },
+  "include": ["src/**/*.ts"],
+  "references": [
+    { "path": "../registry" },
+    { "path": "../validator" },
+    { "path": "../compiler" },
+    { "path": "../mcp-server" }
+  ]
+}

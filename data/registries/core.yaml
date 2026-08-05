@@ -1,0 +1,43 @@
+- id: noop
+  kind: objective
+  displayName: Compiler fixture no-op objective
+  aliases: []
+  tags: [fixture]
+  notes: Not claimed to be a playable game objective.
+  provenance:
+    sourceType: toolkit-fixture
+    sourceReference: packages/compiler tests
+    verificationStatus: experimental
+    confidence: 1
+- id: goto
+  kind: objective
+  displayName: Go to locator
+  aliases: []
+  tags: []
+  notes: Compiler support is planned; builds currently reject it.
+  provenance:
+    sourceType: toolkit-fixture
+    sourceReference: product specification
+    verificationStatus: planned
+    confidence: 1
+- id: dialogue
+  kind: objective
+  displayName: Dialogue
+  aliases: []
+  tags: []
+  notes: Structured authoring is supported; game export is not yet verified.
+  provenance:
+    sourceType: toolkit-fixture
+    sourceReference: product specification
+    verificationStatus: planned
+    confidence: 1
+- id: fixture-player
+  kind: character
+  displayName: Non-playable compiler fixture
+  aliases: []
+  tags: [fixture]
+  provenance:
+    sourceType: toolkit-fixture
+    sourceReference: examples/minimal-campaign
+    verificationStatus: experimental
+    confidence: 1
