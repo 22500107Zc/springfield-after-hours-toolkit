@@ -45,6 +45,103 @@ error SAH2003 at missions/garage-search.yaml mission.startingVehicle:
 That output is not a bug report. It is the flagship example, working as
 designed: a precise, itemised list of what the community still needs to verify.
 
+## Release 0.1.0 — the developer toolkit
+
+**A cross-platform SHAR mod-development toolkit featuring source-backed Game.lua
+definitions and six small utilities for cleaning, comparing, inspecting, and
+preparing mod projects — no game installation required.**
+
+Two parts ship together, because they solve the two halves of the same day:
+writing mission scripts, and getting the folder around them fit to hand to
+someone else. **Neither needs the game or the Mod Launcher installed.**
+
+### 1. Game.lua Definitions — editor support for verified `Game.*` commands
+
+```sh
+sah lua-defs install ~/mods/my-mod --with-official --apply
+```
+
+**351 completions** — 339 commands, their 10 `Not_` inverses, and `Game.EndIf` /
+`Game.Not`. Hover docs carry each command's required scope and argument range,
+and argument counts are genuinely enforced because the generated signatures
+encode both bounds.
+
+Generated mechanically from the command registry, which is itself derived from
+the command tables inside a pinned upstream `Game.lua`. Argument names and types
+stay `argN: any` — no source read by this project documents them, and guessing is
+the failure this toolkit exists to prevent.
+
+→ [Full guide](docs/getting-started/lua-definitions.md)
+
+### 2. SHAR Pocket Tools — six utilities for preparing and comparing mod projects
+
+```sh
+sah pocket case-check ./my-mod           # paths and references that differ only by case
+sah pocket clean-export ./my-mod ./out   # a copy without .DS_Store, __MACOSX, editor junk
+sah pocket conflicts ./mod-a ./mod-b     # paths supplied by more than one mod, with hashes
+sah pocket manifest ./my-mod             # deterministic path + size + SHA-256 record
+sah pocket diff ./v1 ./v2                # added, removed, modified, renamed, case-only
+sah pocket path ./my-mod a/b.lua --copy  # windows / posix / ini / lua path forms
+```
+
+Read-only by default — `clean-export` writes a _copy_, and deleting from the
+original takes `--in-place --yes`. Offline, deterministic, and confined to the
+folder you name: symlinks are never followed and nothing outside it is read.
+
+→ [Full guide](docs/getting-started/pocket-tools.md)
+
+> **Both parts inspect and prepare files. Neither proves a mod works in-game.**
+> Editor autocomplete checks names and argument counts, not whether a script can
+> be completed. A folder that passes every pocket-tool check can still be a
+> broken mod. See
+> [what is tested and what is not](docs/releases/0.1.0.md#what-is-tested-and-what-is-not).
+
+Release notes: [`docs/releases/0.1.0.md`](docs/releases/0.1.0.md).
+
+## Quick start
+
+Requires **Node.js 20+**. No game, no Mod Launcher, no network needed to run
+anything below.
+
+```sh
+git clone https://github.com/22500107Zc/springfield-after-hours-toolkit.git
+cd springfield-after-hours-toolkit
+npm install
+npm run build
+npm link -w packages/cli        # optional; makes `sah` available as a command
+
+sah doctor                      # what this machine can and cannot do
+```
+
+Without `npm link`, use `node packages/cli/dist/bin.js` in place of `sah`.
+
+**Set an editor up for mission scripting:**
+
+```sh
+sah lua-defs install ~/mods/my-mod --with-official          # shows the plan
+sah lua-defs install ~/mods/my-mod --with-official --apply  # writes it
+```
+
+**Prepare a mod folder for release:**
+
+```sh
+sah pocket case-check ~/mods/my-mod
+sah pocket clean-export ~/mods/my-mod ~/Desktop/my-mod-release
+sah pocket manifest ~/Desktop/my-mod-release -o ~/Desktop/my-mod-release/manifest.json
+```
+
+**Author a campaign:**
+
+```sh
+sah init my-campaign --id my-campaign --title "My Campaign"
+sah registry search character "Comic Book Guy"    # see what exists before referencing it
+sah mission new sneak-out -C my-campaign
+sah validate my-campaign
+sah build my-campaign
+```
+
+Every command takes `--json`. Exit codes are part of the contract.
+
 ## Current status: early foundation
 
 **Working today**
@@ -63,12 +160,25 @@ designed: a precise, itemised list of what the community still needs to verify.
 | `sah` CLI                                                   | 28 commands, meaningful exit codes                 |
 | SHAR Pocket Tools                                           | 6 offline file utilities, no game knowledge needed |
 
-**Not working yet, stated plainly**
+**Tested vs untested, stated plainly**
 
-- **Nothing here has been run in the actual game.** No one who built this had a
-  game installation, a Mod Launcher installation, or Windows. Generated files
-  match the documented formats and the mission Lua is checked against Game.lua's
-  own command tables — but "matches the documentation" is not "loads in the game".
+The line matters more than any feature in the table above, so it gets said
+twice:
+
+| Tested — by 416 automated tests on macOS, Windows and Linux                                     | Untested — no verified claim is made                             |
+| ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Generated definitions parse as real Lua 5.3, match the registry, and detect five kinds of drift | That a mod built by this toolkit loads                           |
+| `lua-defs install` writes what it plans, verifies pinned hashes, and refuses partial installs   | That a generated mission can be completed                        |
+| Every pocket tool's file behaviour: collisions, junk, symlinks, traversal, hashes, exit codes   | That autocomplete passing means a script works — **it does not** |
+| Determinism: byte-identical manifests across repeated runs, per platform                        | That two overlapping mods actually conflict at runtime           |
+
+**Nothing here has been run in the actual game.** No one who built this had a
+game installation, a Mod Launcher installation, or Windows. Generated files
+match the documented formats and the mission Lua is checked against Game.lua's
+own command tables — but "matches the documentation" is not "loads in the game".
+
+**Not working yet**
+
 - **The locations and vehicles registries are empty.** Not a placeholder — empty,
   because no source consulted so far states any of it.
 - **Only one objective compiles.** `dummy`, the documented no-op. Most objective
@@ -81,52 +191,14 @@ designed: a precise, itemised list of what the community still needs to verify.
 - **No plugin loader.** The contract is typed; running third-party code safely is
   not solved yet.
 
-## Install
+## Authoring a campaign
 
-Requires **Node.js 20+**. Works on macOS, Windows and Linux.
+The other half of the toolkit: describe a campaign in YAML, and it refuses to
+build anything it cannot verify. `npm run upstream:fetch` is needed here — it
+downloads Donut Team's `Game.lua` (MIT) into a git-ignored directory so a built
+mod can ship it.
 
-```sh
-git clone https://github.com/22500107Zc/springfield-after-hours-toolkit.git
-cd springfield-after-hours-toolkit
-npm install
-npm run build
-npm run upstream:fetch   # downloads Donut Team's Game.lua (MIT), not bundled here
-```
-
-Check your environment:
-
-```sh
-node packages/cli/dist/bin.js doctor
-```
-
-`doctor` tells you the truth about your platform — including that the Mod
-Launcher is a Windows application and cannot be launched natively from macOS or
-Linux.
-
-## Quick start
-
-```sh
-# Create a campaign workspace that validates out of the box
-sah init my-campaign --id my-campaign --title "My Campaign"
-
-# See what content actually exists before you reference it
-sah registry search character "Comic Book Guy"
-sah registry search command AddStage
-sah registry list levels
-
-# Author, then check
-sah mission new sneak-out -C my-campaign
-sah validate my-campaign
-
-# Build
-sah build my-campaign --dry-run
-sah build my-campaign
-sah package my-campaign
-```
-
-(`sah` is `node packages/cli/dist/bin.js` until you link it.)
-
-### What a build produces
+A build produces:
 
 ```
 build/
@@ -155,6 +227,10 @@ Game.SelectMission("m0")
 Game.CloseMission()
 ```
 
+`sah doctor` tells you the truth about your platform — including that the Mod
+Launcher is a Windows application and cannot be launched natively from macOS or
+Linux. Full guide: [`docs/getting-started/authoring.md`](docs/getting-started/authoring.md).
+
 ## The registry
 
 Every record carries provenance and one of six verification statuses:
@@ -181,54 +257,6 @@ later.
 
 **Expanding the locator and vehicle registries is the highest-value contribution
 to this project.** See [`docs/registries/README.md`](docs/registries/README.md).
-
-## Editor autocomplete for mission scripts
-
-Game.lua builds its `Game` table at runtime, so editors know nothing about
-`Game.AddStage` or the other 338 commands. Donut Team's published Lua Language
-Server definitions cover the Custom Files API (`Output`, `GetModPath`, …) and
-stop there, by design.
-
-This repository generates the missing half from the same verified command
-registry:
-
-```sh
-node packages/cli/dist/bin.js lua-defs install ~/path/to/your-mod --with-official
-# review the plan, then:
-node packages/cli/dist/bin.js lua-defs install ~/path/to/your-mod --with-official --apply
-```
-
-You get completion for all 339 commands plus their 10 `Not_` inverses, hover
-docs carrying each command's scope and argument range, and real
-argument-count checking — LuaLS's `missing-parameter` and `redundant-parameter`
-are both on by default, and the generated signatures encode both bounds.
-
-Argument _types_ are `any` and scope rules are documentation only, because
-neither is documented upstream and a language server cannot verify call
-placement. `sah validate` does enforce scope. Full guide:
-[`docs/getting-started/lua-definitions.md`](docs/getting-started/lua-definitions.md).
-
-## SHAR Pocket Tools
-
-Six tiny utilities for the part of modding that is not authoring — cleaning,
-comparing and preparing mod folders. They know nothing about the game, which is
-exactly why they work today while the location and vehicle registries are empty.
-
-```sh
-sah pocket case-check ./my-mod          # paths and references that differ only by case
-sah pocket clean-export ./my-mod ./out  # a copy without .DS_Store, __MACOSX, editor junk
-sah pocket conflicts ./mod-a ./mod-b    # paths supplied by more than one mod
-sah pocket manifest ./my-mod            # deterministic path + size + SHA-256 record
-sah pocket diff ./v1 ./v2               # added, removed, modified, renamed, case-only
-sah pocket path ./my-mod a/b.lua --copy # windows / posix / ini / lua path forms
-```
-
-Read-only by default — `clean-export` writes a _copy_, and deleting from the
-original takes `--in-place --yes`. Offline, deterministic, and confined to the
-folder you name: symlinks are never followed and nothing outside it is read.
-
-**They inspect and prepare files; they do not prove a mod works in-game.** Full
-guide: [`docs/getting-started/pocket-tools.md`](docs/getting-started/pocket-tools.md).
 
 ## Claude Code and MCP
 
