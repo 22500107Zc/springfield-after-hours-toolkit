@@ -22,6 +22,7 @@ const steps = [
     'node',
     ['packages/cli/dist/bin.js', 'build', 'examples/minimal-campaign', '--dry-run'],
   ],
+  ['pocket tools smoke test', 'node', ['scripts/development/pocket-smoke.mjs']],
 ];
 
 const results = [];

@@ -1,0 +1,20 @@
+{
+  "name": "@sah/pocket-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Six small, offline utilities for people shipping Mod Launcher mods: case checking, Mac junk removal, conflict detection, manifests, release diffs and Windows path conversion.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sah/core": "0.1.0"
+  }
+}

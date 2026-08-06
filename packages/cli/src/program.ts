@@ -10,6 +10,14 @@ import { runConfig, runExplain, runPackage } from './commands/misc.js';
 import { runAiCommand } from './commands/ai.js';
 import { runMcpStart } from './commands/mcp.js';
 import { runLuaDefsCheck, runLuaDefsGenerate, runLuaDefsInstall } from './commands/lua-defs.js';
+import {
+  runPocketCaseCheck,
+  runPocketCleanExport,
+  runPocketConflicts,
+  runPocketDiff,
+  runPocketManifest,
+  runPocketPath,
+} from './commands/pocket.js';
 import { toolkitVersion } from './context.js';
 import { printError } from './output.js';
 
@@ -423,6 +431,131 @@ export function createProgram(): Command {
             projectRoot: modProject,
             withOfficial: options.withOfficial,
             apply: options.apply,
+            json: options.json,
+          }),
+        );
+      },
+    );
+
+  // --- pocket -----------------------------------------------------------------
+  // Six small filesystem utilities. They know nothing about the game, so they
+  // work on any mod folder — including one this toolkit did not build.
+  const pocket = program
+    .command('pocket')
+    .description('SHAR Pocket Tools — clean, compare and prepare mod folders');
+
+  pocket
+    .command('case-check')
+    .alias('case')
+    .description('Find paths that differ only by case, and references whose casing is wrong')
+    .argument('<directory>', 'mod folder to check')
+    .option('--no-references', 'only check filenames; do not read text files')
+    .option('--json', 'machine-readable output', false)
+    .action((directory: string, options: { references: boolean; json: boolean }) => {
+      setExit(
+        runPocketCaseCheck({
+          directory,
+          references: options.references,
+          json: options.json,
+        }),
+      );
+    });
+
+  pocket
+    .command('clean-export')
+    .alias('clean')
+    .description('Copy a mod folder without .DS_Store, AppleDouble, __MACOSX and other junk')
+    .argument('<source>', 'mod folder to clean')
+    .argument('[destination]', 'where to write the clean copy (omit to preview only)')
+    .option('--in-place', 'delete junk from the original folder instead of copying', false)
+    .option('--yes', 'confirm an --in-place deletion', false)
+    .option('--force', 'allow writing into a destination that is not empty', false)
+    .option('--json', 'machine-readable output', false)
+    .action(
+      (
+        source: string,
+        destination: string | undefined,
+        options: { inPlace: boolean; yes: boolean; force: boolean; json: boolean },
+      ) => {
+        setExit(
+          runPocketCleanExport({
+            source,
+            ...(destination ? { destination } : {}),
+            inPlace: options.inPlace,
+            yes: options.yes,
+            force: options.force,
+            json: options.json,
+          }),
+        );
+      },
+    );
+
+  pocket
+    .command('conflicts')
+    .description('Report paths supplied by more than one mod')
+    .argument('<directories...>', 'two or more mod folders')
+    .option('--json', 'machine-readable output', false)
+    .action((directories: string[], options: { json: boolean }) => {
+      setExit(runPocketConflicts({ directories, json: options.json }));
+    });
+
+  pocket
+    .command('manifest')
+    .description('Record every file, its size and its SHA-256, deterministically')
+    .argument('<directory>', 'mod folder to record')
+    .option('-o, --output <file>', 'write to a file instead of standard output')
+    .option('--format <format>', 'json or text', 'json')
+    .option('--json', 'machine-readable status output (implied without --output)', false)
+    .action((directory: string, options: { output?: string; format: string; json: boolean }) => {
+      if (options.format !== 'json' && options.format !== 'text') {
+        printError(`Unknown format "${options.format}". Use json or text.`);
+        setExit(EXIT_CODES.USAGE);
+        return;
+      }
+      setExit(
+        runPocketManifest({
+          directory,
+          ...(options.output ? { output: options.output } : {}),
+          format: options.format,
+          json: options.json,
+        }),
+      );
+    });
+
+  pocket
+    .command('diff')
+    .description('Compare two mod releases or two manifests')
+    .argument('<old>', 'the earlier folder or manifest')
+    .argument('<new>', 'the later folder or manifest')
+    .option('--show-unchanged', 'list unchanged files as well as counting them', false)
+    .option('--json', 'machine-readable output', false)
+    .action((before: string, after: string, options: { showUnchanged: boolean; json: boolean }) => {
+      setExit(
+        runPocketDiff({
+          before,
+          after,
+          showUnchanged: options.showUnchanged,
+          json: options.json,
+        }),
+      );
+    });
+
+  pocket
+    .command('path')
+    .description('Convert a file inside a mod project to the path forms mods are written with')
+    .argument('<project>', 'the mod project folder')
+    .argument('<file>', 'a file inside it')
+    .option('--form <form>', 'print one form only: windows, posix, ini or lua')
+    .option('--copy', 'also copy it to the clipboard', false)
+    .option('--json', 'machine-readable output', false)
+    .action(
+      (project: string, file: string, options: { form?: string; copy: boolean; json: boolean }) => {
+        setExit(
+          runPocketPath({
+            project,
+            file,
+            ...(options.form ? { form: options.form } : {}),
+            copy: options.copy,
             json: options.json,
           }),
         );

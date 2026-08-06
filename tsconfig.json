@@ -35,6 +35,9 @@
       "path": "packages/mcp-server"
     },
     {
+      "path": "packages/pocket-tools"
+    },
+    {
       "path": "packages/cli"
     }
   ]

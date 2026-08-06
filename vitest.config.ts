@@ -20,6 +20,7 @@ export default defineConfig({
       '@sah/adapter-game-lua': pkg('adapter-game-lua'),
       '@sah/game-lua-definitions': pkg('game-lua-definitions'),
       '@sah/adapter-lucas-launcher': pkg('adapter-lucas-launcher'),
+      '@sah/pocket-tools': pkg('pocket-tools'),
       '@sah/plugin-sdk': pkg('plugin-sdk'),
       '@sah/ai': pkg('ai'),
       '@sah/mcp-server': pkg('mcp-server'),
