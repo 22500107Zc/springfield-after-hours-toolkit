@@ -61,7 +61,9 @@ node packages/cli/dist/bin.js lua-defs install ~/path/to/your-mod --with-officia
 **4. Open the project in VS Code** and install the
 [Lua extension by sumneko](https://marketplace.visualstudio.com/items?itemName=sumneko.lua).
 
-That is it. Type `Game.` in a mission script and you should get 349 completions.
+That is it. Type `Game.` in a mission script and you should get 351 completions:
+339 commands, their 10 `Not_` inverses, and `Game.EndIf()` and `Game.Not()`,
+which Game.lua defines outside its command tables.
 
 ### Windows and Linux
 

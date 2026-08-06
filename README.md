@@ -59,8 +59,9 @@ designed: a precise, itemised list of what the community still needs to verify.
 | Mission Lua generation via `Game.lua`                       | arity- and scope-checked against upstream          |
 | Build manifest                                              | SHA-256 per file, provenance per fact              |
 | Local MCP server                                            | 12 sandboxed tools for Claude Code                 |
-| Editor autocomplete for `Game.*`                            | 349 LuaLS definitions, generated from the registry |
-| `sah` CLI                                                   | 19 commands, meaningful exit codes                 |
+| Editor autocomplete for `Game.*`                            | 351 LuaLS definitions, generated from the registry |
+| `sah` CLI                                                   | 28 commands, meaningful exit codes                 |
+| SHAR Pocket Tools                                           | 6 offline file utilities, no game knowledge needed |
 
 **Not working yet, stated plainly**
 
@@ -206,6 +207,28 @@ Argument _types_ are `any` and scope rules are documentation only, because
 neither is documented upstream and a language server cannot verify call
 placement. `sah validate` does enforce scope. Full guide:
 [`docs/getting-started/lua-definitions.md`](docs/getting-started/lua-definitions.md).
+
+## SHAR Pocket Tools
+
+Six tiny utilities for the part of modding that is not authoring — cleaning,
+comparing and preparing mod folders. They know nothing about the game, which is
+exactly why they work today while the location and vehicle registries are empty.
+
+```sh
+sah pocket case-check ./my-mod          # paths and references that differ only by case
+sah pocket clean-export ./my-mod ./out  # a copy without .DS_Store, __MACOSX, editor junk
+sah pocket conflicts ./mod-a ./mod-b    # paths supplied by more than one mod
+sah pocket manifest ./my-mod            # deterministic path + size + SHA-256 record
+sah pocket diff ./v1 ./v2               # added, removed, modified, renamed, case-only
+sah pocket path ./my-mod a/b.lua --copy # windows / posix / ini / lua path forms
+```
+
+Read-only by default — `clean-export` writes a _copy_, and deleting from the
+original takes `--in-place --yes`. Offline, deterministic, and confined to the
+folder you name: symlinks are never followed and nothing outside it is read.
+
+**They inspect and prepare files; they do not prove a mod works in-game.** Full
+guide: [`docs/getting-started/pocket-tools.md`](docs/getting-started/pocket-tools.md).
 
 ## Claude Code and MCP
 
