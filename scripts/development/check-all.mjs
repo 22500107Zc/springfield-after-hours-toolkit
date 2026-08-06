@@ -16,6 +16,7 @@ const steps = [
   ['test', 'npm', ['test']],
   ['build', 'npm', ['run', 'build']],
   ['registry drift', 'node', ['scripts/research/derive-command-registry.mjs', '--check']],
+  ['lua definitions current', 'node', ['packages/cli/dist/bin.js', 'lua-defs', 'check']],
   [
     'minimal campaign builds',
     'node',

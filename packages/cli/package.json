@@ -21,6 +21,7 @@
     "@sah/ai": "0.1.0",
     "@sah/compiler": "0.1.0",
     "@sah/core": "0.1.0",
+    "@sah/game-lua-definitions": "0.1.0",
     "@sah/mcp-server": "0.1.0",
     "@sah/registry": "0.1.0",
     "@sah/schemas": "0.1.0",

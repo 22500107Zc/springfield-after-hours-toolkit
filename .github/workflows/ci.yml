@@ -72,6 +72,12 @@ jobs:
             console.log(`doctor reported ${report.checks.length} checks on ${report.platform.platform}`);
           '
 
+      - name: Lua definitions are current
+        shell: bash
+        run: |
+          node packages/cli/dist/bin.js lua-defs generate --check
+          node packages/cli/dist/bin.js lua-defs check
+
       - name: The minimal campaign must build
         shell: bash
         run: node packages/cli/dist/bin.js build examples/minimal-campaign --dry-run
@@ -107,6 +113,12 @@ jobs:
 
       - name: Command registry matches upstream Game.lua
         run: node scripts/research/derive-command-registry.mjs --check
+
+      - name: Build (needed for the sah CLI)
+        run: npm run build
+
+      - name: Lua definitions cover the registry and have not drifted
+        run: node packages/cli/dist/bin.js lua-defs check
 
   hygiene:
     name: No secrets or game assets

@@ -18,6 +18,7 @@ export default defineConfig({
       '@sah/validator': pkg('validator'),
       '@sah/compiler': pkg('compiler'),
       '@sah/adapter-game-lua': pkg('adapter-game-lua'),
+      '@sah/game-lua-definitions': pkg('game-lua-definitions'),
       '@sah/adapter-lucas-launcher': pkg('adapter-lucas-launcher'),
       '@sah/plugin-sdk': pkg('plugin-sdk'),
       '@sah/ai': pkg('ai'),

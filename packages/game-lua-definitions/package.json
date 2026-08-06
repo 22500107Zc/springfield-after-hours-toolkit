@@ -1,0 +1,24 @@
+{
+  "name": "@sah/game-lua-definitions",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Generates Lua Language Server definitions for the Game.* mission commands provided by Donut Team's Game.lua.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "generated"
+  ],
+  "dependencies": {
+    "@sah/adapter-game-lua": "0.1.0",
+    "@sah/core": "0.1.0",
+    "@sah/registry": "0.1.0",
+    "@sah/schemas": "0.1.0"
+  }
+}

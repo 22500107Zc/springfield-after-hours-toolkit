@@ -29,6 +29,23 @@ above all — and **objective parameter documentation**.
 - Optional AI package: guardrails and proposal validation
 - 163 tests, CI on three platforms and two Node versions
 
+## Milestone 1b — Game.lua editor definitions ✅ done
+
+A small, self-contained product that is useful on its own, and the first piece
+of this repository that could reasonably be offered to Donut Team.
+
+- Generates `Game.meta.lua` for all 339 commands plus 10 `Not_` inverses
+- Derived mechanically from the command registry; no hand-transcription
+- Arity encoded as optional parameters, so LuaLS enforces both bounds
+- Scope, providing hack, and upstream "unused"/"commented" markers in hover docs
+- `sah lua-defs generate`, `check`, `install`
+- `install` merges editor settings rather than overwriting, and verifies
+  Donut Team's official definitions against pinned hashes
+- Drift from the registry, the artifact or the upstream pin fails CI
+
+Deliberately not done: argument names and types, which are undocumented
+upstream, and scope _enforcement_, which a language server cannot do.
+
 ## Milestone 2 — First verified mission 🔜 next
 
 The single most valuable next step, and it needs someone with the game.

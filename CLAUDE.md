@@ -99,6 +99,7 @@ packages/validator                campaign rules -> diagnostics
 packages/adapter-game-lua         Game.* emission with scope/arity checking
 packages/adapter-lucas-launcher   Meta.ini / CustomFiles.ini / CustomFiles.lua
 packages/compiler                 validate -> generate -> manifest
+packages/game-lua-definitions     Game.meta.lua for Lua Language Server
 packages/cli                      the sah binary
 packages/mcp-server               sandboxed MCP tools
 packages/ai                       optional Anthropic integration

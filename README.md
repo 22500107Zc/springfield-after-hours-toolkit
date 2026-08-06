@@ -49,17 +49,18 @@ designed: a precise, itemised list of what the community still needs to verify.
 
 **Working today**
 
-| Capability                                                  | State                                             |
-| ----------------------------------------------------------- | ------------------------------------------------- |
-| Campaign / mission / dialogue / preset authoring in YAML    | schema-validated                                  |
-| Registry of verified game content                           | 487 records, all with provenance                  |
-| Validation                                                  | 30 diagnostic codes, machine-readable JSON output |
-| Deterministic build                                         | byte-identical output from identical input        |
-| `Meta.ini`, `CustomFiles.ini`, `CustomFiles.lua` generation | matches documented formats                        |
-| Mission Lua generation via `Game.lua`                       | arity- and scope-checked against upstream         |
-| Build manifest                                              | SHA-256 per file, provenance per fact             |
-| Local MCP server                                            | 12 sandboxed tools for Claude Code                |
-| `sah` CLI                                                   | 16 commands, meaningful exit codes                |
+| Capability                                                  | State                                              |
+| ----------------------------------------------------------- | -------------------------------------------------- |
+| Campaign / mission / dialogue / preset authoring in YAML    | schema-validated                                   |
+| Registry of verified game content                           | 487 records, all with provenance                   |
+| Validation                                                  | 30 diagnostic codes, machine-readable JSON output  |
+| Deterministic build                                         | byte-identical output from identical input         |
+| `Meta.ini`, `CustomFiles.ini`, `CustomFiles.lua` generation | matches documented formats                         |
+| Mission Lua generation via `Game.lua`                       | arity- and scope-checked against upstream          |
+| Build manifest                                              | SHA-256 per file, provenance per fact              |
+| Local MCP server                                            | 12 sandboxed tools for Claude Code                 |
+| Editor autocomplete for `Game.*`                            | 349 LuaLS definitions, generated from the registry |
+| `sah` CLI                                                   | 19 commands, meaningful exit codes                 |
 
 **Not working yet, stated plainly**
 
@@ -179,6 +180,32 @@ later.
 
 **Expanding the locator and vehicle registries is the highest-value contribution
 to this project.** See [`docs/registries/README.md`](docs/registries/README.md).
+
+## Editor autocomplete for mission scripts
+
+Game.lua builds its `Game` table at runtime, so editors know nothing about
+`Game.AddStage` or the other 338 commands. Donut Team's published Lua Language
+Server definitions cover the Custom Files API (`Output`, `GetModPath`, …) and
+stop there, by design.
+
+This repository generates the missing half from the same verified command
+registry:
+
+```sh
+node packages/cli/dist/bin.js lua-defs install ~/path/to/your-mod --with-official
+# review the plan, then:
+node packages/cli/dist/bin.js lua-defs install ~/path/to/your-mod --with-official --apply
+```
+
+You get completion for all 339 commands plus their 10 `Not_` inverses, hover
+docs carrying each command's scope and argument range, and real
+argument-count checking — LuaLS's `missing-parameter` and `redundant-parameter`
+are both on by default, and the generated signatures encode both bounds.
+
+Argument _types_ are `any` and scope rules are documentation only, because
+neither is documented upstream and a language server cannot verify call
+placement. `sah validate` does enforce scope. Full guide:
+[`docs/getting-started/lua-definitions.md`](docs/getting-started/lua-definitions.md).
 
 ## Claude Code and MCP
 

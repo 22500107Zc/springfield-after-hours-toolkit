@@ -54,6 +54,9 @@ Dependencies flow strictly downward. Compile-time project references enforce it.
     ┌────▼────┐  ┌─────▼──────┐  ┌──▼───┐  ┌────▼─────┐
     │   cli   │  │ mcp-server │  │  ai  │  │plugin-sdk│
     └─────────┘  └────────────┘  └──────┘  └──────────┘
+
+    game-lua-definitions sits beside the compiler: it reads the same
+    command registry, but emits editor metadata rather than mod output.
 ```
 
 `compiler` never imports `cli`. `registry` never imports `validator`. If you
@@ -134,6 +137,28 @@ Two jobs, kept apart:
 It also resolves registry ids to **game codes**. The registry knows
 `level1-carstart`; the game knows `level1_carstart`. Emitting the former would
 produce a mod full of identifiers the game has never heard of.
+
+### `game-lua-definitions`
+
+Generates `Game.meta.lua`, a Lua Language Server definition file for the 339
+`Game.*` commands.
+
+It exists because Game.lua builds its command table **at runtime** — `AddCommand`
+installs a closure per command — so no editor can discover those functions by
+reading source. Donut Team's published definitions cover the Custom Files API and
+deliberately stop there; this fills the other half.
+
+Everything is derived from the command registry, so the definitions inherit its
+provenance. Arity becomes optional parameters (`AddStage` accepts 0-7, so all
+seven are `?`), which makes LuaLS enforce _both_ bounds through its
+`missing-parameter` and `redundant-parameter` diagnostics. Scope is documented
+but not enforced, and the file says so — a language server cannot know where in
+an emitted script a call lands. Argument names and types are `argN: any`,
+because no source read by this project documents them.
+
+`sah lua-defs check` re-reads the artifact rather than trusting the generator,
+and fails on four separate kinds of drift: a missing command, an invented one,
+arity or scope that no longer matches the registry, and a stale upstream pin.
 
 ### `adapter-lucas-launcher`
 

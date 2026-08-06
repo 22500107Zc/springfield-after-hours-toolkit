@@ -9,6 +9,7 @@ import { runScaffold } from './commands/scaffold.js';
 import { runConfig, runExplain, runPackage } from './commands/misc.js';
 import { runAiCommand } from './commands/ai.js';
 import { runMcpStart } from './commands/mcp.js';
+import { runLuaDefsCheck, runLuaDefsGenerate, runLuaDefsInstall } from './commands/lua-defs.js';
 import { toolkitVersion } from './context.js';
 import { printError } from './output.js';
 
@@ -369,6 +370,64 @@ export function createProgram(): Command {
         }),
       );
     });
+
+  // --- lua-defs ---------------------------------------------------------------
+  const luaDefs = program
+    .command('lua-defs')
+    .description('Lua Language Server definitions for the Game.* mission commands');
+
+  luaDefs
+    .command('generate')
+    .description('Generate Game.meta.lua from the verified command registry')
+    .option('-o, --output <file>', 'output path (defaults to the packaged artifact)')
+    .option('--check', 'fail if the artifact is out of date instead of writing it', false)
+    .option('--json', 'machine-readable output', false)
+    .action((options: { output?: string; check: boolean; json: boolean }) => {
+      setExit(
+        runLuaDefsGenerate({
+          ...(options.output ? { output: options.output } : {}),
+          check: options.check,
+          json: options.json,
+        }),
+      );
+    });
+
+  luaDefs
+    .command('check')
+    .description('Verify the definitions against the registry and the pinned upstream commit')
+    .option('-f, --file <file>', 'definitions file to check')
+    .option('--json', 'machine-readable output', false)
+    .action((options: { file?: string; json: boolean }) => {
+      setExit(
+        runLuaDefsCheck({
+          ...(options.file ? { file: options.file } : {}),
+          json: options.json,
+        }),
+      );
+    });
+
+  luaDefs
+    .command('install')
+    .description('Set up a mod project to use these definitions in an editor')
+    .argument('<mod-project>', 'path to the mod project to configure')
+    .option('--with-official', "also install Donut Team's official Custom Files definitions", false)
+    .option('--apply', 'write the changes (without this, the plan is only shown)', false)
+    .option('--json', 'machine-readable output', false)
+    .action(
+      async (
+        modProject: string,
+        options: { withOfficial: boolean; apply: boolean; json: boolean },
+      ) => {
+        setExit(
+          await runLuaDefsInstall({
+            projectRoot: modProject,
+            withOfficial: options.withOfficial,
+            apply: options.apply,
+            json: options.json,
+          }),
+        );
+      },
+    );
 
   // --- mcp --------------------------------------------------------------------
   const mcp = program.command('mcp').description('Local MCP server for Claude Code');

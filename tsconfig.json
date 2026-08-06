@@ -1,16 +1,41 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/core" },
-    { "path": "packages/schemas" },
-    { "path": "packages/registry" },
-    { "path": "packages/validator" },
-    { "path": "packages/adapter-game-lua" },
-    { "path": "packages/adapter-lucas-launcher" },
-    { "path": "packages/compiler" },
-    { "path": "packages/plugin-sdk" },
-    { "path": "packages/ai" },
-    { "path": "packages/mcp-server" },
-    { "path": "packages/cli" }
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/schemas"
+    },
+    {
+      "path": "packages/registry"
+    },
+    {
+      "path": "packages/validator"
+    },
+    {
+      "path": "packages/adapter-game-lua"
+    },
+    {
+      "path": "packages/adapter-lucas-launcher"
+    },
+    {
+      "path": "packages/compiler"
+    },
+    {
+      "path": "packages/game-lua-definitions"
+    },
+    {
+      "path": "packages/plugin-sdk"
+    },
+    {
+      "path": "packages/ai"
+    },
+    {
+      "path": "packages/mcp-server"
+    },
+    {
+      "path": "packages/cli"
+    }
   ]
 }
