@@ -1,0 +1,255 @@
+name: Release
+
+# Manual only. Nothing here ever runs on a push, a pull request or a schedule —
+# publishing is always a deliberate human act.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag to create, e.g. v0.1.0'
+        required: true
+        default: 'v0.1.0'
+      commit:
+        description: 'Full 40-character commit SHA to release. Must already be on main.'
+        required: true
+        default: '6aa7cd4687a94474094fe6ca05a50a4afcc044e1'
+      title:
+        description: 'Release title'
+        required: true
+        default: 'Springfield After Hours Toolkit 0.1.0'
+
+# The only permission this workflow needs is the ability to write a tag and a
+# release. It uses the automatically-provided GITHUB_TOKEN — there is no
+# personal access token, and no repository secret, anywhere in this file.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish ${{ inputs.version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # --- input validation, before anything is fetched or written ------------
+
+      - name: Validate the version format
+        run: |
+          set -euo pipefail
+          version='${{ inputs.version }}'
+          if ! printf '%s' "$version" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::\"$version\" is not a vX.Y.Z version tag."
+            exit 1
+          fi
+          echo "Version $version is well formed."
+
+      - name: Validate the commit format
+        run: |
+          set -euo pipefail
+          commit='${{ inputs.commit }}'
+          if ! printf '%s' "$commit" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::\"$commit\" is not a full 40-character commit SHA."
+            echo "::error::Release a specific verified commit, not a branch name."
+            exit 1
+          fi
+          echo "Commit $commit is well formed."
+
+      # --- two checkouts, deliberately ---------------------------------------
+      #
+      # `product/` is the commit being released. It is the thing that gets
+      # tested, tagged, and whose Game.meta.lua ships. It does NOT contain this
+      # workflow, and must not need to: a release must be reproducible from the
+      # verified product commit alone.
+      #
+      # `packaging/` is whatever ref the release was dispatched from. It holds
+      # this workflow and the artifact README. Keeping the two apart is what
+      # lets release packaging change without ever retagging the product.
+
+      - name: Check out the product commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
+          path: product
+          fetch-depth: 0
+
+      - name: Check out the packaging ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: packaging
+          fetch-depth: 1
+
+      # --- refuse anything that would overwrite or surprise -------------------
+
+      - name: The commit must already be on main
+        working-directory: product
+        run: |
+          set -euo pipefail
+          git fetch origin main --depth=0 --quiet
+          if ! git merge-base --is-ancestor '${{ inputs.commit }}' origin/main; then
+            echo "::error::${{ inputs.commit }} is not an ancestor of main."
+            echo "::error::Only commits that have been reviewed and merged can be released."
+            exit 1
+          fi
+          echo "Commit is on main."
+
+      - name: Refuse to overwrite an existing tag
+        working-directory: product
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin 'refs/tags/${{ inputs.version }}' >/dev/null 2>&1; then
+            echo "::error::Tag ${{ inputs.version }} already exists. Refusing to move or replace it."
+            echo "::error::A published version is immutable. Release a new version instead."
+            exit 1
+          fi
+          echo "Tag ${{ inputs.version }} does not exist."
+
+      - name: Refuse to overwrite an existing release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if gh release view '${{ inputs.version }}' \
+               --repo '${{ github.repository }}' >/dev/null 2>&1; then
+            echo "::error::A release for ${{ inputs.version }} already exists. Refusing to replace it."
+            exit 1
+          fi
+          echo "No release exists for ${{ inputs.version }}."
+
+      # --- verify the product before publishing anything ----------------------
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: product/package-lock.json
+
+      - name: Install
+        working-directory: product
+        run: npm ci
+
+      - name: Build
+        working-directory: product
+        run: npm run build
+
+      - name: Full check suite
+        working-directory: product
+        run: npm run check
+
+      - name: Generated Lua definitions are current
+        working-directory: product
+        run: |
+          set -euo pipefail
+          # Two separate questions, both worth asking before shipping the file:
+          #   generate --check  — is the committed artifact byte-identical to
+          #                       what the generator produces right now?
+          #   check             — does it still cover the registry, invent
+          #                       nothing, and match the pinned upstream commit?
+          node packages/cli/dist/bin.js lua-defs generate --check
+          node packages/cli/dist/bin.js lua-defs check
+
+      # --- assemble artifacts -------------------------------------------------
+
+      - name: Assemble release artifacts
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+
+          cp product/packages/game-lua-definitions/generated/Game.meta.lua artifacts/
+          cp packaging/docs/releases/artifacts/Game.meta.lua.README.md artifacts/
+
+          # Checksums are computed here, over the exact bytes being uploaded.
+          # Never copied from a previous run or from a person's notes — a
+          # checksum that is not derived from the artifact proves nothing.
+          cd artifacts
+          sha256sum Game.meta.lua Game.meta.lua.README.md > SHA256SUMS.txt
+
+          echo "### Artifact checksums" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat SHA256SUMS.txt
+
+      - name: Release notes must exist on the product commit
+        run: |
+          set -euo pipefail
+          version='${{ inputs.version }}'
+          notes="product/docs/releases/${version#v}.md"
+          if [ ! -f "$notes" ]; then
+            echo "::error::Expected release notes at ${notes#product/} on the released commit."
+            exit 1
+          fi
+          echo "NOTES_FILE=$notes" >> "$GITHUB_ENV"
+          echo "Using release notes from ${notes#product/}"
+
+      # --- publish ------------------------------------------------------------
+
+      - name: Create the annotated tag
+        working-directory: product
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git tag -a '${{ inputs.version }}' '${{ inputs.commit }}' -m '${{ inputs.title }}'
+          git push origin 'refs/tags/${{ inputs.version }}'
+
+          echo "Tagged ${{ inputs.commit }} as ${{ inputs.version }}."
+
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh release create '${{ inputs.version }}' \
+            --repo '${{ github.repository }}' \
+            --target '${{ inputs.commit }}' \
+            --title '${{ inputs.title }}' \
+            --notes-file "$NOTES_FILE" \
+            --verify-tag \
+            artifacts/Game.meta.lua \
+            artifacts/Game.meta.lua.README.md \
+            artifacts/SHA256SUMS.txt
+
+      # --- confirm what was actually published --------------------------------
+
+      - name: Verify the published release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "--- release ---"
+          gh release view '${{ inputs.version }}' \
+            --repo '${{ github.repository }}' \
+            --json tagName,name,isDraft,isPrerelease,targetCommitish,assets
+
+          echo "--- the tag points at the commit we were asked to release ---"
+          tagged=$(gh api \
+            "repos/${{ github.repository }}/git/refs/tags/${{ inputs.version }}" \
+            --jq '.object.sha')
+          # An annotated tag's ref points at the tag object, so dereference it.
+          target=$(gh api "repos/${{ github.repository }}/git/tags/$tagged" \
+            --jq '.object.sha' 2>/dev/null || printf '%s' "$tagged")
+
+          if [ "$target" != '${{ inputs.commit }}' ]; then
+            echo "::error::Tag resolves to $target, expected ${{ inputs.commit }}."
+            exit 1
+          fi
+          echo "Tag ${{ inputs.version }} correctly targets $target."
+
+          echo "--- all three artifacts are attached ---"
+          for asset in Game.meta.lua Game.meta.lua.README.md SHA256SUMS.txt; do
+            if ! gh release view '${{ inputs.version }}' \
+                   --repo '${{ github.repository }}' \
+                   --json assets --jq '.assets[].name' | grep -qx "$asset"; then
+              echo "::error::$asset is missing from the release."
+              exit 1
+            fi
+            echo "  attached: $asset"
+          done
+
+          {
+            echo "### Published"
+            echo ""
+            echo "- Release: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ inputs.version }}"
+            echo "- Tag target: \`${{ inputs.commit }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

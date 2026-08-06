@@ -143,3 +143,8 @@ is a genuinely welcome contribution.
 ## Code of conduct
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+## Releasing
+
+Releases are published by manually dispatching the **Release** workflow. See
+[`docs/releases/README.md`](docs/releases/README.md).
