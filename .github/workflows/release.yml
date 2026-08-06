@@ -84,13 +84,28 @@ jobs:
         working-directory: product
         run: |
           set -euo pipefail
-          git fetch origin main --depth=0 --quiet
-          if ! git merge-base --is-ancestor '${{ inputs.commit }}' origin/main; then
+          # FETCH_HEAD rather than origin/main: the checkout was made at a bare
+          # SHA, so a remote-tracking branch is not guaranteed to exist.
+          git fetch origin main --quiet
+          if ! git merge-base --is-ancestor '${{ inputs.commit }}' FETCH_HEAD; then
             echo "::error::${{ inputs.commit }} is not an ancestor of main."
             echo "::error::Only commits that have been reviewed and merged can be released."
             exit 1
           fi
           echo "Commit is on main."
+
+      - name: Release notes must exist on the product commit
+        run: |
+          set -euo pipefail
+          version='${{ inputs.version }}'
+          notes="product/docs/releases/${version#v}.md"
+          if [ ! -f "$notes" ]; then
+            echo "::error::Expected release notes at ${notes#product/} on the released commit."
+            echo "::error::Write them, merge them, and release a commit that contains them."
+            exit 1
+          fi
+          echo "NOTES_FILE=$notes" >> "$GITHUB_ENV"
+          echo "Using release notes from ${notes#product/}"
 
       - name: Refuse to overwrite an existing tag
         working-directory: product
@@ -168,18 +183,6 @@ jobs:
           cat SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           cat SHA256SUMS.txt
-
-      - name: Release notes must exist on the product commit
-        run: |
-          set -euo pipefail
-          version='${{ inputs.version }}'
-          notes="product/docs/releases/${version#v}.md"
-          if [ ! -f "$notes" ]; then
-            echo "::error::Expected release notes at ${notes#product/} on the released commit."
-            exit 1
-          fi
-          echo "NOTES_FILE=$notes" >> "$GITHUB_ENV"
-          echo "Using release notes from ${notes#product/}"
 
       # --- publish ------------------------------------------------------------
 
