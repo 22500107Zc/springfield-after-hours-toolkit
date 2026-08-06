@@ -16,11 +16,13 @@ const steps = [
   ['test', 'npm', ['test']],
   ['build', 'npm', ['run', 'build']],
   ['registry drift', 'node', ['scripts/research/derive-command-registry.mjs', '--check']],
+  ['lua definitions current', 'node', ['packages/cli/dist/bin.js', 'lua-defs', 'check']],
   [
     'minimal campaign builds',
     'node',
     ['packages/cli/dist/bin.js', 'build', 'examples/minimal-campaign', '--dry-run'],
   ],
+  ['pocket tools smoke test', 'node', ['scripts/development/pocket-smoke.mjs']],
 ];
 
 const results = [];

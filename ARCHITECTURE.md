@@ -54,6 +54,13 @@ Dependencies flow strictly downward. Compile-time project references enforce it.
     ┌────▼────┐  ┌─────▼──────┐  ┌──▼───┐  ┌────▼─────┐
     │   cli   │  │ mcp-server │  │  ai  │  │plugin-sdk│
     └─────────┘  └────────────┘  └──────┘  └──────────┘
+
+    game-lua-definitions sits beside the compiler: it reads the same
+    command registry, but emits editor metadata rather than mod output.
+
+    pocket-tools hangs off core alone. It deliberately knows nothing
+    about campaigns, registries or the game, so it depends on nothing
+    that does.
 ```
 
 `compiler` never imports `cli`. `registry` never imports `validator`. If you
@@ -135,6 +142,28 @@ It also resolves registry ids to **game codes**. The registry knows
 `level1-carstart`; the game knows `level1_carstart`. Emitting the former would
 produce a mod full of identifiers the game has never heard of.
 
+### `game-lua-definitions`
+
+Generates `Game.meta.lua`, a Lua Language Server definition file for the 339
+`Game.*` commands.
+
+It exists because Game.lua builds its command table **at runtime** — `AddCommand`
+installs a closure per command — so no editor can discover those functions by
+reading source. Donut Team's published definitions cover the Custom Files API and
+deliberately stop there; this fills the other half.
+
+Everything is derived from the command registry, so the definitions inherit its
+provenance. Arity becomes optional parameters (`AddStage` accepts 0-7, so all
+seven are `?`), which makes LuaLS enforce _both_ bounds through its
+`missing-parameter` and `redundant-parameter` diagnostics. Scope is documented
+but not enforced, and the file says so — a language server cannot know where in
+an emitted script a call lands. Argument names and types are `argN: any`,
+because no source read by this project documents them.
+
+`sah lua-defs check` re-reads the artifact rather than trusting the generator,
+and fails on four separate kinds of drift: a missing command, an invented one,
+arity or scope that no longer matches the registry, and a stale upstream pin.
+
 ### `adapter-lucas-launcher`
 
 Generates `Meta.ini`, `CustomFiles.ini` and `CustomFiles.lua`. Every key emitted
@@ -199,6 +228,33 @@ unreviewed output.
 
 Guardrails: spending ceiling with a deliberately pessimistic cost estimate,
 secret redaction before anything leaves the machine, and a binary-file blocklist.
+
+### `pocket-tools`
+
+Six small filesystem utilities: case checking, macOS junk removal, mod conflict
+detection, manifests, release diffs and path conversion. Exposed as
+`sah pocket <tool>`.
+
+**It depends on `core` and nothing else, on purpose.** No schemas, no registry,
+no validator. These tools answer questions about files — collisions, hashes,
+overlapping paths, backslash escaping — and none of those questions needs a game
+fact to answer. That is what makes them useful today while the location and
+vehicle registries are still empty, and it is what makes them fully testable by
+someone who does not own the game.
+
+The consequence is a different honesty posture from the rest of the toolkit.
+Elsewhere, every claim carries a verification status because it is a claim about
+the game. Here there are no such claims to verify: `sha256sum` is the same on
+everyone's machine. What the package must instead be careful about is _not
+overclaiming_ — file overlaps are "potential conflicts", renames are
+"candidates", and the docs say plainly that passing every check does not mean a
+mod works.
+
+One shared safety layer (`scan.ts`) enforces the rules for all six: symlinks are
+never followed, containment is checked before existence, ordering is by code
+unit rather than locale so manifests are byte-identical across machines, and
+paths are reported POSIX-style regardless of host. Only `clean-export` writes,
+and its default is to write a copy.
 
 ### `plugin-sdk`
 

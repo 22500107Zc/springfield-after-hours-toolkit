@@ -6,12 +6,32 @@
   },
   "include": ["src/**/*.ts"],
   "references": [
-    { "path": "../core" },
-    { "path": "../schemas" },
-    { "path": "../registry" },
-    { "path": "../validator" },
-    { "path": "../compiler" },
-    { "path": "../ai" },
-    { "path": "../mcp-server" }
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../registry"
+    },
+    {
+      "path": "../validator"
+    },
+    {
+      "path": "../compiler"
+    },
+    {
+      "path": "../ai"
+    },
+    {
+      "path": "../mcp-server"
+    },
+    {
+      "path": "../game-lua-definitions"
+    },
+    {
+      "path": "../pocket-tools"
+    }
   ]
 }

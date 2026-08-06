@@ -65,6 +65,18 @@ executes, and they must never be treated as such. Upstream recommends placing
 them at `Resources/lib/external/lucas-mod-launcher-lua` and configuring
 `"Lua.runtime.version": "Lua 5.3"`.
 
+They cover the **Custom Files Lua API** — `Output`, `Redirect`, `GetPath`,
+filesystem helpers, mod settings, custom save data, game-state queries and the
+Launcher tables. They do **not** cover the `Game.*` mission commands, because
+Game.lua builds that table at runtime. `packages/game-lua-definitions` generates
+definitions for that half; the two are complementary and both should be
+installed.
+
+`sah lua-defs install --with-official` downloads these files **into the user's
+own mod project**, from the pinned commit above, verifying each against the
+SHA-256 recorded in `data/upstream/upstream.lock.json` and installing
+`LICENSE.md` alongside them. They are never committed into this repository.
+
 ---
 
 ## Upstream projects referenced but not used
@@ -134,6 +146,12 @@ and installed into `node_modules`. The direct ones are:
 | `zod`                       | MIT     | runtime schema validation                 |
 | `commander`                 | MIT     | CLI argument parsing                      |
 | `yaml`                      | ISC     | reading authored documents and registries |
+
+Development-only:
+
+| Package    | Licence | Used for                                                             |
+| ---------- | ------- | -------------------------------------------------------------------- |
+| `luaparse` | MIT     | parsing generated `.meta.lua` in tests, to prove it is valid Lua 5.3 |
 
 Development dependencies (TypeScript, ESLint, Prettier, Vitest and their
 transitive dependencies) are likewise governed by their own licences.

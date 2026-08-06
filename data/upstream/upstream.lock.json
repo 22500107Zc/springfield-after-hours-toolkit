@@ -48,13 +48,81 @@
       "license": "MIT",
       "copyright": "Copyright (c) Donut Team",
       "role": "development-only",
-      "description": "Lua Language Server type definitions for Custom Files Lua functions. These are EDITOR DEFINITIONS, not a runtime library; they must not be treated as code the game executes.",
+      "description": "Lua Language Server type definitions for the Custom Files Lua API (Output, Redirect, GetPath, filesystem, mod settings, save data, game state) and the Launcher tables. These are EDITOR DEFINITIONS, not a runtime library. They contain no Game.* mission command definitions \u2014 that gap is what packages/game-lua-definitions fills. Installed into a USER'S mod project by `sah lua-defs install --with-official`; never vendored here.",
       "vendorPath": "vendor/donutteam/lucas-mod-launcher-lua",
       "recommendedInstallPath": "Resources/lib/external/lucas-mod-launcher-lua",
       "luaRuntimeVersion": "Lua 5.3",
       "files": [
         {
           "path": "LICENSE.md",
+          "sha256": "fffb4999d73866589b11020d72b806d2071e80534a398dad02a37bbcc56b34ca",
+          "bytes": 1071,
+          "required": true
+        },
+        {
+          "path": "README.md",
+          "sha256": "362f3f0ad5c7e0b6e5d6302b99051f0c74f739d65238fe613bb929b0efab1824",
+          "bytes": 881,
+          "required": false
+        },
+        {
+          "path": "src/LuaTables.meta.lua",
+          "sha256": "80f8f1fa91f85a6ed05efda3f88557215933a6e399d4bd7740f8c9dd9d2cd41b",
+          "bytes": 2024,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/CustomSaveData.meta.lua",
+          "sha256": "dadf78b378d552cacbfb0864d5c66c91a9fb6f06b3d5d0c986fd65163d32e700",
+          "bytes": 1368,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/Dialog.meta.lua",
+          "sha256": "1d7804764acd66ecf5ca0ad25c7628e3eab1bcabc9dbe4f1266d5bf9cb7cf02a",
+          "bytes": 924,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/FileSystem.meta.lua",
+          "sha256": "1e14c05b29ed6ecb4d414c5706542771a9642cb27587334763163853e790737c",
+          "bytes": 1966,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/GameState.meta.lua",
+          "sha256": "a60a94784a06681c7eac73acffceec8aadcfa828fdb5dcf6b74e6ebb2eae08bb",
+          "bytes": 6578,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/GameVersion.meta.lua",
+          "sha256": "7346bcfb69cf8ec17f37b4fd093312b796cca4280c4b691972eee134b826181d",
+          "bytes": 397,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/General.meta.lua",
+          "sha256": "9a465557a9822e01f5a6fafb1a57f5a36083a3406092f9b8344f2124410bfe5a",
+          "bytes": 1472,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/Mod.meta.lua",
+          "sha256": "c2f727ad9fa30df7b87ad99db5e9f6ff9ad32e9a4eacb6b0fbbc0f9b100eb228",
+          "bytes": 3325,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/Path.meta.lua",
+          "sha256": "04e7a95ebdb2281c3c85ce5bc52373e876d7e87c805dffde2bab20f094b0f662",
+          "bytes": 2154,
+          "required": true
+        },
+        {
+          "path": "src/LuaFunctions/PathHandler.meta.lua",
+          "sha256": "ac9477dbf1beb3c2a3a1f96d3ff4e40bc4acfedcf1e712716d6e4a53ccd46d28",
+          "bytes": 1738,
           "required": true
         }
       ]

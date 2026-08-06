@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   escapeLuaString,
@@ -9,12 +10,16 @@ import {
 } from '../src/paths.js';
 
 describe('resolveWithin', () => {
-  const root = '/campaigns/example';
+  // Resolved through `path.resolve` so the expectations hold on Windows too,
+  // where this becomes something like `D:\campaigns\example`. `resolveWithin`
+  // returns a NATIVE absolute path by design — it feeds `fs` calls, not the
+  // forward-slashed paths that go inside a mod.
+  const root = path.resolve('/campaigns/example');
 
   it('accepts a plain relative path', () => {
     const result = resolveWithin(root, 'missions/first.yaml');
     expect(result.safe).toBe(true);
-    expect(result.resolved).toBe('/campaigns/example/missions/first.yaml');
+    expect(result.resolved).toBe(path.join(root, 'missions', 'first.yaml'));
   });
 
   it('rejects traversal out of the root', () => {

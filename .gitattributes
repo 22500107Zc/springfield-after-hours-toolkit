@@ -1,0 +1,26 @@
+# Normalise line endings to LF in the repository and on checkout, on every
+# platform.
+#
+# Without this, Windows checks files out as CRLF, which breaks `prettier --check`
+# (the config pins `endOfLine: "lf"`) and would silently change the bytes of
+# generated output that the build is supposed to produce deterministically.
+* text=auto eol=lf
+
+# Generated registry data is compared byte-for-byte in CI.
+data/registries/commands.yaml   text eol=lf
+data/registries/characters.yaml text eol=lf
+
+# Lua and INI files end up inside a mod loaded on Windows, but the toolkit
+# writes them with LF and the game does not care.
+*.lua text eol=lf
+*.ini text eol=lf
+
+# Anything binary must never be line-ending converted. This repository does not
+# contain game assets, but a contributor adding a test image should not have it
+# corrupted.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.p3d binary
