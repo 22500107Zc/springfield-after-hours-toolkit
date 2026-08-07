@@ -35,22 +35,41 @@ export class PromptAbortedError extends Error {
 }
 
 /**
+ * One line reader per IO pair, created once and reused.
+ *
+ * The obvious implementation — open a readline interface, read a line, close it
+ * — works for exactly one question and then hangs, because closing the
+ * interface ends the underlying stream. Every prompt after the first would wait
+ * forever on a stream nobody is going to write to again.
+ *
+ * So the interface and its async iterator are created lazily and kept for the
+ * life of the IO pair. A WeakMap keyed on the IO object keeps the public shape
+ * (`{ input, output }`) unchanged and lets the session be collected with it.
+ */
+const sessions = new WeakMap<PromptIO, AsyncIterator<string>>();
+
+function lineIterator(io: PromptIO): AsyncIterator<string> {
+  const existing = sessions.get(io);
+  if (existing) return existing;
+
+  const rl = readline.createInterface({ input: io.input, output: io.output, terminal: false });
+  const iterator = rl[Symbol.asyncIterator]();
+  sessions.set(io, iterator);
+  return iterator;
+}
+
+/**
  * Reads one line.
  *
  * End-of-input throws rather than returning empty: a test that supplies too few
- * answers should fail loudly, not silently accept defaults it never chose.
+ * answers should fail loudly, not silently accept defaults it never chose, and
+ * a person pressing Ctrl+D means "stop", not "yes".
  */
 async function readLine(io: PromptIO, question: string): Promise<string> {
-  const rl = readline.createInterface({ input: io.input, output: io.output, terminal: false });
-  try {
-    const iterator = rl[Symbol.asyncIterator]();
-    io.output.write(question);
-    const next = await iterator.next();
-    if (next.done) throw new PromptAbortedError();
-    return next.value;
-  } finally {
-    rl.close();
-  }
+  io.output.write(question);
+  const next = await lineIterator(io).next();
+  if (next.done) throw new PromptAbortedError();
+  return next.value;
 }
 
 export interface AskOptions {

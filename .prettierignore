@@ -13,3 +13,5 @@ fixtures/generated/
 # byte-for-byte in CI, so Prettier must not reformat it.
 data/registries/commands.yaml
 data/registries/characters.yaml
+dist-bundle/
+.claude/

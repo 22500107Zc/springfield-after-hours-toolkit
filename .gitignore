@@ -36,3 +36,6 @@ vendor/
 Thumbs.db
 .idea/
 *.swp
+
+# Standalone-binary build output
+dist-bundle/

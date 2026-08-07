@@ -18,6 +18,7 @@
     "dist:archives": "node scripts/dist/make-archives.mjs",
     "dist:binaries": "node scripts/dist/build-binaries.mjs",
     "dist:bundle": "node scripts/dist/bundle.mjs",
+    "dist:verify": "node scripts/dist/verify-archives.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",

@@ -6,6 +6,17 @@ import { loadRegistries } from '@sah/registry';
 import { checkDefinitions, defaultArtifactPath, generateDefinitions } from '../src/index.js';
 
 /**
+ * The real version, read from the workspace root rather than hard-coded.
+ *
+ * The generated file records which generator produced it, so its bytes change
+ * with every version bump. A literal here would turn each release into a
+ * mysterious test failure, which is exactly what happened at 0.1.1.
+ */
+const TOOLKIT_VERSION = JSON.parse(
+  fs.readFileSync(new URL('../../../package.json', import.meta.url), 'utf8'),
+).version as string;
+
+/**
  * The check exists to catch four kinds of drift: registry, artifact, upstream
  * pin, and hand-editing. Each gets a test that produces that drift on purpose.
  */
@@ -28,11 +39,11 @@ afterEach(() => {
   }
 });
 
-const good = generateDefinitions({ registries, toolkitVersion: '0.1.0' });
+const good = generateDefinitions({ registries, toolkitVersion: TOOLKIT_VERSION });
 
 describe('the committed artifact', () => {
   it('exists and is current', () => {
-    const result = checkDefinitions({ registries, toolkitVersion: '0.1.0' });
+    const result = checkDefinitions({ registries, toolkitVersion: TOOLKIT_VERSION });
     expect(result.problems).toEqual([]);
     expect(result.ok).toBe(true);
     expect(result.registryCommandCount).toBe(339);
@@ -51,7 +62,7 @@ describe('drift detection', () => {
     temporary.push(directory);
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: path.join(directory, 'nope.lua'),
     });
     expect(result.ok).toBe(false);
@@ -65,7 +76,7 @@ describe('drift detection', () => {
     );
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(mutilated),
     });
     expect(result.ok).toBe(false);
@@ -78,7 +89,7 @@ describe('drift detection', () => {
     const invented = `${good.contents}\n---Invented.\nfunction Game.SetNightTime(arg1) end\n`;
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(invented),
     });
     expect(result.ok).toBe(false);
@@ -94,7 +105,7 @@ describe('drift detection', () => {
     );
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(wrongArity),
     });
     expect(result.ok).toBe(false);
@@ -108,7 +119,7 @@ describe('drift detection', () => {
     );
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(wrongOptional),
     });
     expect(result.ok).toBe(false);
@@ -126,7 +137,7 @@ describe('drift detection', () => {
 
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(wrongScope),
     });
     expect(result.ok).toBe(false);
@@ -137,7 +148,7 @@ describe('drift detection', () => {
     const drifted = good.contents.replace('-- Commands:         339', '-- Commands:         340');
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(drifted),
     });
     expect(result.ok).toBe(false);
@@ -151,7 +162,7 @@ describe('drift detection', () => {
     );
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(staleCommit),
     });
     expect(result.ok).toBe(false);
@@ -161,7 +172,7 @@ describe('drift detection', () => {
   it('accepts Game.EndIf and Game.Not, which Game.lua defines outside its tables', () => {
     const result = checkDefinitions({
       registries,
-      toolkitVersion: '0.1.0',
+      toolkitVersion: TOOLKIT_VERSION,
       artifactPath: scratchFile(good.contents),
     });
     expect(result.problems.filter((p) => p.kind === 'invented-command')).toEqual([]);

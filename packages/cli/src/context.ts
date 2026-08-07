@@ -3,8 +3,23 @@ import path from 'node:path';
 import { findUpwards, loadConfig, moduleDirectory, type SahConfig } from '@sah/core';
 import { loadRegistries, type RegistrySet } from '@sah/registry';
 
+/**
+ * Set by the standalone-binary entry point.
+ *
+ * A packaged executable has no repository to read `package.json` from, so the
+ * version is injected at build time. Reporting a stale hard-coded fallback
+ * would be worse than useless — someone filing a bug would quote the wrong
+ * version.
+ */
+let packagedVersion: string | undefined;
+
+export function setPackagedVersion(version: string): void {
+  packagedVersion = version;
+}
+
 /** Reads the toolkit version from the repository's root package.json. */
 export function toolkitVersion(): string {
+  if (packagedVersion) return packagedVersion;
   const root = findUpwards(moduleDirectory(import.meta.url), 'package.json');
   if (!root) return '0.0.0';
   // Walk to the workspace root, which is the package.json declaring workspaces.
