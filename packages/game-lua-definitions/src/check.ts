@@ -44,12 +44,25 @@ export interface CheckResult {
 
 /** Locates the committed artifact inside this repository. */
 export function defaultArtifactPath(): string {
+  const start = moduleDirectory(import.meta.url);
+
+  // Running from the repository, in either src/ or dist/.
   const marker = path.join('packages', 'game-lua-definitions', 'package.json');
-  const root = findUpwards(moduleDirectory(import.meta.url), marker);
-  if (!root) {
-    throw new Error('Could not locate packages/game-lua-definitions.');
+  const root = findUpwards(start, marker);
+  if (root) {
+    return path.join(root, 'packages', 'game-lua-definitions', 'generated', 'Game.meta.lua');
   }
-  return path.join(root, 'packages', 'game-lua-definitions', 'generated', 'Game.meta.lua');
+
+  // Running from a standalone executable, where the file is embedded beside the
+  // bundle rather than inside a package directory that no longer exists.
+  const packaged = findUpwards(start, path.join('generated', 'Game.meta.lua'));
+  if (packaged) {
+    return path.join(packaged, 'generated', 'Game.meta.lua');
+  }
+
+  throw new Error(
+    'Could not find the generated Game.meta.lua. Reinstall the toolkit, or run "sah definitions check" from a checkout of the repository.',
+  );
 }
 
 /**

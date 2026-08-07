@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { parse as parseLua } from 'luaparse';
 import { describe, expect, it } from 'vitest';
 import { listRecords, loadRegistries } from '@sah/registry';
@@ -8,9 +9,20 @@ import {
   parseGeneratedFunctions,
 } from '../src/index.js';
 
+/**
+ * The real version, read from the workspace root rather than hard-coded.
+ *
+ * The generated file records which generator produced it, so its bytes change
+ * with every version bump. A literal here would turn each release into a
+ * mysterious test failure, which is exactly what happened at 0.1.1.
+ */
+const TOOLKIT_VERSION = JSON.parse(
+  fs.readFileSync(new URL('../../../package.json', import.meta.url), 'utf8'),
+).version as string;
+
 const registries = loadRegistries();
 const commandRecords = listRecords(registries, 'commands');
-const generated = generateDefinitions({ registries, toolkitVersion: '0.1.0' });
+const generated = generateDefinitions({ registries, toolkitVersion: TOOLKIT_VERSION });
 
 describe('coverage of the command registry', () => {
   it('generates a definition for every verified command', () => {
@@ -156,13 +168,16 @@ describe('honesty of the generated file', () => {
 
 describe('determinism', () => {
   it('produces byte-identical output across repeated runs', () => {
-    const again = generateDefinitions({ registries, toolkitVersion: '0.1.0' });
+    const again = generateDefinitions({ registries, toolkitVersion: TOOLKIT_VERSION });
     expect(again.contents).toBe(generated.contents);
     expect(again.sha256).toBe(generated.sha256);
   });
 
   it('produces identical output from a freshly loaded registry', () => {
-    const fresh = generateDefinitions({ registries: loadRegistries(), toolkitVersion: '0.1.0' });
+    const fresh = generateDefinitions({
+      registries: loadRegistries(),
+      toolkitVersion: TOOLKIT_VERSION,
+    });
     expect(fresh.sha256).toBe(generated.sha256);
   });
 

@@ -18,6 +18,9 @@ import {
   runPocketManifest,
   runPocketPath,
 } from './commands/pocket.js';
+import { runStart } from './commands/start.js';
+import { runToolsMenu } from './commands/tools-menu.js';
+import { runFriendlyHelp } from './commands/friendly-help.js';
 import { toolkitVersion } from './context.js';
 import { printError } from './output.js';
 
@@ -50,6 +53,88 @@ export function createProgram(): Command {
     .version(toolkitVersion(), '-v, --version')
     .showHelpAfterError('(run "sah --help" for usage)')
     .enablePositionalOptions();
+
+  // --- the beginner surface ---------------------------------------------------
+  // These three come first in `sah --help` on purpose. Someone who has just
+  // downloaded a binary should not have to read past them to find the way in.
+
+  program
+    .command('start')
+    .description('Create a new mod project, guided step by step (start here)')
+    .option('--name <name>', 'project name (skips the question)')
+    .option('--author <author>', 'author name (skips the question)')
+    .option('--to <folder>', 'where to create it (skips the question)')
+    .option('--yes', 'accept the preview without asking (needs --name and --to)', false)
+    .option('--debug', 'show technical detail if something fails', false)
+    .action(
+      async (options: {
+        name?: string;
+        author?: string;
+        to?: string;
+        yes: boolean;
+        debug: boolean;
+      }) => {
+        setExit(
+          await runStart({
+            ...(options.name ? { name: options.name } : {}),
+            ...(options.author ? { author: options.author } : {}),
+            ...(options.to ? { destination: options.to } : {}),
+            yes: options.yes,
+            debug: options.debug,
+          }),
+        );
+      },
+    );
+
+  program
+    .command('tools')
+    .description('The six Pocket Tools, as a menu (no flags to remember)')
+    .option('--debug', 'show technical detail if something fails', false)
+    .action(async (options: { debug: boolean }) => {
+      setExit(await runToolsMenu({ debug: options.debug }));
+    });
+
+  const definitions = program
+    .command('definitions')
+    .description('Editor autocomplete for the Game.* commands');
+
+  definitions
+    .command('install')
+    .description('Set a mod project up for autocomplete in your editor')
+    .argument('[mod-project]', 'the mod project folder', '.')
+    .option('--with-official', "also download Donut Team's official definitions", false)
+    .option('--preview', 'show what would be written without writing it', false)
+    .option('--json', 'machine-readable output', false)
+    .action(
+      async (
+        modProject: string,
+        options: { withOfficial: boolean; preview: boolean; json: boolean },
+      ) => {
+        setExit(
+          await runLuaDefsInstall({
+            projectRoot: modProject,
+            withOfficial: options.withOfficial,
+            apply: !options.preview,
+            json: options.json,
+          }),
+        );
+      },
+    );
+
+  definitions
+    .command('check')
+    .description('Verify the definitions against the registry and the pinned commit')
+    .option('--json', 'machine-readable output', false)
+    .action((options: { json: boolean }) => {
+      setExit(runLuaDefsCheck({ json: options.json }));
+    });
+
+  program
+    .command('help')
+    .description('Plain-language help: what this does and where to begin')
+    .action(() => {
+      setExit(runFriendlyHelp());
+    });
 
   program
     .command('doctor')
@@ -618,9 +703,45 @@ export async function runCli(argv: readonly string[]): Promise<ExitCode> {
     if (commanderError.code?.startsWith('commander.')) {
       return EXIT_CODES.USAGE;
     }
-    printError(`Unexpected error: ${(error as Error).message}`);
-    return EXIT_CODES.INTERNAL;
+    return reportUnexpected(error, argv);
   }
 
   return (program as Command & { sahExitCode: ExitCode }).sahExitCode;
+}
+
+/**
+ * The last line of defence for an error nobody anticipated.
+ *
+ * A stack trace is the correct output for a developer and useless noise for
+ * someone who just downloaded a binary — it looks like they broke something.
+ * So the default is a short, plain explanation of what is known for certain:
+ * it failed, we do not know why, and nothing was half-written by this handler.
+ * `--debug` prints the real thing for a bug report.
+ */
+function reportUnexpected(error: unknown, argv: readonly string[]): ExitCode {
+  const debug = argv.includes('--debug');
+  const message = error instanceof Error ? error.message : String(error);
+
+  printError('');
+  printError('  Something went wrong that this tool did not expect.');
+  printError('');
+  printError(`  ${message}`);
+  printError('');
+  printError('  This is a bug in the toolkit, not something you did wrong.');
+  printError('');
+
+  if (debug) {
+    printError('  Technical detail:');
+    printError('');
+    const stack = error instanceof Error && error.stack ? error.stack : String(error);
+    for (const line of stack.split('\n')) printError(`    ${line}`);
+    printError('');
+  } else {
+    printError('  Run the same command again with --debug to see the technical');
+    printError('  detail, and please include it if you report this:');
+    printError('  https://github.com/22500107Zc/springfield-after-hours-toolkit/issues');
+    printError('');
+  }
+
+  return EXIT_CODES.INTERNAL;
 }

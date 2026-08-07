@@ -1,6 +1,6 @@
 {
   "name": "@sah/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -18,15 +18,16 @@
     "sah": "./dist/bin.js"
   },
   "dependencies": {
-    "@sah/ai": "0.1.0",
-    "@sah/compiler": "0.1.0",
-    "@sah/core": "0.1.0",
-    "@sah/game-lua-definitions": "0.1.0",
-    "@sah/mcp-server": "0.1.0",
-    "@sah/pocket-tools": "0.1.0",
-    "@sah/registry": "0.1.0",
-    "@sah/schemas": "0.1.0",
-    "@sah/validator": "0.1.0",
+    "@sah/ai": "0.1.1",
+    "@sah/compiler": "0.1.1",
+    "@sah/core": "0.1.1",
+    "@sah/game-lua-definitions": "0.1.1",
+    "@sah/mcp-server": "0.1.1",
+    "@sah/pocket-tools": "0.1.1",
+    "@sah/registry": "0.1.1",
+    "@sah/schemas": "0.1.1",
+    "@sah/starter": "0.1.1",
+    "@sah/validator": "0.1.1",
     "commander": "^12.1.0",
     "yaml": "^2.6.1",
     "zod": "^4.0.5"

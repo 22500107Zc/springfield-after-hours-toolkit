@@ -8,7 +8,7 @@
 -- Regenerate with:  sah lua-defs generate
 -- Verify with:      sah lua-defs check
 --
--- Generator:        springfield-after-hours-toolkit v0.1.0
+-- Generator:        springfield-after-hours-toolkit v0.1.1
 -- Derived from:     donutteam/game-lua
 -- Pinned commit:    74f8059127bcd9555e6417d9b0b4f5dcef5b9a22
 -- Source file:      src/Game.lua

@@ -38,6 +38,9 @@
       "path": "packages/pocket-tools"
     },
     {
+      "path": "packages/starter"
+    },
+    {
       "path": "packages/cli"
     }
   ]

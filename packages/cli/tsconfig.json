@@ -32,6 +32,9 @@
     },
     {
       "path": "../pocket-tools"
+    },
+    {
+      "path": "../starter"
     }
   ]
 }
