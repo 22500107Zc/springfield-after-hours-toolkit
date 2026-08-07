@@ -23,6 +23,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { TARGETS } from './build-binaries.mjs';
+import { writeZip } from './zip.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const bundleDir = path.join(repoRoot, 'dist-bundle');
@@ -246,7 +247,10 @@ function archive(target, staged) {
   if (target.os === 'win32') {
     const out = path.join(outDir, `${staged.folder}.zip`);
     fs.rmSync(out, { force: true });
-    execFileSync('zip', ['-r', '-q', out, staged.folder], { cwd: stageRoot, stdio: 'inherit' });
+    // Written in Node rather than by zip(1), which the Windows runner does not
+    // have — the one platform whose download is a .zip was the one that could
+    // not make one.
+    writeZip(out, staged.stage, staged.folder);
     return out;
   }
 

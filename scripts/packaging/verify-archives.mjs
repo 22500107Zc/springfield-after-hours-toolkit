@@ -22,6 +22,7 @@ import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { listZip } from './zip.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const archivesDir = path.join(repoRoot, 'dist-bundle', 'archives');
@@ -53,11 +54,9 @@ function fail(message) {
 }
 
 function listArchive(file) {
-  if (file.endsWith('.zip')) {
-    return execFileSync('unzip', ['-Z', '-1', file], { encoding: 'utf8' })
-      .split('\n')
-      .filter(Boolean);
-  }
+  // Read by parsing the central directory rather than by running unzip(1),
+  // which the Windows runner does not have.
+  if (file.endsWith('.zip')) return listZip(file);
   return execFileSync('tar', ['-tzf', file], { encoding: 'utf8' }).split('\n').filter(Boolean);
 }
 
