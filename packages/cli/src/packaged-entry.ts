@@ -7,7 +7,7 @@
  * there is no separate behaviour here, and `bin.ts` remains the entry point for
  * everyone running from source.
  *
- * The version is injected at build time (see `scripts/dist/bundle.mjs`).
+ * The version is injected at build time (see `scripts/packaging/bundle.mjs`).
  * Inside a packaged binary there is no repository to read `package.json` from,
  * and silently reporting the wrong version is worse than not reporting one.
  */

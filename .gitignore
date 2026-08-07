@@ -1,8 +1,14 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
+# Build output.
+#
+# These are anchored on purpose. A bare `dist/` matches at every depth, and it
+# once silently swallowed the packaging scripts that build the release
+# binaries — the release workflow then failed on a commit that looked complete.
+# Ignore the directories the compiler actually writes, and nothing else.
+/dist/
+packages/*/dist/
 build/
 *.tsbuildinfo
 
