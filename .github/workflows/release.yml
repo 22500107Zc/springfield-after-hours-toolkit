@@ -167,7 +167,7 @@ jobs:
       - name: Bundle and build the executable
         run: |
           npm run dist:bundle
-          node scripts/dist/build-binaries.mjs --only ${{ matrix.target }}
+          node scripts/packaging/build-binaries.mjs --only ${{ matrix.target }}
 
       - name: Smoke-test the executable on its own platform
         shell: bash
@@ -209,8 +209,8 @@ jobs:
       - name: Make and verify the archive
         shell: bash
         run: |
-          node scripts/dist/make-archives.mjs --only ${{ matrix.target }}
-          node scripts/dist/verify-archives.mjs
+          node scripts/packaging/make-archives.mjs --only ${{ matrix.target }}
+          node scripts/packaging/verify-archives.mjs
 
       - uses: actions/upload-artifact@v4
         with:
