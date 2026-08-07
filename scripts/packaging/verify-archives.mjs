@@ -21,7 +21,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const archivesDir = path.join(repoRoot, 'dist-bundle', 'archives');
@@ -208,4 +208,9 @@ function main() {
   process.stdout.write('\nAll archives passed every check.\n');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+// Concatenating the "file://" scheme onto process.argv[1] looks equivalent
+// and is not: on Windows argv[1] is a backslashed drive path, so that
+// comparison is always false and the script exits silently having done
+// nothing. That is how the Windows download went missing from the first
+// 0.1.1 release attempt.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main();
