@@ -1,6 +1,6 @@
 {
   "name": "@sah/adapter-lucas-launcher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "dist"
   ],
   "dependencies": {
-    "@sah/core": "0.1.0",
-    "@sah/schemas": "0.1.0"
+    "@sah/core": "0.1.1",
+    "@sah/schemas": "0.1.1"
   }
 }

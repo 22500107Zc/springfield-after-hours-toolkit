@@ -1,6 +1,6 @@
 {
   "name": "@sah/game-lua-definitions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -16,9 +16,9 @@
     "generated"
   ],
   "dependencies": {
-    "@sah/adapter-game-lua": "0.1.0",
-    "@sah/core": "0.1.0",
-    "@sah/registry": "0.1.0",
-    "@sah/schemas": "0.1.0"
+    "@sah/adapter-game-lua": "0.1.1",
+    "@sah/core": "0.1.1",
+    "@sah/registry": "0.1.1",
+    "@sah/schemas": "0.1.1"
   }
 }

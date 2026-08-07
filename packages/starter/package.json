@@ -1,10 +1,10 @@
 {
-  "name": "@sah/plugin-sdk",
+  "name": "@sah/starter",
   "version": "0.1.1",
   "private": true,
   "type": "module",
   "license": "MIT",
-  "description": "Typed plugin contribution interface. Contains no loader by design.",
+  "description": "Generates a minimal, structurally valid starter mod project for Lucas' Simpsons: Hit & Run Mod Launcher.",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -15,7 +15,6 @@
     "dist"
   ],
   "dependencies": {
-    "@sah/core": "0.1.1",
-    "@sah/schemas": "0.1.1"
+    "@sah/core": "0.1.1"
   }
 }
