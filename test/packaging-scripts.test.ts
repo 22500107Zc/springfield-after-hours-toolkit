@@ -100,3 +100,27 @@ describe('the ignore rules that caused the failure', () => {
     expect(isTracked('packages/cli/dist/bin.js')).toBe(false);
   });
 });
+
+describe('the scripts run on every platform they are run on', () => {
+  const dir = path.join(repoRoot, 'scripts', 'packaging');
+  const files = fs.readdirSync(dir).filter((name) => name.endsWith('.mjs'));
+
+  it('finds the packaging scripts', () => {
+    expect(files.length).toBeGreaterThan(0);
+  });
+
+  it.each(files)('%s does not compare import.meta.url to a raw path', (name) => {
+    const source = fs.readFileSync(path.join(dir, name), 'utf8');
+    // On Windows `process.argv[1]` is `D:\a\...`, so `file://${argv[1]}` never
+    // equals `import.meta.url`. A run-if-main guard written that way makes the
+    // script a silent no-op on exactly one platform — which is how the Windows
+    // download went missing from the first 0.1.1 release attempt. Only
+    // `pathToFileURL` compares correctly everywhere.
+    expect(source).not.toMatch(/file:\/\/\$\{\s*process\.argv\[1\]\s*\}/);
+    if (/import\.meta\.url ===/.test(source)) {
+      expect(source, `${name} should guard with pathToFileURL`).toContain(
+        'pathToFileURL(process.argv[1]).href',
+      );
+    }
+  });
+});

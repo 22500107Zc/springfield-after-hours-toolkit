@@ -165,9 +165,25 @@ jobs:
       - run: npm run build
 
       - name: Bundle and build the executable
+        shell: bash
         run: |
+          set -euo pipefail
           npm run dist:bundle
           node scripts/packaging/build-binaries.mjs --only ${{ matrix.target }}
+
+          # A build step that exits 0 having produced nothing is worse than one
+          # that fails: the first 0.1.1 attempt got a silent no-op on Windows
+          # and only tripped three steps later, on a "no such file" from the
+          # smoke test. Name the missing artifact here.
+          if [ "${{ matrix.target }}" = "windows-x64" ]; then
+            exe="dist-bundle/binaries/${{ matrix.target }}/sah.exe"
+          else
+            exe="dist-bundle/binaries/${{ matrix.target }}/sah"
+          fi
+          if [ ! -f "$exe" ]; then
+            echo "::error::the build produced no executable at $exe"
+            exit 1
+          fi
 
       - name: Smoke-test the executable on its own platform
         shell: bash
