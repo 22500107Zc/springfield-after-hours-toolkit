@@ -6,197 +6,278 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version tag to create, e.g. v0.1.0'
+        description: 'Version tag to create, e.g. v0.1.1'
         required: true
-        default: 'v0.1.0'
+        default: 'v0.1.1'
       commit:
         description: 'Full 40-character commit SHA to release. Must already be on main.'
         required: true
-        default: '6aa7cd4687a94474094fe6ca05a50a4afcc044e1'
       title:
         description: 'Release title'
         required: true
-        default: 'Springfield After Hours Toolkit 0.1.0'
+        default: 'Springfield After Hours Toolkit 0.1.1'
 
 # The only permission this workflow needs is the ability to write a tag and a
 # release. It uses the automatically-provided GITHUB_TOKEN — there is no
 # personal access token, and no repository secret, anywhere in this file.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  release:
-    name: Publish ${{ inputs.version }}
+  # --- gate ------------------------------------------------------------------
+  # Every refusal happens here, before any machine spends time building.
+
+  check:
+    name: Validate the request
     runs-on: ubuntu-latest
-
+    outputs:
+      notes: ${{ steps.notes.outputs.path }}
     steps:
-      # --- input validation, before anything is fetched or written ------------
-
-      - name: Validate the version format
+      - name: Validate the version and commit format
         run: |
           set -euo pipefail
           version='${{ inputs.version }}'
+          commit='${{ inputs.commit }}'
+
           if ! printf '%s' "$version" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
             echo "::error::\"$version\" is not a vX.Y.Z version tag."
             exit 1
           fi
-          echo "Version $version is well formed."
-
-      - name: Validate the commit format
-        run: |
-          set -euo pipefail
-          commit='${{ inputs.commit }}'
           if ! printf '%s' "$commit" | grep -Eq '^[0-9a-f]{40}$'; then
             echo "::error::\"$commit\" is not a full 40-character commit SHA."
             echo "::error::Release a specific verified commit, not a branch name."
             exit 1
           fi
-          echo "Commit $commit is well formed."
+          echo "Request is well formed."
 
-      # --- two checkouts, deliberately ---------------------------------------
-      #
-      # `product/` is the commit being released. It is the thing that gets
-      # tested, tagged, and whose Game.meta.lua ships. It does NOT contain this
-      # workflow, and must not need to: a release must be reproducible from the
-      # verified product commit alone.
-      #
-      # `packaging/` is whatever ref the release was dispatched from. It holds
-      # this workflow and the artifact README. Keeping the two apart is what
-      # lets release packaging change without ever retagging the product.
-
-      - name: Check out the product commit
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.commit }}
-          path: product
           fetch-depth: 0
 
-      - name: Check out the packaging ref
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
-          path: packaging
-          fetch-depth: 1
-
-      # --- refuse anything that would overwrite or surprise -------------------
-
       - name: The commit must already be on main
-        working-directory: product
         run: |
           set -euo pipefail
-          # FETCH_HEAD rather than origin/main: the checkout was made at a bare
-          # SHA, so a remote-tracking branch is not guaranteed to exist.
           git fetch origin main --quiet
           if ! git merge-base --is-ancestor '${{ inputs.commit }}' FETCH_HEAD; then
             echo "::error::${{ inputs.commit }} is not an ancestor of main."
             echo "::error::Only commits that have been reviewed and merged can be released."
             exit 1
           fi
-          echo "Commit is on main."
+
+      - name: The version in package.json must match the tag
+        run: |
+          set -euo pipefail
+          declared=$(node -p "require('./package.json').version")
+          expected='${{ inputs.version }}'
+          if [ "v$declared" != "$expected" ]; then
+            echo "::error::package.json says $declared but you asked to release $expected."
+            echo "::error::A binary that misreports its own version is worse than no binary."
+            exit 1
+          fi
+          echo "package.json declares $declared."
 
       - name: Release notes must exist on the product commit
+        id: notes
         run: |
           set -euo pipefail
           version='${{ inputs.version }}'
-          notes="product/docs/releases/${version#v}.md"
+          notes="docs/releases/${version#v}.md"
           if [ ! -f "$notes" ]; then
-            echo "::error::Expected release notes at ${notes#product/} on the released commit."
-            echo "::error::Write them, merge them, and release a commit that contains them."
+            echo "::error::Expected release notes at $notes on the released commit."
             exit 1
           fi
-          echo "NOTES_FILE=$notes" >> "$GITHUB_ENV"
-          echo "Using release notes from ${notes#product/}"
+          echo "path=$notes" >> "$GITHUB_OUTPUT"
 
-      - name: Refuse to overwrite an existing tag
-        working-directory: product
-        run: |
-          set -euo pipefail
-          if git ls-remote --exit-code --tags origin 'refs/tags/${{ inputs.version }}' >/dev/null 2>&1; then
-            echo "::error::Tag ${{ inputs.version }} already exists. Refusing to move or replace it."
-            echo "::error::A published version is immutable. Release a new version instead."
-            exit 1
-          fi
-          echo "Tag ${{ inputs.version }} does not exist."
-
-      - name: Refuse to overwrite an existing release
+      - name: Refuse to overwrite an existing tag or release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          if gh release view '${{ inputs.version }}' \
-               --repo '${{ github.repository }}' >/dev/null 2>&1; then
-            echo "::error::A release for ${{ inputs.version }} already exists. Refusing to replace it."
+          if git ls-remote --exit-code --tags origin 'refs/tags/${{ inputs.version }}' >/dev/null 2>&1; then
+            echo "::error::Tag ${{ inputs.version }} already exists. Refusing to move or replace it."
             exit 1
           fi
-          echo "No release exists for ${{ inputs.version }}."
+          if gh release view '${{ inputs.version }}' --repo '${{ github.repository }}' >/dev/null 2>&1; then
+            echo "::error::A release for ${{ inputs.version }} already exists."
+            exit 1
+          fi
 
-      # --- verify the product before publishing anything ----------------------
+  # --- full test suite -------------------------------------------------------
 
+  test:
+    name: Test (${{ matrix.os }})
+    needs: check
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: product/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check
 
-      - name: Install
-        working-directory: product
-        run: npm ci
+  # --- one native runner per download ----------------------------------------
+  #
+  # Each artifact is built AND smoke-tested on the operating system and
+  # architecture it targets. Cross-compiling all four on one machine would be
+  # faster and would prove nothing: a binary nobody has executed is not a
+  # verified binary.
+  #
+  # macos-14 and later are Apple Silicon; macos-13 is the last Intel image
+  # GitHub provides. If GitHub retires macos-13, the Intel download must be
+  # marked unavailable rather than cross-built and described as tested.
 
-      - name: Build
-        working-directory: product
-        run: npm run build
+  build:
+    name: Build ${{ matrix.target }}
+    needs: [check, test]
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: macos-apple-silicon
+            runner: macos-14
+          - target: macos-intel
+            runner: macos-13
+          - target: windows-x64
+            runner: windows-latest
+          - target: linux-x64
+            runner: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
-      - name: Full check suite
-        working-directory: product
-        run: npm run check
+      - run: npm ci
+      - run: npm run build
 
-      - name: Generated Lua definitions are current
-        working-directory: product
+      - name: Bundle and build the executable
+        run: |
+          npm run dist:bundle
+          node scripts/dist/build-binaries.mjs --only ${{ matrix.target }}
+
+      - name: Smoke-test the executable on its own platform
+        shell: bash
         run: |
           set -euo pipefail
-          # Two separate questions, both worth asking before shipping the file:
-          #   generate --check  — is the committed artifact byte-identical to
-          #                       what the generator produces right now?
-          #   check             — does it still cover the registry, invent
-          #                       nothing, and match the pinned upstream commit?
-          node packages/cli/dist/bin.js lua-defs generate --check
-          node packages/cli/dist/bin.js lua-defs check
+          if [ "${{ matrix.target }}" = "windows-x64" ]; then
+            exe="dist-bundle/binaries/${{ matrix.target }}/sah.exe"
+          else
+            exe="dist-bundle/binaries/${{ matrix.target }}/sah"
+          fi
 
-      # --- assemble artifacts -------------------------------------------------
+          # It must report the version it actually is.
+          version=$("$exe" --version)
+          expected="${{ inputs.version }}"
+          if [ "v$version" != "$expected" ]; then
+            echo "::error::binary reports $version, expected ${expected#v}"
+            exit 1
+          fi
 
-      - name: Assemble release artifacts
+          # It must work with no repository around it: the registries and the
+          # editor definitions are embedded, and this is where that is proven.
+          "$exe" help > /dev/null
+          "$exe" registry list levels | grep -q level01
+          "$exe" definitions check > /dev/null
+
+          # And it must be able to do the thing a beginner downloaded it for.
+          work="$(mktemp -d)"
+          "$exe" start --name "CI Smoke" --author "CI" --to "$work/mod" --yes > /dev/null
+          test -f "$work/mod/Meta.ini"
+          test -f "$work/mod/Resources/lib/external/sah-game-lua-definitions/Game.meta.lua"
+
+          # Creating over an existing folder must be refused, not forced.
+          if "$exe" start --name "CI Smoke" --author "CI" --to "$work/mod" --yes > /dev/null 2>&1; then
+            echo "::error::the wizard overwrote an existing folder"
+            exit 1
+          fi
+          echo "${{ matrix.target }} verified on ${{ matrix.runner }}."
+
+      - name: Make and verify the archive
+        shell: bash
+        run: |
+          node scripts/dist/make-archives.mjs --only ${{ matrix.target }}
+          node scripts/dist/verify-archives.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: archive-${{ matrix.target }}
+          path: dist-bundle/archives/*
+          if-no-files-found: error
+          retention-days: 1
+
+  # --- publish ---------------------------------------------------------------
+
+  publish:
+    name: Publish ${{ inputs.version }}
+    needs: [check, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: incoming
+          pattern: archive-*
+          merge-multiple: true
+
+      - name: Collect the release files
         run: |
           set -euo pipefail
-          mkdir -p artifacts
+          mkdir -p release
+          cp incoming/* release/
+          cp packages/game-lua-definitions/generated/Game.meta.lua release/
+          cp docs/releases/artifacts/Game.meta.lua.README.md release/
 
-          cp product/packages/game-lua-definitions/generated/Game.meta.lua artifacts/
-          cp packaging/docs/releases/artifacts/Game.meta.lua.README.md artifacts/
+          # Every supported download must be present. A partial release is
+          # worse than a late one: it silently strands whichever platform is
+          # missing.
+          for target in macos-apple-silicon macos-intel linux-x64; do
+            ls release/sah-*-"$target".tar.gz >/dev/null
+          done
+          ls release/sah-*-windows-x64.zip >/dev/null
 
-          # Checksums are computed here, over the exact bytes being uploaded.
-          # Never copied from a previous run or from a person's notes — a
-          # checksum that is not derived from the artifact proves nothing.
-          cd artifacts
-          sha256sum Game.meta.lua Game.meta.lua.README.md > SHA256SUMS.txt
+          ls -la release/
 
-          echo "### Artifact checksums" >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Generate checksums
+        run: |
+          set -euo pipefail
+          # Computed here, over the exact bytes being uploaded — never copied
+          # from an earlier run or from notes.
+          cd release && sha256sum * > SHA256SUMS.txt
           cat SHA256SUMS.txt
-
-      # --- publish ------------------------------------------------------------
+          {
+            echo "### Artifact checksums"
+            echo '```'
+            cat SHA256SUMS.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create the annotated tag
-        working-directory: product
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-
           git tag -a '${{ inputs.version }}' '${{ inputs.commit }}' -m '${{ inputs.title }}'
           git push origin 'refs/tags/${{ inputs.version }}'
-
-          echo "Tagged ${{ inputs.commit }} as ${{ inputs.version }}."
 
       - name: Create the release
         env:
@@ -207,52 +288,27 @@ jobs:
             --repo '${{ github.repository }}' \
             --target '${{ inputs.commit }}' \
             --title '${{ inputs.title }}' \
-            --notes-file "$NOTES_FILE" \
+            --notes-file '${{ needs.check.outputs.notes }}' \
             --verify-tag \
-            artifacts/Game.meta.lua \
-            artifacts/Game.meta.lua.README.md \
-            artifacts/SHA256SUMS.txt
+            release/*
 
-      # --- confirm what was actually published --------------------------------
-
-      - name: Verify the published release
+      - name: Verify what was published
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          echo "--- release ---"
-          gh release view '${{ inputs.version }}' \
-            --repo '${{ github.repository }}' \
-            --json tagName,name,isDraft,isPrerelease,targetCommitish,assets
+          gh release view '${{ inputs.version }}' --repo '${{ github.repository }}' \
+            --json tagName,name,isDraft,targetCommitish,assets
 
-          echo "--- the tag points at the commit we were asked to release ---"
-          tagged=$(gh api \
-            "repos/${{ github.repository }}/git/refs/tags/${{ inputs.version }}" \
-            --jq '.object.sha')
-          # An annotated tag's ref points at the tag object, so dereference it.
-          target=$(gh api "repos/${{ github.repository }}/git/tags/$tagged" \
-            --jq '.object.sha' 2>/dev/null || printf '%s' "$tagged")
-
+          tagged=$(gh api "repos/${{ github.repository }}/git/refs/tags/${{ inputs.version }}" --jq '.object.sha')
+          target=$(gh api "repos/${{ github.repository }}/git/tags/$tagged" --jq '.object.sha' 2>/dev/null || printf '%s' "$tagged")
           if [ "$target" != '${{ inputs.commit }}' ]; then
             echo "::error::Tag resolves to $target, expected ${{ inputs.commit }}."
             exit 1
           fi
-          echo "Tag ${{ inputs.version }} correctly targets $target."
 
-          echo "--- all three artifacts are attached ---"
           for asset in Game.meta.lua Game.meta.lua.README.md SHA256SUMS.txt; do
-            if ! gh release view '${{ inputs.version }}' \
-                   --repo '${{ github.repository }}' \
-                   --json assets --jq '.assets[].name' | grep -qx "$asset"; then
-              echo "::error::$asset is missing from the release."
-              exit 1
-            fi
-            echo "  attached: $asset"
+            gh release view '${{ inputs.version }}' --repo '${{ github.repository }}' \
+              --json assets --jq '.assets[].name' | grep -qx "$asset"
           done
-
-          {
-            echo "### Published"
-            echo ""
-            echo "- Release: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ inputs.version }}"
-            echo "- Tag target: \`${{ inputs.commit }}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "Published and verified."

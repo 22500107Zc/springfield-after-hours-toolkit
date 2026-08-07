@@ -1,15 +1,9 @@
 # Springfield After Hours Toolkit
 
-An open toolkit for authoring story-driven campaigns for _The Simpsons: Hit &
-Run_, targeting **Lucas' Simpsons: Hit & Run Mod Launcher**.
+**Tools for making and preparing mods for _The Simpsons: Hit & Run_.**
 
-You describe a campaign in readable YAML. The toolkit validates every reference
-against a registry of **verified** game content, then generates a Mod Launcher
-mod — `Meta.ini`, `CustomFiles.ini`, `CustomFiles.lua` and mission scripts built
-on Donut Team's `Game.lua`.
-
-_Springfield After Hours_ is the flagship campaign, but it is an example inside
-this repository. The toolkit is built for anyone's campaign.
+No Node, no npm, no Git, no command-line experience needed. Download one file,
+open it, and answer a few questions.
 
 > **Unofficial fan project.** Not affiliated with, endorsed by, or sponsored by
 > Electronic Arts, Disney, Fox, Radical Entertainment or Donut Team. Contains no
@@ -17,130 +11,186 @@ this repository. The toolkit is built for anyone's campaign.
 
 ---
 
-## The idea
+## Get started in four steps
 
-Most modding tools help you write files faster. This one is mostly concerned
-with **stopping you from writing files that are wrong**.
+**1. Download the file for your computer.**
 
-If a campaign references a locator that does not exist, the game does not throw
-an error. It loads the mission, and the mission simply cannot be completed. You
-find out ten minutes into a playtest, if you are lucky.
+| Your computer                               | Download                               |
+| ------------------------------------------- | -------------------------------------- |
+| **Mac** with Apple Silicon (M1, M2, M3, M4) | `sah-0.1.1-macos-apple-silicon.tar.gz` |
+| **Mac** with an Intel processor             | `sah-0.1.1-macos-intel.tar.gz`         |
+| **Windows**                                 | `sah-0.1.1-windows-x64.zip`            |
+| **Linux**                                   | `sah-0.1.1-linux-x64.tar.gz`           |
 
-So the toolkit keeps a registry of game facts, every one carrying a source and a
-verification status, and **refuses to build** when a campaign references
-something it cannot verify:
+From the [latest release](https://github.com/22500107Zc/springfield-after-hours-toolkit/releases/latest).
 
-```console
-$ sah validate examples/springfield-after-hours
+_Not sure which Mac you have?_ Click the Apple menu → **About This Mac**. If it
+says **Apple M1/M2/M3/M4**, choose Apple Silicon. If it says **Intel**, choose
+Intel.
 
-error SAH2003 at missions/garage-search.yaml mission.startingVehicle:
-  Unresolved Vehicle reference "honor-roller".
-  hint: The vehicle registry is empty because no source consulted so far states
-        any vehicle's internal name. Do not guess "honor-roller" — find a
-        citable source first.
+**2. Extract it.** Double-click the downloaded file.
 
-6 errors, 0 warnings, 4 notes
+**3. Run the Start Here file** in the folder that appears.
+
+- macOS — **Start Here.command**
+- Windows — **Start Here.bat**
+- Linux — **Start Here.sh**
+
+**4. Choose what to do.**
+
+```
+sah start     Create a new mod project, guided step by step
+sah tools     Six jobs you do to a mod folder, as a menu
+sah help      Plain-language help
 ```
 
-That output is not a bug report. It is the flagship example, working as
-designed: a precise, itemised list of what the community still needs to verify.
+### macOS will probably block it the first time
 
-## Release 0.1.0 — the developer toolkit
+That is expected — this download is **not signed with an Apple developer
+certificate and has not been notarized**. macOS blocks unsigned downloads by
+default.
 
-**A cross-platform SHAR mod-development toolkit featuring source-backed Game.lua
-definitions and six small utilities for cleaning, comparing, inspecting, and
-preparing mod projects — no game installation required.**
+To allow this one file:
 
-Two parts ship together, because they solve the two halves of the same day:
-writing mission scripts, and getting the folder around them fit to hand to
-someone else. **Neither needs the game or the Mod Launcher installed.**
+1. Open **System Settings** → **Privacy & Security**.
+2. Scroll down to the message about `sah` being blocked.
+3. Click **Open Anyway**.
+4. Double-click **Start Here.command** again.
 
-### 1. Game.lua Definitions — editor support for verified `Game.*` commands
+Or from Terminal, in the extracted folder:
 
 ```sh
-sah lua-defs install ~/mods/my-mod --with-official --apply
+xattr -d com.apple.quarantine ./sah
+./sah start
 ```
 
-**351 completions** — 339 commands, their 10 `Not_` inverses, and `Game.EndIf` /
-`Game.Not`. Hover docs carry each command's required scope and argument range,
-and argument counts are genuinely enforced because the generated signatures
-encode both bounds.
+**Do not turn Gatekeeper off system-wide.** You never need to, and it protects
+everything else you download.
 
-Generated mechanically from the command registry, which is itself derived from
-the command tables inside a pinned upstream `Game.lua`. Argument names and types
-stay `argN: any` — no source read by this project documents them, and guessing is
-the failure this toolkit exists to prevent.
+Windows shows a similar blue "Windows protected your PC" box for the same
+reason: click **More info** → **Run anyway**.
 
-→ [Full guide](docs/getting-started/lua-definitions.md)
+---
 
-### 2. SHAR Pocket Tools — six utilities for preparing and comparing mod projects
+## Your first mod project, in five minutes
 
-```sh
-sah pocket case-check ./my-mod           # paths and references that differ only by case
-sah pocket clean-export ./my-mod ./out   # a copy without .DS_Store, __MACOSX, editor junk
-sah pocket conflicts ./mod-a ./mod-b     # paths supplied by more than one mod, with hashes
-sah pocket manifest ./my-mod             # deterministic path + size + SHA-256 record
-sah pocket diff ./v1 ./v2                # added, removed, modified, renamed, case-only
-sah pocket path ./my-mod a/b.lua --copy  # windows / posix / ini / lua path forms
+Run `sah start`. It asks:
+
+- **What should the mod be called?** — the name players see. Changeable later.
+- **Who is the author?** — a nickname is fine.
+- **Where should it go?** — press Enter for the suggestion.
+- **Include an example mission script?** — yes, if you are learning.
+- **Set up autocomplete?** — yes. It only writes inside your project.
+
+Then it shows you **exactly what it will create**, and waits. Nothing is written
+until you say yes, and it will never overwrite a folder that already exists.
+
+You end up with:
+
+```
+my-mod/
+├── Meta.ini                              how the Mod Launcher lists your mod
+├── CustomFiles.ini                       which game paths your mod handles
+├── CustomFiles.lua                       runs when the mod loads
+├── README.md                             what to edit first
+└── Resources/
+    ├── scripts/example-mission.lua       a commented example to learn from
+    └── lib/                              where Game.lua goes (not included)
 ```
 
-Read-only by default — `clean-export` writes a _copy_, and deleting from the
-original takes `--in-place --yes`. Offline, deterministic, and confined to the
-folder you name: symlinks are never followed and nothing outside it is read.
+Open that folder in an editor with the **Lua Language Server** extension
+(`sumneko.lua` in VS Code). Type `Game.` and you get 351 completions, each with
+its argument count and required scope.
 
-→ [Full guide](docs/getting-started/pocket-tools.md)
+Full walkthrough: **[Your first mod project](docs/getting-started/first-project.md)**.
 
-> **Both parts inspect and prepare files. Neither proves a mod works in-game.**
-> Editor autocomplete checks names and argument counts, not whether a script can
-> be completed. A folder that passes every pocket-tool check can still be a
-> broken mod. See
-> [what is tested and what is not](docs/releases/0.1.0.md#what-is-tested-and-what-is-not).
+---
 
-Release notes: [`docs/releases/0.1.0.md`](docs/releases/0.1.0.md).
+## The six Pocket Tools
 
-## Quick start
+Run `sah tools` and pick a number.
 
-Requires **Node.js 20+**. No game, no Mod Launcher, no network needed to run
-anything below.
+| #   | Tool                                     | What it does                                                      |
+| --- | ---------------------------------------- | ----------------------------------------------------------------- |
+| 1   | Check filename capitalization            | Finds names that work on your machine and break for everyone else |
+| 2   | Create a clean release copy              | Copies your mod without `.DS_Store` and other clutter             |
+| 3   | Compare mods for possible file conflicts | Shows paths more than one mod supplies                            |
+| 4   | Create a file manifest                   | Records every file and its fingerprint                            |
+| 5   | Compare two releases                     | What was added, removed, changed or renamed                       |
+| 6   | Copy a Windows-style mod path            | Gets a path in the exact form each file needs                     |
+
+You can drag a folder from Finder or Explorer straight into the terminal to fill
+in its path.
+
+Every tool also has a scriptable form (`sah pocket case-check <dir>`, and so on)
+with `--json` for automation. See the
+**[Pocket Tools guide](docs/getting-started/pocket-tools.md)**.
+
+---
+
+## What this does, and what it cannot do
+
+**It can:** create a mod project, set up editor autocomplete for the `Game.*`
+commands, check your files for the mistakes that break other people's machines,
+compare mods, and prepare a clean folder to upload.
+
+**It cannot tell you whether your mod works when you play it.**
+
+Preparing a mod and testing a mod are different jobs. This toolkit does the
+first. For the second you need, separately:
+
+- a lawful copy of _The Simpsons: Hit & Run_,
+- **Lucas' Simpsons: Hit & Run Mod Launcher** (Windows),
+- **`Game.lua`** from [Donut Team](https://github.com/donutteam/game-lua) (MIT).
+
+None of those are included here, and this toolkit neither provides nor replaces
+any of them. Nothing in this project has been run in the game — see
+[what is tested and what is not](docs/releases/0.1.1.md#what-is-tested-and-what-is-not).
+
+Something went wrong? **[Troubleshooting](docs/getting-started/troubleshooting.md)**.
+Every command takes `--debug` for technical detail.
+
+---
+
+## Built with AI assistance
+
+The code, tests and documentation in this project were written by Claude
+(Anthropic), with design constraints, review and acceptance decisions from the
+maintainer.
+
+That is worth knowing when you decide how much to trust it. The things to trust
+are the tests, the pinned upstream hashes and the published checksums — all
+reproducible with `npm run check` from a checkout. Where a claim could not be
+checked, the tools refuse to make it: undocumented argument types stay `any`,
+overlapping mod paths are called _potential_ conflicts, and the example mission
+says in its own header that nobody has played it.
+
+---
+
+## For developers
+
+Everything above is the beginner path. If you want to build from source, work on
+the toolkit, or use the campaign compiler:
+
+- **[Building from source and contributing](CONTRIBUTING.md)**
+- **[Architecture](ARCHITECTURE.md)** — packages, layering, why the registry works the way it does
+- **[Campaign authoring](docs/getting-started/authoring.md)** — the YAML compiler
+- **[Registries and provenance](docs/registries/README.md)** — how game facts get verified
+- **[Claude Code and MCP](docs/getting-started/mcp.md)**
+- **[Publishing a release](docs/releases/README.md)**
 
 ```sh
 git clone https://github.com/22500107Zc/springfield-after-hours-toolkit.git
 cd springfield-after-hours-toolkit
-npm install
-npm run build
-npm link -w packages/cli        # optional; makes `sah` available as a command
-
-sah doctor                      # what this machine can and cannot do
+npm install && npm run build
+npm run check          # everything CI runs
 ```
 
-Without `npm link`, use `node packages/cli/dist/bin.js` in place of `sah`.
+Requires Node.js 20+.
 
-**Set an editor up for mission scripting:**
+---
 
-```sh
-sah lua-defs install ~/mods/my-mod --with-official          # shows the plan
-sah lua-defs install ~/mods/my-mod --with-official --apply  # writes it
-```
-
-**Prepare a mod folder for release:**
-
-```sh
-sah pocket case-check ~/mods/my-mod
-sah pocket clean-export ~/mods/my-mod ~/Desktop/my-mod-release
-sah pocket manifest ~/Desktop/my-mod-release -o ~/Desktop/my-mod-release/manifest.json
-```
-
-**Author a campaign:**
-
-```sh
-sah init my-campaign --id my-campaign --title "My Campaign"
-sah registry search character "Comic Book Guy"    # see what exists before referencing it
-sah mission new sneak-out -C my-campaign
-sah validate my-campaign
-sah build my-campaign
-```
-
-Every command takes `--json`. Exit codes are part of the contract.
+---
 
 ## Current status: early foundation
 
@@ -295,30 +345,19 @@ run** because the diff-and-confirm step is unimplemented; the parser,
 registry-reference checker, spending safeguards and secret redaction are done and
 tested. Using these commands will incur charges on your account.
 
-## Legal
+---
 
-MIT licensed — see [LICENSE](LICENSE). That covers this repository's original
-code and data only.
+## Licence
 
-This repository contains **no** game, game assets, extracted audio, proprietary
-map files, or assets from any third-party community mod. Fully Connected Map and
-Full Game Plus are _compatibility targets_, user-supplied and never bundled.
-Upstream Lua is fetched from pinned commits into a git-ignored directory, with
-its licence, rather than committed here. See
+MIT — see [LICENSE](LICENSE). That covers this repository's original code and
+data only.
+
+No game, no game assets, no extracted audio, no proprietary map files, no assets
+from any community mod. Upstream Lua is fetched from pinned commits, verified
+against recorded hashes, and never committed here. See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-If you build a campaign with this, ship only your own work.
-
-## Contributing
-
-The most useful contributions right now are **verified game facts with
-citations** — locators and vehicle internal names above all. Documentation for
-objective parameters is a close second, since it is what keeps `goto` and
-`talkto` from compiling.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md), [ARCHITECTURE.md](ARCHITECTURE.md) and
-[ROADMAP.md](ROADMAP.md). Security policy: [SECURITY.md](SECURITY.md). Community
-expectations: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+If you build a mod with this, ship only your own work.
 
 ## Acknowledgements
 
