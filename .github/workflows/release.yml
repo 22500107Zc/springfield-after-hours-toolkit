@@ -132,9 +132,14 @@ jobs:
   # faster and would prove nothing: a binary nobody has executed is not a
   # verified binary.
   #
-  # macos-14 and later are Apple Silicon; macos-13 is the last Intel image
-  # GitHub provides. If GitHub retires macos-13, the Intel download must be
-  # marked unavailable rather than cross-built and described as tested.
+  # macos-14 is Apple Silicon. Intel Macs are served by macos-15-intel:
+  # macos-13 was GitHub's previous Intel image and has been retired, and a job
+  # requesting it now sits queued forever rather than failing, which is how it
+  # blocked four v0.1.1 release attempts while every other platform finished in
+  # about thirty seconds.
+  #
+  # If GitHub retires the Intel image too, the Intel download must be marked
+  # unavailable rather than cross-built and described as tested.
 
   build:
     name: Build ${{ matrix.target }}
@@ -147,7 +152,7 @@ jobs:
           - target: macos-apple-silicon
             runner: macos-14
           - target: macos-intel
-            runner: macos-13
+            runner: macos-15-intel
           - target: windows-x64
             runner: windows-latest
           - target: linux-x64
